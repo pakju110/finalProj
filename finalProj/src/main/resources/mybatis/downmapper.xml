@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="downmapper">
+
+   <select id="selectList" resultType="alisdown">
+   		select * from download 
+   </select>
+   
+      <select id="selectDetail" resultType="alisdown" parameterType="alisdown">
+   		select * from download where  id = #{id}
+   </select>
+   
+    <delete id="delete" parameterType="alisdown">
+   		delete from download where  id = #{ id}
+   </delete>
+   
+   <delete id="modify" parameterType="alisdown">
+   		update download set  title = #{ title}, phone = #{ phone} where  id = #{ id} and  pw = #{ pw}
+   </delete>
+   
+   <insert id="insertOne" parameterType="alisdown">
+	   <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+	   		select max(id)+1 from download
+	   </selectKey>
+   	insert into download (id,  pw, reg_date,  title, content,  updownfile,  oridown) values 
+   	(#{id},#{pw},sysdate,#{title},#{content}, #{updownfile}, #{oridown})
+   
+   </insert>
+   
+   <select id="idPwChk" resultType="alisdown" parameterType="alisdown">
+   		select * from download where  id = #{ id} and  pw = #{ pw}
+   </select>
+    
+ <!--   <sql id="sch">
+   	<where>
+	   	<if test="what!=null and what!=''">
+	   		
+	   			${kind} like '%'||#{what}||'%'
+	   		
+	   	</if>
+   	</where>
+   </sql>
+   
+   <select id="selectListSch" resultType="UserVo" parameterType="boardSch">
+   		select * from download <include refid="sch"/>
+   		
+   </select>
+   
+   
+   <sql id="sch2">
+  
+   		<if test="sss.what!=null and sss.what!=''">	
+		   			${sss.kind} like '%'||#{sss.what}||'%' or   		
+		 </if>
+   </sql> -->
+ 
+ <!--   <select id="selectListSchList" resultType="UserVo" parameterType="boardSch">
+ 
+   		select * from download 
+   		<where>
+	   		<if test="list!=null">
+		   		
+		   			
+			   		<foreach collection="list" item="sss">
+			   			
+			   			<include refid="sch2"/>
+			   		</foreach>
+			   		
+			   		1!=1
+	   		</if>
+	   		
+	   		
+	   		<if test="cnt!=null and cnt!=0">	
+	   			<if test="list!=null">
+	   				or
+	   			</if>
+			   		<![CDATA[  cnt >= #{cnt}    ]]>  
+	   		</if>
+	   		
+	   		
+   		</where>
+   </select> -->
+   
+  
+   
+   
+   <!-- <update id="fileDelete" parameterType="UserVo">
+   		update download set upfile = null where id = #{id}
+   </update> -->
+
+</mapper>
