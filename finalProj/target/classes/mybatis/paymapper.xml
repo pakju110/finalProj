@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="paymapper">
+
+   <select id="selectList" resultType="alispay">
+   		select * from pay 
+   </select>
+   <select id="selectList2" resultType="alispay" parameterType="String">
+   		select * from pay where user_id = #{user_id}
+   </select>
+      <select id="restselectDetail" resultType="alispay" parameterType="alispay">
+   		select * from pay where  rest_id = #{rest_id}
+   </select>
+   
+   
+   <select id="userselectDetail" resultType="alispay" parameterType="alispay">
+   select * from pay where user_id = #{user_id}
+   </select>
+   
+    <delete id="delete" parameterType="alispay">
+   		delete from pay where  rest_id = #{rest_id}
+   </delete>
+   
+   <delete id="modify" parameterType="alispay">
+   		update pay set  title = #{menu}, price = #{ price} where  rest_id = #{ rest_id} and  user_id = #{ user_id}
+   </delete>
+   
+   <insert id="insertOne" parameterType="alispay">
+	<!--    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+	   		select max(id)+1 from pay
+	   </selectKey> -->
+   	insert into pay (rest_id,  user_id, reg_date,  menu, price,  count,phone,address,payhow,content) values 
+   	(#{rest_id},#{user_id},sysdate,#{menu},#{price}, #{count},#{phone},#{address},#{payhow},#{content})
+   
+   </insert>
+   
+   <select id="idPwChk" resultType="alispay" parameterType="alispay">
+   		select * from pay where  rest_id = #{ rest_id} and  user_id = #{ user_id}
+   </select>
+   <!-- order -->
+   
+
+    <select id="allorderList" resultType="alisorder" >
+   		select * from payorder
+   </select>
+   <select id="orderList" resultType="alisorder" parameterType="alisuser">
+   		select * from payorder where user_id = #{user_id}
+   </select>
+
+      <select id="orderDetail" resultType="alisorder" parameterType="Integer">
+   		select * from payorder where orderno = #{orderno}
+   </select>
+	<insert id="orderinsert" parameterType="alisorder">
+	<selectKey keyProperty="orderno" order="BEFORE" resultType="java.lang.Integer">
+	   		select max(orderno)+1 from payorder
+	   </selectKey>
+   	insert into payorder (orderno, rest_id, user_id, phone, address, payhow, content, price, reg_date) values 
+   	(#{orderno}, #{rest_id}, #{user_id},#{phone},#{address},#{payhow},#{content},#{price},sysdate)
+   
+   </insert>
+   <select id="maxno" resultType="Integer">
+   		select max(orderno) from payorder
+   </select>
+   <select id="maxno2" resultType="Integer" parameterType="alisorder">
+   		select max(orderno) from payorder where user_id = #{user_id} and rest_id = #{rest_id}
+   </select>
+    <!-- //order -->
+</mapper>

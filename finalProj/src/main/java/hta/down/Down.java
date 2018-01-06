@@ -13,13 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 import hta.controll.SubControll;
 import hta.down.model.DownRepository;
 import hta.down.model.DownVo;
-import hta.model.PathData;
+import hta.model.ManagerData;
 
 @Service
 public class Down implements SubControll {
 
 	@Resource
-	PathData data;
+	ManagerData data;
 	
 	@Resource
 	DownRepository dao;

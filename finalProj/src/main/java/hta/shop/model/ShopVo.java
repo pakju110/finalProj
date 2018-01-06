@@ -4,14 +4,22 @@ import org.apache.ibatis.type.Alias;
 import org.springframework.web.multipart.MultipartFile;
 @Alias("alishop")
 public class ShopVo {
-	String id,brand,name,type,addr,contents,tel,orifile,sysfile;
+	String id="",brand="",name="",type="",addr="",contents="",tel="",orifile="",sysfile="",grade;
 	
-	int star,opentime,closetime;
+	int star=0,opentime=0,closetime=0;
 	
 	
 	MultipartFile ff;
 	
 	
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
 	public MultipartFile getFf() {
 		return ff;
 	}
@@ -120,7 +128,8 @@ public class ShopVo {
 	public String toString() {
 		return "ShopVo [id=" + id + ", brand=" + brand + ", name=" + name + ", type=" + type + ", addr=" + addr
 				+ ", contents=" + contents + ", tel=" + tel + ", orifile=" + orifile + ", sysfile=" + sysfile
-				+ ", star=" + star + ", opentime=" + opentime + ", closetime=" + closetime + ", ff=" + ff + "]";
+				+ ", grade=" + grade + ", star=" + star + ", opentime=" + opentime + ", closetime=" + closetime
+				+ ", ff=" + ff + "]";
 	}
 	
 	

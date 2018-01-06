@@ -1,4 +1,4 @@
-package hta.shop;
+/*package hta.shop;
 
 import java.io.FileOutputStream;
 
@@ -49,6 +49,9 @@ public class Shop implements SubControll {
 			case "modifyForm":
 				modifyForm();
 				break;
+			case "menumodifyForm":
+				menumodifyForm();
+				break;
 			case "deleteReg":
 				delete();
 				break;
@@ -92,27 +95,34 @@ public class Shop implements SubControll {
 	}
 	
 	void modify() {
+	
 		data.setRedirect(true);
-		
 		if(dao.idPwChk(sovo)!=null)
 		{
 			//fileupload(vo, request);
 			data.setDd(dao.modify(sovo));
 		}
+		//data.setPath("redirect:view?id="+sovo.getId());
+		data.setDd(dao.modify(sovo));
 		data.setPath("redirect:view?id="+sovo.getId());
-		data.setDd(dao.detail(sovo));
+	data.setDd(dao.detail(sovo));
 	}
 	
 	void modifyForm() {
 		data.setDd(dao.detail(sovo));
 	}
+	
+	void menumodifyForm() {
+		data.setDd(dao.detail(sovo));
+		data.setDd2(menu.list(sovo.getId()));
+	}
+
 
 	void  list() {
-
 		data.setDd(dao.list());
 	}		
 	
-	/*ModelAndView  modifySubmit(UserVo vo, HttpServletRequest request) {
+	ModelAndView  modifySubmit(UserVo vo, HttpServletRequest request) {
 
 		String url = "redirect:modifyForm";
 		
@@ -136,7 +146,7 @@ public class Shop implements SubControll {
 		ModelAndView mav = new ModelAndView();
 		System.out.println("deleteForm:"+vo.getUser_id());
 		return mav;
-	}*/
+	}
 	
 	void fileupload(ShopVo vo, HttpServletRequest request)
 	{
@@ -166,3 +176,4 @@ public class Shop implements SubControll {
 	}
 	
 }
+*/

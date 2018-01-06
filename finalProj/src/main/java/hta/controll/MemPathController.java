@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import hta.down.model.DownVo;
 import hta.model.Menu;
-import hta.model.PathData;
+import hta.model.ManagerData;
+import hta.pay.model.PayVo;
 import hta.user.model.UserVo;
  
 @Controller
@@ -24,17 +25,18 @@ public class MemPathController {
     MyProvider  provider;
     
     @Resource
-    PathData data;
+    ManagerData data;
     
-    /*@Resource
-    Topmenu topmenu;*/
+   /* @Resource
+    TopMenu topmenu;*/
     
     @ModelAttribute("data")
-    PathData data(@PathVariable String cate1,
+    ManagerData data(@PathVariable String cate1,
             @PathVariable String cate2,
             @PathVariable String service,
            UserVo userVo,///각 카테고리별  bean을 가져옴
            DownVo downVo,
+           
             HttpServletRequest request
             ) {
         
@@ -43,6 +45,7 @@ public class MemPathController {
         ArrayList vos = new ArrayList<>();    ///bean들을 받음
         vos.add(userVo);
         vos.add(downVo);
+       
        
         data.setCate1(cate1);
         data.setCate2(cate2);
@@ -77,27 +80,30 @@ public class MemPathController {
     
     //hta.model에 Topmenu로 뺌
     void menu() {
-        ArrayList<Menu>topMenu = new ArrayList<>();
+      ArrayList<Menu>topMenu = new ArrayList<>();
         
         topMenu.add(new Menu("info", "회사소개", "hello"));
-        topMenu.add(new Menu("product", "제품", "tv"));
+        topMenu.add(new Menu("pay", "제품","pay"));
         topMenu.add(new Menu("down", "갤러리", "apink"));
         topMenu.add(new Menu("user", "고객센터", "notice"));
   
+    	
 		HashMap<String, ArrayList<Menu>>subMenu = new HashMap<>();
         
         subMenu.put("info", new ArrayList<>());
-        subMenu.put("product", new ArrayList<>());
+        subMenu.put("pay", new ArrayList<>());
         //subMenu.put("down", new ArrayList<>());
         subMenu.put("user", new ArrayList<>());
             
+        
         subMenu.get("user").add(new Menu("notice", "공지사항", "list"));
         subMenu.get("user").add(new Menu("fnq", "자주하는질문", "list"));
         subMenu.get("user").add(new Menu("qna", "질문및 답변", "list"));
+      
         /*
         subMenu.get("down").add(new Menu("tv", "tv", "list"));*/
         
-        data.setTopMenu(topMenu);
+       // data.setTopMenu(topMenu);
         data.setSubMenu(subMenu.get(data.getCate1()));      
     }
     @RequestMapping

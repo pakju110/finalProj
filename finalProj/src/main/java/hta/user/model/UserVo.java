@@ -13,11 +13,17 @@ import org.springframework.web.multipart.MultipartFile;
 @Alias("alisuser")
 public class UserVo {
 	String
-	user_id,user_pw,user_name,user_phone,user_address,grade,bookmark,path="";
+	user_id,user_pw,user_name,user_phone,user_address,grade,bookmark="",path="";
+	
+	String orifile="",sysfile="";
 	
 	Date reg_date;
 	
 	Integer id;
+	
+	MultipartFile ff;
+	
+	
 
 	//파일체크 메소드
 		//이미지일때는 이미지/ 이미지 아닐땐 파일명
@@ -65,6 +71,32 @@ public class UserVo {
 			this.birth = birth;
 		}*/
 	//날짜 끝 
+	
+	
+
+	public MultipartFile getFf() {
+		return ff;
+	}
+
+	public String getOrifile() {
+		return orifile;
+	}
+
+	public void setOrifile(String orifile) {
+		this.orifile = orifile;
+	}
+
+	public String getSysfile() {
+		return sysfile;
+	}
+
+	public void setSysfile(String sysfile) {
+		this.sysfile = sysfile;
+	}
+
+	public void setFf(MultipartFile ff) {
+		this.ff = ff;
+	}
 
 	public String getGrade() {
 		return grade;
@@ -155,7 +187,15 @@ public class UserVo {
 		public String toString() {
 			return "UserVo [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_phone="
 					+ user_phone + ", user_address=" + user_address + ", grade=" + grade + ", bookmark=" + bookmark
-					+ ", path=" + path + ", reg_date=" + reg_date + ", id=" + id + "]";
+					+ ", reg_date=" + reg_date + ", id=" + id + ", ff=" + ff + "]";
 		}
+
+		/*@Override
+		public String toString() {
+			return "UserVo [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_phone="
+					+ user_phone + ", user_address=" + user_address + ", grade=" + grade + ", bookmark=" + bookmark
+					+ ", path=" + path + ", reg_date=" + reg_date + ", id=" + id + "]";
+		}*/
 	
+		
 }

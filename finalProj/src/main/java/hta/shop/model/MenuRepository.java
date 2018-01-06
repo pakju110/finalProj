@@ -25,9 +25,13 @@ public class MenuRepository {
 		return template.selectList("shopmapper.selectList2", vo);
 	}*/
 	
-	public ShopVo detail(MenuVo vo){
+	public MenuVo detail(MenuVo vo){
 		
 		return template.selectOne("menumapper.selectDetail",vo);
+	}
+	public MenuVo detail2(MenuVo vo){
+		
+		return template.selectOne("menumapper.selectDetail2",vo);
 	}
 	
 	public void insert(MenuVo vo)

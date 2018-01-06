@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="inpay">
+
+	<select id="selectList" resultType="alisuser">
+		select * from finaluser
+	</select>
+
+	<select id="selectDetail" resultType="alisuser" parameterType="alisuser">
+		select * from finaluser where user_id = #{user_id}
+	</select>
+
+	<delete id="delete" parameterType="alisuser">
+		delete from finaluser where user_id = #{user_id}
+	</delete>
+
+
+	<delete id="modify" parameterType="alisuser">
+		update finaluser set user_address = #{user_address}, user_phone =
+		#{user_phone} where user_id = #{user_id} 
+	</delete>
+	
+	<delete id="grademodify" parameterType="alisuser">
+		update finaluser set grade = #{grade} where user_id = #{user_id} 
+	</delete>
+	
+
+
+	<insert id="insertOne" parameterType="alisuser">
+		<selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+			select max(id)+1 from finaluser
+		</selectKey>
+		insert into finaluser (id, user_id, reg_date, user_name,user_phone,
+		user_pw, user_address,grade) values
+		(#{id},#{user_id},sysdate,#{user_name},#{user_phone}, #{user_pw},
+		#{user_address},'u')
+
+	</insert>
+	
+	
+	<insert id="insertTwo" parameterType="alisuser">
+		<selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+			select max(id)+1 from finaluser
+		</selectKey>
+		insert into finaluser (id, user_id, reg_date, user_name,user_phone,
+		user_pw, user_address,grade,sysfile,orifile) values
+		(#{id},#{user_id},sysdate,#{user_name},#{user_phone}, #{user_pw},
+		#{user_address},'w',#{sysfile},#{orifile})
+
+	</insert>
+
+
+
+	<select id="idPwChk" resultType="alisuser" parameterType="alisuser">
+		select * from finaluser where user_id = #{user_id} and user_pw = #{user_pw}
+	</select>
+
+	<!-- <sql id="sch"> <where> <if test="what!=null and what!=''"> ${kind} 
+		like '%'||#{what}||'%' </if> </where> </sql> <select id="selectListSch" resultType="UserVo" 
+		parameterType="boardSch"> select * from finaluser <include refid="sch"/> 
+		</select> <sql id="sch2"> <if test="sss.what!=null and sss.what!=''"> ${sss.kind} 
+		like '%'||#{sss.what}||'%' or </if> </sql> -->
+
+	<!-- <select id="selectListSchList" resultType="UserVo" parameterType="boardSch"> 
+		select * from finaluser <where> <if test="list!=null"> <foreach collection="list" 
+		item="sss"> <include refid="sch2"/> </foreach> 1!=1 </if> <if test="cnt!=null 
+		and cnt!=0"> <if test="list!=null"> or </if> <![CDATA[ cnt >= #{cnt} ]]> 
+		</if> </where> </select> -->
+
+
+
+
+	<!-- <update id="fileDelete" parameterType="UserVo"> update finaluser set 
+		upfile = null where id = #{id} </update> -->
+
+
+
+
+</mapper>

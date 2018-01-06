@@ -22,13 +22,25 @@ public class UserRepository {
 	public UserVo detail(UserVo vo) {
 		return template.selectOne("user.selectDetail", vo);
 	}
+	
+
 
 	public void insert(UserVo vo) {
 		template.insert("user.insertOne", vo);
 	}
+	
+	public void insert2(UserVo vo) {
+		template.insert("user.insertTwo", vo);
+	}
+	
+	
 
 	public boolean modify(UserVo vo) {
 		return template.update("user.modify", vo) > 0;
+	}
+	
+	public boolean grademodify(UserVo vo) {
+		return template.update("user.grademodify", vo) > 0;
 	}
 
 	public boolean delete(UserVo vo) {

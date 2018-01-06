@@ -1,0 +1,44 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="optionmapper">
+
+	<select id="selectList" resultType="alioption" parameterType="Integer">
+   		select * from menuoption where menuno = #{menuno}
+   </select>
+   
+      <select id="selectDetail" resultType="alioption" parameterType="alioption">
+   		select * from menuoption where menuno = #{menuno} and ono = #{ono}
+   </select>
+    <delete id="delete" parameterType="alioption">
+   		delete from menuoption where  ono = #{ ono}
+   </delete>
+   
+   <delete id="modify" parameterType="alioption">
+   		update menuoption set  name = #{name}, 
+   		price = #{price}, type = #{type},
+   		orifile = #{orifile}, sysfile = #{sysfile}, state = #{state}
+   		 where id = #{id} and ono = #{ono}
+   </delete>
+   
+   <insert id="insertOne" parameterType="alioption">
+	   <selectKey keyProperty="ono" order="BEFORE" resultType="java.lang.Integer">
+	   		select max(ono)+1 from menuoption
+	   </selectKey> 
+   	insert into menuoption 
+   	(id, menuno, name, price, grade, ono)
+   	values
+   	(#{id} ,#{menuno}, #{name}, #{price}, #{grade}, #{ono})
+   
+   </insert>
+   
+   <select id="idPwChk" resultType="alioption" parameterType="alioption">
+   		select * from menuoption where  id = #{id} and ono = #{ono}
+   </select>
+    and  pw = #{ pw}
+    
+    
+    
+</mapper>
+ -->

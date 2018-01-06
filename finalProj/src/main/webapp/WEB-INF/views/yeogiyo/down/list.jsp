@@ -14,12 +14,16 @@
 			<td>등록일</td>
 			<td>이름</td>
 		</tr>
+		
 		<c:forEach items="${data.dd}" var="vo">
+			
 			<tr>
 				<td>${vo.id}</td>
 				<td>${vo.reg_date}</td>
 				<td><a href="view?id=${vo.id}">${vo.title}</a></td>
 			</tr>
+			
+			
 		</c:forEach>
 		<tr>
 			<td colspan="4" align="right"><a href="registerForm">회원가입</a></td>

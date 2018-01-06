@@ -6,10 +6,20 @@ import org.springframework.web.multipart.MultipartFile;
 public class MenuVo {
 	String id,name,type,orifile,sysfile,state ="on";
 	
-	int price,no;
-	
+	int price=0,no=0;
 	
 	MultipartFile ff;
+
+
+	
+	public MultipartFile getFf() {
+		return ff;
+	}
+
+
+	public void setFf(MultipartFile ff) {
+		this.ff = ff;
+	}
 
 
 	public int getNo() {
@@ -92,7 +102,7 @@ public class MenuVo {
 	}
 
 
-	public MultipartFile getFf() {
+/*	public MultipartFile getFf() {
 		return ff;
 	}
 
@@ -100,14 +110,20 @@ public class MenuVo {
 	public void setFf(MultipartFile ff) {
 		this.ff = ff;
 	}
+*/
 
-
-	@Override
+/*	@Override
 	public String toString() {
 		return "MenuVo [id=" + id + ", name=" + name + ", type=" + type + ", orifile=" + orifile + ", sysfile="
 				+ sysfile + ", state=" + state + ", price=" + price + ", no=" + no + ", ff=" + ff + "]";
 	}
+*/
 
+	@Override
+	public String toString() {
+		return "MenuVo [id=" + id + ", name=" + name + ", type=" + type + ", orifile=" + orifile + ", sysfile="
+				+ sysfile + ", state=" + state + ", price=" + price + ", no=" + no + "]";
+	}
 	
 	
 

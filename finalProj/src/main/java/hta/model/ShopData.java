@@ -4,16 +4,72 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Component;
+
+import hta.shop.model.CartList;
+import hta.shop.model.MenuChange;
 
 @Component
 public class ShopData {
 
-	String cate1,cate2, service, path;
+	String cate1,cate2, service, path="", depth="../../";
 	
-	Object dd,dd2;
+	Object dd,dd2,cart,review;
 	
+	MenuChange menuChange;
+	CartList cartList;
+	HttpSession session;
+	
+	
+	public Object getReview() {
+		return review;
+	}
+
+	public void setReview(Object review) {
+		this.review = review;
+	}
+
+	public CartList getCartList() {
+		return cartList;
+	}
+
+	public void setCartList(CartList cartList) {
+		this.cartList = cartList;
+	}
+
+	public Object getCart() {
+		return cart;
+	}
+
+	public void setCart(Object cart) {
+		this.cart = cart;
+	}
+
+	public String getDepth() {
+		return depth;
+	}
+
+	public void setDepth(String depth) {
+		this.depth = depth;
+	}
+	public HttpSession getSession() {
+		return session;
+	}
+
+	public void setSession(HttpSession session) {
+		this.session = session;
+	}
+
+	public MenuChange getMenuChange() {
+		return menuChange;
+	}
+
+	public void setMenuChange(MenuChange menuChange) {
+		this.menuChange = menuChange;
+	}
+
 	@Resource
 	ArrayList<Menu> topMenu;
 	
@@ -22,7 +78,7 @@ public class ShopData {
 	
 	boolean redirect;
 
-	
+
 	public Object getDd2() {
 		return dd2;
 	}

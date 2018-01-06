@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="menumapper">
+
+	<!-- <select id="selectList2" resultType="shopVo" parameterType="shopVo">
+		select * from shop where type = #{type}
+	</select> -->
+	<select id="selectList" resultType="alimenu" parameterType="String">
+   		select * from menu where id = #{id}
+   </select>
+   
+      <select id="selectDetail" resultType="alimenu" parameterType="alimenu">
+   		select * from menu where no = #{no}
+   </select>
+   <select id="selectDetail2" resultType="alimenu" parameterType="alimenu">
+   		select * from menu where id = #{id} and name = #{name}
+   </select>
+   
+    <delete id="delete" parameterType="alimenu">
+   		delete from menu where  no = #{ no}
+   </delete>
+   
+   <delete id="modify" parameterType="alimenu">
+   		update menu set  name = #{name}, 
+   		price = #{price}, type = #{type},
+   		<!-- orifile = #{orifile}, sysfile = #{sysfile}, --> state = #{state}
+   		 where id = #{id} and no = #{no}
+   </delete>
+   
+   <insert id="insertOne" parameterType="alimenu">
+	   <selectKey keyProperty="no" order="BEFORE" resultType="java.lang.Integer">
+	   		select max(no)+1 from menu
+	   </selectKey> 
+   	insert into menu 
+   	(id, no, name, price, type, orifile, sysfile, state)
+   	values
+   	(#{id},#{no}, #{name}, #{price}, #{type}, #{orifile,jdbcType=VARCHAR}, #{sysfile,jdbcType=VARCHAR}, #{state})
+   
+   </insert>
+   
+   <select id="idPwChk" resultType="alimenu" parameterType="alimenu">
+   		select * from menu where  id = #{ id} and no = #{no}
+   </select>
+    <!-- and  pw = #{ pw} -->
+    
+    
+    
+</mapper>

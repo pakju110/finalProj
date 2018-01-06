@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cartmapper">
+
+	<select id="selectList" resultType="alicart" parameterType="alicart">
+   		select * from cart where id = #{id} and orderno = 0 and rest_id = #{rest_id}
+    </select>
+   <select id="selectList2" resultType="alicart" parameterType="Integer">
+   		select * from cart where orderno = #{orderno}
+    </select>
+    
+   <select id="selectDetail" resultType="alicart" parameterType="alicart">
+   		select * from cart where id = #{id} and no = #{no} and orderno = 0
+   </select>
+
+   
+   <delete id="delete" parameterType="alicart">
+   		delete from cart where id = #{id} and rest_id = #{rest_id}
+   </delete>
+   <delete id="delete2" parameterType="alicart">
+   		delete from cart where id = #{id} and no = #{no}
+   </delete>
+   <delete id="delete3" parameterType="alicart">
+   		delete from cart where no = #{no} 
+   </delete>
+   <delete id="modify" parameterType="alicart">
+   		update cart set price = #{price}, cnt = #{cnt} where id = #{id} and no = #{no} and orderno = 0
+   </delete>
+   <delete id="modify2" parameterType="alicart">
+   		update cart set orderno = #{orderno} where id = #{id} and orderno = 0 and rest_id = #{rest_id}
+   </delete>
+   <insert id="insertOne" parameterType="alicart">
+	   <!-- <selectKey keyProperty="no" order="BEFORE" resultType="java.lang.Integer">
+	   		select max(orderno)+1 from cart
+	   </selectKey> --> 
+   	insert into cart 
+   	(no, name, cnt, price, id, orderno, rest_id)
+   	values
+   	(#{no}, #{name}, #{cnt}, #{price}, #{id} , 0 , #{rest_id})
+   
+   </insert>
+   
+    
+    
+</mapper>
