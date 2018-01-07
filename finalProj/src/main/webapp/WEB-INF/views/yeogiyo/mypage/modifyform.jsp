@@ -45,7 +45,7 @@ function fileDelete(){
 				<td><input type="text" name="user_address"
 					value="${loginuser.user_address}" /></td>
 			</tr>
-				<c:if test="${data.dd.grade ne 'u' && data.dd.grade ne 'admin'}">
+			<%-- <c:if test="${data.dd.grade ne 'u' && data.dd.grade ne 'admin'}">
 			<tr>
 	<td>ÆÄÀÏ</td>	
 			<td>
@@ -62,7 +62,7 @@ function fileDelete(){
 		
 			</td>
 		</tr>
-</c:if>
+</c:if> --%>
 
 			<tr>
 

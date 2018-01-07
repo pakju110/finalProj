@@ -14,6 +14,8 @@ import hta.controll.SubControll;
 import hta.down.model.DownVo;
 import hta.model.ManagerData;
 import hta.notice.model.NoticeVO;
+import hta.shop.model.ShopRepository;
+import hta.shop.model.ShopVo;
 import hta.user.model.UserRepository;
 
 
@@ -25,6 +27,9 @@ public class Cf implements SubControll {
 	
 	@Resource
 	CfRepository dao;
+	@Resource
+	ShopRepository sdao;
+	
 	
 	CfVo vo;
 	
@@ -41,9 +46,18 @@ public class Cf implements SubControll {
 		
 		switch(data.getService())
 		{
-			case "list":
-				list();
-				break;
+		case "list":
+			list();
+			break;
+		case "wlist":
+			wlist();
+			break;
+		case "nowcflist":
+			nowcflist();
+			break;
+		case "endcflist":
+			endcflist();
+			break;
 			case "view":
 				view();
 				break;
@@ -64,6 +78,9 @@ public class Cf implements SubControll {
 				break;
 			case "grademodify":
 				grademodify();
+				break;
+			case "cfapproval":
+				cfapproval();
 				break;
 			
 		}
@@ -115,8 +132,16 @@ public class Cf implements SubControll {
 	
 	void view() {
 		
-		data.setDd(dao.detail(vo));
-
+		
+		ShopVo svo= new ShopVo();
+		svo.setRest_id(data.getRequest().getParameter("Rest_id"));
+	
+		
+		//data.setCfdetailimg(data.getRequest().getParameter("cf_sysimg"));
+		//System.out.println("cf¿ÃπÃ¡ˆ!!!"+data.getRequest().getParameter("cf_sysimg"));
+		data.setCfdetailimg(dao.detail(vo));
+		data.setDd(sdao.detail(svo));
+		
 	}
 	
 	
@@ -148,7 +173,32 @@ public class Cf implements SubControll {
 
 		data.setDd(dao.list());
 	}
+	void  wlist() {
+
+		data.setDd(dao.wlist());
+	}
 	
+	void  nowcflist() {
+
+		data.setDd(dao.nowcflist());
+	}
+	
+	
+	void  endcflist() {
+
+		data.setDd(dao.endcflist());
+	}
+	
+	
+	void cfapproval() {
+		data.setDd(dao.cfapproval(vo));
+		
+		data.setRedirect(true);
+		data.setPath("redirect:list");
+		
+		data.setDd(dao.list());
+		
+	}
 	/*void fileupload(CfVo vo, HttpServletRequest request)
 	{
 		

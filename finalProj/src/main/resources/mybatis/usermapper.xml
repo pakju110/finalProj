@@ -29,24 +29,18 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 
 
 	<insert id="insertOne" parameterType="alisuser">
-		<selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
-			select max(id)+1 from finaluser
-		</selectKey>
-		insert into finaluser (id, user_id, reg_date, user_name,user_phone,
+		insert into finaluser (iddd, user_id, reg_date, user_name,user_phone,
 		user_pw, user_address,grade) values
-		(#{id},#{user_id},sysdate,#{user_name},#{user_phone}, #{user_pw},
+		(#{user_id},sysdate,#{user_name},#{user_phone}, #{user_pw},
 		#{user_address},'u')
 
 	</insert>
 	
 	
 	<insert id="insertTwo" parameterType="alisuser">
-		<selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
-			select max(id)+1 from finaluser
-		</selectKey>
-		insert into finaluser (id, user_id, reg_date, user_name,user_phone,
+		insert into finaluser ( user_id, reg_date, user_name,user_phone,
 		user_pw, user_address,grade,sysfile,orifile) values
-		(#{id},#{user_id},sysdate,#{user_name},#{user_phone}, #{user_pw},
+		(#{user_id},sysdate,#{user_name},#{user_phone}, #{user_pw},
 		#{user_address},'w',#{sysfile},#{orifile})
 
 	</insert>

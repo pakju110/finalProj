@@ -16,7 +16,7 @@ public class ManagerData {
 
 	String cate1,cate2, service, path, depth="../../";
 	
-	Object dd , dd2;
+	Object dd , dd2,cfdetailimg;
 	
 	
 	boolean redirect;
@@ -38,6 +38,14 @@ public class ManagerData {
 	
 	
 	
+	public Object getCfdetailimg() {
+		return cfdetailimg;
+	}
+
+	public void setCfdetailimg(Object cfdetailimg) {
+		this.cfdetailimg = cfdetailimg;
+	}
+
 	public MenuChange getMenuChange() {
 		return menuChange;
 	}

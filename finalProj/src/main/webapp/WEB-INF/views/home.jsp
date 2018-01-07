@@ -13,6 +13,6 @@
 
 	<br>cate<br>
 	<a href="yeogiyo/user/notice/list">catemybatis</a>
-
+	<a href="yeogiyo/testtemplate.html">test</a>
 </body>
 </html>

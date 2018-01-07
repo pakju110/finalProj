@@ -22,7 +22,7 @@ function add_item(obj){
     var no = obj.value;
 
     var request = new Request();
- 	var hrf = "orderoption?id="+request.getParameter("id")+"&no="+no;
+ 	var hrf = "orderoption?rest_id="+request.getParameter("rest_id")+"&no="+no;
   	option.action=hrf;
   	alert(hrf);
     option.submit();
@@ -31,7 +31,7 @@ function add_item(obj){
 function remove_item(obj){	 
     var no = obj.value;
     var request = new Request(); 
- 	var hrf = "removeoption?id="+request.getParameter("id")+"&no="+no;
+ 	var hrf = "removeoption?rest_id="+request.getParameter("rest_id")+"&no="+no;
   	option.action=hrf;
   	alert(hrf);
     option.submit();
@@ -39,7 +39,7 @@ function remove_item(obj){
 
 function remove_all(obj){	 
     var request = new Request(); 
- 	var hrf = "allremove?id="+request.getParameter("id");
+ 	var hrf = "allremove?rest_id="+request.getParameter("rest_id");
   	option.action=hrf;
   	alert(hrf);
     option.submit();
@@ -48,7 +48,7 @@ function remove_all(obj){
 function remove_menu(obj){
 	var request = new Request(); 
 	var no = obj.value;
-	var hrf = "menudelte?id="+request.getParameter("id")+"&no="+no;
+	var hrf = "menudelte?rest_id="+request.getParameter("rest_id")+"&no="+no;
 	menumodi.action=hrf;
   	alert(hrf);
   	menumodi.submit();
@@ -58,7 +58,7 @@ function menuplus(obj)
 {
 	var request = new Request(); 
 	var cnt = obj.value;
-	var hrf = "menuplus?id="+request.getParameter("id")+"&cnt="+cnt;
+	var hrf = "menuplus?rest_id="+request.getParameter("rest_id")+"&cnt="+cnt;
 	mif.action=hrf;
 	alert(hrf);
 	mif.submit();
@@ -68,7 +68,7 @@ function menuplus(obj)
 function pay_submt(){
 	var request = new Request(); 
 	var newwin = window.open('_blank','winname','width=500, height=300');
-	var hrf = "../../pay/list?rest_id="+request.getParameter("id");
+	var hrf = "../../pay/list?rest_id="+request.getParameter("rest_id");
 	option.action=hrf;
 	option.target= "winname";
 	option.submit();

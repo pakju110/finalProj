@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Alias("aliscf")
 public class CfVo {
 	String
-	rest_id,approval,path="";
+	sinchung,rest_id,approval,path="";
 	
 	String cf_oriimg="",cf_sysimg="";
 	
@@ -22,9 +22,17 @@ public class CfVo {
 	
 	
 	MultipartFile ff,ff2;
-	
-	
-	
+
+
+	public String getSinchung() {
+		return sinchung;
+	}
+
+
+
+	public void setSinchung(String sinchung) {
+		this.sinchung = sinchung;
+	}
 
 
 

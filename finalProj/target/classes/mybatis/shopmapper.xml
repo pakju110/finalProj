@@ -22,21 +22,21 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    </select>
    
       <select id="selectDetail" resultType="alishop" parameterType="alishop">
-   		select * from shop where id = #{id}
+   		select * from shop where rest_id = #{rest_id}
    </select>
    <select id="shopDetail" resultType="alishop" parameterType="String">
-   		select * from shop where id = #{id}
+   		select * from shop where rest_id = #{rest_id}
    </select>
    
     <delete id="delete" parameterType="alishop">
-   		delete from shop where  id = #{ id}
+   		delete from shop where  rest_id = #{ rest_id}
    </delete>
    
    <update id="modify" parameterType="alishop">
    		update shop set 
    		opentime = #{opentime}, closetime = #{closetime},
    		 contents = #{contents}, sysfile = '1', orifile = '이창준이 해주기로함'
-   		 where id = #{id}
+   		 where rest_id = #{rest_id}
    </update>
    
    
@@ -46,14 +46,14 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 	   		select max(id)+1 from shop
 	   </selectKey> -->
    	insert into shop 
-   	(id,  brand, name, type, star, addr,  opentime, closetime, contents, tel, orifile, sysfile,grade)
+   	(rest_id,  brand, name, type, star, addr,  opentime, closetime, contents, tel, orifile, sysfile,grade)
    	values
-   	(#{id}, #{brand}, #{name}, #{type}, 0, #{addr}, #{opentime}, #{closetime}, #{contents}, #{tel}, #{orifile}, #{sysfile},#{grade})
+   	(#{rest_id}, #{brand}, #{name}, #{type}, 0, #{addr}, #{opentime}, #{closetime}, #{contents}, #{tel}, #{orifile}, #{sysfile},#{grade})
    
    </insert>
    
    <select id="idPwChk" resultType="alishop" parameterType="alishop">
-   		select * from shop where id = #{ id} 
+   		select * from shop where rest_id = #{ rest_id} 
    </select>
    
    

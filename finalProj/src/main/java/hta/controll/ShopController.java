@@ -170,7 +170,7 @@ public class ShopController {
 		orvo =  new OrderVo();
 		orvo.setRest_id(revo.getRest_id());
 		orvo.setUser_id(id);
-		System.out.println("\n\n\n\n\n\nTESTsovo.getId()\n\n\n\n"+sovo.getId()+"\n\n\n\n\n\n\n"+orvo+"\n\n\n\n\n"+dao.maxno2(orvo));
+		System.out.println("\n\n\n\n\n\nTESTsovo.getId()\n\n\n\n"+sovo.getRest_id()+"\n\n\n\n\n\n\n"+orvo+"\n\n\n\n\n"+dao.maxno2(orvo));
 		orderno = dao.maxno2(orvo);
 		System.out.println("\n\n\n\n\n"+revo+"\n\n\n\n\n");
 		revo.setOrderno(orderno);
@@ -180,13 +180,13 @@ public class ShopController {
 			}else {
 				fileupload3(revo, data.getRequest());
 				dao.reviewinsert(revo);
-				sovo.setId(revo.getRest_id());
+				sovo.setRest_id(revo.getRest_id());
 				sovo.setStar(dao.staravg(revo.getRest_id()));
 				dao.reviewshopmodify(sovo);
 			}
 		}
 		data.setRedirect(true);
-		data.setPath("redirect:view?id=" + sovo.getId());
+		data.setPath("redirect:view?id=" + sovo.getRest_id());
 		System.out.println("\n\n\n\n\n리뷰인설트\n\n\n\n\n"+revo+"\n\n\n\n" +sovo);
 		data.setDd(dao.detail(sovo));
 	}
@@ -247,9 +247,9 @@ public class ShopController {
 
 		}
 		data.setRedirect(true);
-		data.setPath("redirect:menumodifyForm?id=" + sovo.getId());
+		data.setPath("redirect:menumodifyForm?id=" + sovo.getRest_id());
 		data.setDd(dao.detail(sovo));
-		data.setDd2(menu.list(sovo.getId()));
+		data.setDd2(menu.list(sovo.getRest_id()));
 
 	}
 
@@ -282,7 +282,7 @@ public class ShopController {
 	}
 
 	void deleteForm() {
-		data.setDd(sovo.getId());
+		data.setDd(sovo.getRest_id());
 	}
 
 	void reg() {
@@ -293,7 +293,7 @@ public class ShopController {
 		dao.insert(sovo);
 
 		data.setRedirect(true);
-		data.setPath("redirect:view?id=" + sovo.getId());
+		data.setPath("redirect:view?id=" + sovo.getRest_id());
 		dao.detail(sovo);
 		}
 
@@ -302,11 +302,11 @@ public class ShopController {
 	void view() {
 		System.out.println("sovo view들어가라ㅏ 좀 ");
 		data.setDd(dao.detail(sovo));
-		data.setDd2(menu.list(sovo.getId()));
+		data.setDd2(menu.list(sovo.getRest_id()));
 		CartVo cavo = new CartVo();
 		cavo.setId(id);
-		cavo.setRest_id(sovo.getId());
-		data.setReview(dao.reviewlist(sovo.getId()));
+		cavo.setRest_id(sovo.getRest_id());
+		data.setReview(dao.reviewlist(sovo.getRest_id()));
 		
 		if (id != null) {
 			
@@ -314,9 +314,9 @@ public class ShopController {
 			data.setCart(cart.list(cavo));
 			if(loginuser.getGrade().equals("u")) {
 				orvo =  new OrderVo();
-				orvo.setRest_id(sovo.getId());
+				orvo.setRest_id(sovo.getRest_id());
 				orvo.setUser_id(id);
-				System.out.println("\n\n\n\n\n\nTESTsovo.getId()\n\n\n\n"+sovo.getId()+"\n\n\n\n\n\n\n"+orvo+"\n\n\n\n\n"+dao.maxno2(orvo));
+				System.out.println("\n\n\n\n\n\nTESTsovo.getId()\n\n\n\n"+sovo.getRest_id()+"\n\n\n\n\n\n\n"+orvo+"\n\n\n\n\n"+dao.maxno2(orvo));
 				orderno = dao.maxno2(orvo);
 				if(orderno != null ) {
 					ReviewVo revo2 =  new ReviewVo();
@@ -340,7 +340,7 @@ public class ShopController {
 		ss = menu.detail(ss);
 		CartVo ca = cavo;
 		if (id != null) {
-			ca.setRest_id(sovo.getId());
+			ca.setRest_id(sovo.getRest_id());
 			ca.setId(id);
 			ca.setName(ss.getName());
 			ca.setNo(ss.getNo());
@@ -360,12 +360,13 @@ public class ShopController {
 		System.out.println("\n\n\n\n"+ca+"\n\n\n");
 
 		data.setRedirect(true);
-		data.setPath("redirect:view?id=" + sovo.getId());
+		data.setPath("redirect:view?id=" + sovo.getRest_id());
 	}
 
 	void removeoption() {
 		int a = Integer.parseInt(data.getRequest().getParameter("no"));
-		String rest_id = data.getRequest().getParameter("id");
+		/*String rest_id = data.getRequest().getParameter("id");*/
+		String rest_id = sovo.getRest_id(); 
 		CartVo ca = cavo;
 		ca.setRest_id(rest_id);
 		ca.setId(id);
@@ -383,7 +384,7 @@ public class ShopController {
 		}
 
 		data.setRedirect(true);
-		data.setPath("redirect:view?id=" + sovo.getId());
+		data.setPath("redirect:view?id=" + sovo.getRest_id());
 	}
 
 	void allremove() {
@@ -394,7 +395,7 @@ public class ShopController {
 		cart.delete(ca);
 		data.setCart(null);
 		data.setRedirect(true);
-		data.setPath("redirect:view?id=" + sovo.getId());
+		data.setPath("redirect:view?id=" + sovo.getRest_id());
 	}
 
 	void modify() {
@@ -408,7 +409,7 @@ public class ShopController {
 		}
 		// data.setPath("redirect:view?id="+sovo.getId());
 
-		data.setPath("redirect:view?id=" + sovo.getId());
+		data.setPath("redirect:view?id=" + sovo.getRest_id());
 		data.setDd(dao.detail(sovo));
 	}
 
@@ -418,7 +419,7 @@ public class ShopController {
 
 	void menumodifyForm() {
 		data.setDd(dao.detail(sovo));
-		data.setDd2(menu.list(sovo.getId()));
+		data.setDd2(menu.list(sovo.getRest_id()));
 	}
 
 	void list() {
@@ -548,7 +549,7 @@ public class ShopController {
 		for (int i = 0; i < res.size(); i++) {
 			System.out.println(res.get(i));
 			ShopVo vo = new ShopVo();
-			vo.setId(res.get(i).getId());
+			vo.setRest_id(res.get(i).getId());
 			sovo = dao.detail(vo);
 			if (res.get(i).getFf() != null) {
 				fileupload2(res.get(i), data.getRequest());
@@ -574,7 +575,7 @@ public class ShopController {
 		 */
 		data.setRedirect(true);
 		System.out.println("----!!!----!!!---!!!------\n\n\n\n\n\n\n" + sovo);
-		data.setPath("redirect:view?id=" + sovo.getId());
+		data.setPath("redirect:view?id=" + sovo.getRest_id());
 		dao.detail(sovo);
 	}
 
@@ -584,7 +585,7 @@ public class ShopController {
 		System.out.println("\n\n\n\n\n\n\n a =" + a);
 		System.out.println("menuplus에 들어옴!!!!!!!!!!!!!!!\n\n\n\n\n\n\n");
 		data.setRedirect(true);
-		data.setPath("redirect:menuinsertform?id=" + sovo.getId() + "&cnt=" + a);
+		data.setPath("redirect:menuinsertform?id=" + sovo.getRest_id() + "&cnt=" + a);
 		System.out.println("menuplus에 들어옴!!!!!!!!!!!!!!!\n\n\n\n\n\n\n2222222");
 		dao.detail(sovo);
 		System.out.println("menuplus에 들어옴!!!!!!!!!!!!!!!\n\n\n\n\n\n\n3333333svo" + dao.detail(sovo));

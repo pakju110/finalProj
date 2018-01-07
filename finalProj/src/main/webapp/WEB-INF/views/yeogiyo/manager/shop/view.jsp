@@ -11,7 +11,7 @@
 	<table border="">
 		<tr>
 			<td>글번호</td>
-			<td>${data.dd.id}</td>
+			<td>${data.dd.rest_id}</td>
 		</tr>
 		<%-- <tr>
 			<td colspan="2"><jsp:include page="menu.jsp"/></td>
@@ -34,10 +34,10 @@
 		</c:if>
 		<tr>
 			<td colspan="2" align="right"><a
-				href="deleteForm?id=${data.dd.id}">회원탈퇴</a> 
-				<a href="modifyForm?id=${data.dd.id}">회원수정</a> <a href="list">리스트로</a>
-				<a href="menuinsertform?id=${data.dd.id}">메뉴생성</a>
-				<a href="menumodifyForm?id=${data.dd.id}">메뉴수정</a>
+				href="deleteForm?id=${data.dd.rest_id}">회원탈퇴</a> 
+				<a href="modifyForm?id=${data.dd.rest_id}">회원수정</a> <a href="list">리스트로</a>
+				<a href="menuinsertform?id=${data.dd.rest_id}">메뉴생성</a>
+				<a href="menumodifyForm?id=${data.dd.rest_id}">메뉴수정</a>
 			</td>
 		</tr>
 	</table>

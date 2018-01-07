@@ -36,7 +36,7 @@ public class ManagerController {
             @PathVariable String service,
            PayVo payVO,
            UserVo userVO,
-           ShopVo shopVO,
+           ShopVo shopVo,
            CfVo cfVO,
             HttpServletRequest request
             ) {
@@ -56,10 +56,10 @@ public class ManagerController {
         		data.setDd(userVO); 		
         		System.out.println("uservo.dd입력");
         		break;
-        	case "shop" :
-        	
-        		data.setDd(shopVO);		
-        		System.out.println("shopvo.dd입력");
+        	case "shop":
+        		data.setDd(shopVo);	
+        		  System.out.println(shopVo);
+        		System.out.println("shopVo.dd입력");
         		break;
         	case "pay":
         		data.setDd(payVO);
@@ -67,12 +67,16 @@ public class ManagerController {
         	case "cf":
         		data.setDd(cfVO);
         		break;
+        	case "inpay":
+        		data.setDd(payVO);
+        		break;
         }
         
 
         menu();
                
         System.out.println("매니저  진입성공:"+data);
+      
  
     
     SubControll control = provider.getContext().getBean(cate2, SubControll.class);
@@ -93,6 +97,7 @@ public class ManagerController {
         subMenu.get("manager").add(new Menu("user", "회원 관리", "list"));
         subMenu.get("manager").add(new Menu("shop", "가게 관리", "list"));
         subMenu.get("manager").add(new Menu("cf", "광고관리", "list"));
+        subMenu.get("manager").add(new Menu("inpay", "정산관리", "list"));
         
 
        

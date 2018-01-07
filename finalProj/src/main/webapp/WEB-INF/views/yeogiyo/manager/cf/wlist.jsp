@@ -25,7 +25,7 @@
 			<td>½ÂÀÎ¿©ºÎ</td>
 			
 		</tr>
-	
+
 		<c:forEach items="${data.dd}" var="vo">
 			<tr>
 				<td><a href="view?Rest_id=${vo.rest_id }">${vo.rest_id}</a></td>
@@ -38,7 +38,7 @@
 				<td>${vo.approval }</td>
 			</tr>
 		</c:forEach>
-	
+
 		
 	</table>
 </body>

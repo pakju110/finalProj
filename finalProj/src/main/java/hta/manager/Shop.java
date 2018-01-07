@@ -1,4 +1,4 @@
-/*package hta.shop;
+package hta.manager;
 
 import java.io.FileOutputStream;
 
@@ -76,7 +76,7 @@ public class Shop implements SubControll {
 	}	
 	
 	void deleteForm() {
-		data.setDd(sovo.getId());
+		data.setDd(sovo.getRest_id());
 	}	
 	void reg() {
 	
@@ -86,28 +86,30 @@ public class Shop implements SubControll {
 		dao.insert(sovo);
 		
 		data.setRedirect(true);
-		data.setPath("redirect:view?id="+sovo.getId());
+		data.setPath("redirect:view?id="+sovo.getRest_id());
 		
 		
 	}
 		
 	void view() {
+		System.out.println(sovo);
 		System.out.println("sovo view들어가라ㅏ 좀 ");
+		System.out.println(dao.detail(sovo));
 		data.setDd(dao.detail(sovo));
-		data.setDd2(menu.list(sovo.getId()));
+		data.setDd2(menu.list(sovo.getRest_id()));
 	}
 	
 	void modify() {
 	
 		data.setRedirect(true);
-		if(dao.idPwChk(sovo)!=null)
+	/*	if(dao.idPwChk(sovo)!=null)
 		{
 			//fileupload(vo, request);
 			data.setDd(dao.modify(sovo));
-		}
-		//data.setPath("redirect:view?id="+sovo.getId());
+		}*/
+		//data.setPath("redirect:view?id="+sovo.getRest_id());
 		data.setDd(dao.modify(sovo));
-		data.setPath("redirect:view?id="+sovo.getId());
+		data.setPath("redirect:view?id="+sovo.getRest_id());
 	data.setDd(dao.detail(sovo));
 	}
 	
@@ -117,13 +119,14 @@ public class Shop implements SubControll {
 	
 	void menumodifyForm() {
 		data.setDd(dao.detail(sovo));
-		data.setDd2(menu.list(sovo.getId()));
+		data.setDd2(menu.list(sovo.getRest_id()));
 	}
 
 
 	void  list() {
 		data.setDd(dao.list());
 		System.out.println("shop list 통과");
+		System.out.println(dao.list());
 	}		
 	
 	void wlist() {
@@ -131,7 +134,7 @@ public class Shop implements SubControll {
 		
 	}
 	
-	ModelAndView  modifySubmit(UserVo vo, HttpServletRequest request) {
+	/*ModelAndView  modifySubmit(UserVo vo, HttpServletRequest request) {
 
 		String url = "redirect:modifyForm";
 		
@@ -155,7 +158,7 @@ public class Shop implements SubControll {
 		ModelAndView mav = new ModelAndView();
 		System.out.println("deleteForm:"+vo.getUser_id());
 		return mav;
-	}
+	}*/
 	
 	void fileupload(ShopVo vo, HttpServletRequest request)
 	{
@@ -185,4 +188,3 @@ public class Shop implements SubControll {
 	}
 	
 }
-*/

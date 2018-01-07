@@ -1,4 +1,4 @@
-package hta.controll;
+/*package hta.controll;
  
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,8 +27,8 @@ public class MemPathController {
     @Resource
     ManagerData data;
     
-   /* @Resource
-    TopMenu topmenu;*/
+    @Resource
+    TopMenu topmenu;
     
     @ModelAttribute("data")
     ManagerData data(@PathVariable String cate1,
@@ -100,8 +100,8 @@ public class MemPathController {
         subMenu.get("user").add(new Menu("fnq", "자주하는질문", "list"));
         subMenu.get("user").add(new Menu("qna", "질문및 답변", "list"));
       
-        /*
-        subMenu.get("down").add(new Menu("tv", "tv", "list"));*/
+        
+        subMenu.get("down").add(new Menu("tv", "tv", "list"));
         
        // data.setTopMenu(topMenu);
         data.setSubMenu(subMenu.get(data.getCate1()));      
@@ -114,4 +114,4 @@ public class MemPathController {
         }   
         return res;
     } 
-}
+}*/

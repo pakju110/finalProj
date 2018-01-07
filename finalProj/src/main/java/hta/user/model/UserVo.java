@@ -19,7 +19,6 @@ public class UserVo {
 	
 	Date reg_date;
 	
-	Integer id;
 	
 	MultipartFile ff;
 	
@@ -175,19 +174,12 @@ public class UserVo {
 			this.bookmark = bookmark;
 		}
 
-		public Integer getId() {
-			return id;
-		}
-
-		public void setId(Integer id) {
-			this.id = id;
-		}
 
 		@Override
 		public String toString() {
 			return "UserVo [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_phone="
 					+ user_phone + ", user_address=" + user_address + ", grade=" + grade + ", bookmark=" + bookmark
-					+ ", reg_date=" + reg_date + ", id=" + id + ", ff=" + ff + "]";
+					+ ", reg_date=" + reg_date + ", ff=" + ff + "]";
 		}
 
 		/*@Override

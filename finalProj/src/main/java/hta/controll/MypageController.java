@@ -166,10 +166,10 @@ public class MypageController {
 		
 		if(dao.idPwChk(vo)!=null)
 		{
-			fileupload(vo, data.getRequest());
+			//fileupload(vo, data.getRequest());
 			dao.modify(vo);
 			data.setDd(dao.detail(vo));
-			data.getSession().setAttribute("loginuser", vo);
+			//data.getSession().setAttribute("loginuser", vo);
 			
 		}
 		data.setPath("redirect:list");
