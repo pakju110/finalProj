@@ -1,17 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-	<form action="restreg" method="post" enctype="multipart/form-data">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<form action="restreg" method="post" enctype="multipart/form-data" name="jf">
 		<table border="">
 			<tr>
 				<td>id</td>
-				<td><input type="text" name="user_id" /></td>
+				<td><input type="text" name="user_id" /><input type="button" onclick="idCheck2()" name="sch" class="sch" value="id중복확인"/></td>
 			</tr>
 			<tr>
 				<td>pw</td>
@@ -39,10 +33,17 @@
 		</tr>
 			<tr>
 
-				<td colspan="2" align="center"><input type="submit" value="가입" />
+				<td colspan="2" align="center">
+				<c:choose>
+					<c:when test="${idchek == 'tr'}">
+					사용가능한 아이디입니다.
+					</c:when>
+					<c:otherwise>아이디가 중복이거나 중복체크를 해주세요</c:otherwise>
+				</c:choose>
+				<c:if test='${idchek == "tr"}'>
+				<input type="submit" value="가입" />
+				</c:if>
 					<a href="../../user/join/list">취소</a></td>
 			</tr>
 		</table>
 	</form>
-</body>
-</html>

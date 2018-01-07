@@ -104,6 +104,7 @@ public class MypageController {
 		case "cfreg":
 		cfreg();
 		break;
+		
 		}
         
         
@@ -212,6 +213,7 @@ public class MypageController {
 		data.setRedirect(true);
 		data.setPath("redirect:view?user_id="+vo.getUser_id());
 	}
+	
 	
 	void paylist() {
 

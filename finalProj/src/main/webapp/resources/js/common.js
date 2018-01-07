@@ -73,3 +73,15 @@ function pay_submt(){
 	option.target= "winname";
 	option.submit();
 }
+
+function idCheck() {
+	  
+	   jf.action="idReg";
+	   jf.submit();
+ }
+
+function idCheck2() {
+	  
+	   jf.action="idReg2";
+	   jf.submit();
+}

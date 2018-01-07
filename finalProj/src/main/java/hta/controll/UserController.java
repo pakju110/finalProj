@@ -5,7 +5,8 @@ import java.util.HashMap;
  
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
- 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,7 +36,8 @@ public class UserController {
             @PathVariable String service,
            UserVo userVo,///각 카테고리별  bean을 가져옴
            
-            HttpServletRequest request
+            HttpServletRequest request,
+            HttpSession session
             ) {
         
         data.setRedirect(false);
@@ -45,6 +47,7 @@ public class UserController {
         data.setCate2(cate2);
         data.setService(service);
         data.setRequest(request);
+        data.setSession(session);
         data.setDd(userVo);
         menu();
  

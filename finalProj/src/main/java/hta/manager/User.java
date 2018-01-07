@@ -65,6 +65,12 @@ public class User implements SubControll {
 			case "grademodify":
 				grademodify();
 				break;
+			case "idReg":
+				idReg();
+				break;
+			case "idReg2":
+				idReg2();
+				break;
 			
 		}
 		
@@ -110,7 +116,27 @@ public class User implements SubControll {
 		data.setRedirect(true);
 		data.setPath("redirect:view?user_id="+vo.getUser_id());
 	}
-	
+	void idReg() {
+		if(dao.detail(vo).getUser_name() != null) {
+			data.getSession().setAttribute("idchek", "fa");
+		}else{
+			data.getSession().setAttribute("idchek", "tr");
+		}
+		
+		data.setRedirect(true);
+		data.setPath("redirect:userjoin?user_id="+vo.getUser_id() );
+	}
+	void idReg2() { 
+		if(dao.detail(vo) != null) {
+			data.getSession().setAttribute("idchek", "fa");
+		}else{
+			data.getSession().setAttribute("idchek", "tr");
+		}
+		
+		data.setRedirect(true);
+		data.setPath("redirect:restjoin?user_id="+vo.getUser_id());
+		
+	}
 	
 	
 	void view() {
