@@ -186,7 +186,7 @@ public class ShopController {
 			}
 		}
 		data.setRedirect(true);
-		data.setPath("redirect:view?id=" + sovo.getRest_id());
+		data.setPath("redirect:view?rest_id=" + sovo.getRest_id());
 		System.out.println("\n\n\n\n\n리뷰인설트\n\n\n\n\n"+revo+"\n\n\n\n" +sovo);
 		data.setDd(dao.detail(sovo));
 	}
@@ -217,12 +217,14 @@ public class ShopController {
 
 		for (int i = 0; i < res.size(); i++) {
 			MenuVo vo = res.get(i);
+			fileDelete(menu.idPwChk(vo).getSysfile());
+			fileupload2(vo, data.getRequest());
 			menu.modify(vo);
 			System.out.println(res.get(i));
 
 		}
 
-		data.setPath("redirect:view?id=" + res.get(0).getId());
+		data.setPath("redirect:view?rest_id=" + res.get(0).getId());
 		data.setDd(dao.detail(sovo));
 	}
 
@@ -247,7 +249,7 @@ public class ShopController {
 
 		}
 		data.setRedirect(true);
-		data.setPath("redirect:menumodifyForm?id=" + sovo.getRest_id());
+		data.setPath("redirect:menumodifyForm?rest_id=" + sovo.getRest_id());
 		data.setDd(dao.detail(sovo));
 		data.setDd2(menu.list(sovo.getRest_id()));
 
@@ -286,22 +288,30 @@ public class ShopController {
 	}
 
 	void reg() {
-		if(loginuser.getGrade() == "w") {
+		System.out.println("\n\n\n\n\n\n\n\n");
+		System.out.println(data.getRequest().getParameter("xlet"));
+		System.out.println(data.getRequest().getParameter("ylng"));
+		double xlet,ylng;
+		xlet = Double.parseDouble(data.getRequest().getParameter("xlet"));
+		ylng = Double.parseDouble(data.getRequest().getParameter("ylng"));
+		sovo.setXlet(xlet);
+		sovo.setYlng(ylng);
 		System.out.println("진입확인" + sovo);
-
 		fileupload(sovo, data.getRequest());
+		
 		dao.insert(sovo);
 
 		data.setRedirect(true);
-		data.setPath("redirect:view?id=" + sovo.getRest_id());
+		data.setPath("redirect:view?rest_id=" + sovo.getRest_id());
 		dao.detail(sovo);
-		}
+		
 
 	}
 
 	void view() {
 		System.out.println("sovo view들어가라ㅏ 좀 ");
 		data.setDd(dao.detail(sovo));
+		System.out.println(dao.detail(sovo));
 		data.setDd2(menu.list(sovo.getRest_id()));
 		CartVo cavo = new CartVo();
 		cavo.setId(id);
@@ -360,7 +370,7 @@ public class ShopController {
 		System.out.println("\n\n\n\n"+ca+"\n\n\n");
 
 		data.setRedirect(true);
-		data.setPath("redirect:view?id=" + sovo.getRest_id());
+		data.setPath("redirect:view?rest_id=" + sovo.getRest_id());
 	}
 
 	void removeoption() {
@@ -384,7 +394,7 @@ public class ShopController {
 		}
 
 		data.setRedirect(true);
-		data.setPath("redirect:view?id=" + sovo.getRest_id());
+		data.setPath("redirect:view?rest_id=" + sovo.getRest_id());
 	}
 
 	void allremove() {
@@ -395,21 +405,22 @@ public class ShopController {
 		cart.delete(ca);
 		data.setCart(null);
 		data.setRedirect(true);
-		data.setPath("redirect:view?id=" + sovo.getRest_id());
+		data.setPath("redirect:view?rest_id=" + sovo.getRest_id());
 	}
 
 	void modify() {
 
 		data.setRedirect(true);
-		
+
 		if (dao.idPwChk(sovo) != null) {
-			// fileupload(vo, request);
+			fileDelete(dao.idPwChk(sovo).getSysfile());
+			fileupload(sovo, data.getRequest());
 			dao.modify(sovo);
 			//data.setDd(dao.modify(sovo));
 		}
 		// data.setPath("redirect:view?id="+sovo.getId());
 
-		data.setPath("redirect:view?id=" + sovo.getRest_id());
+		data.setPath("redirect:view?rest_id=" + sovo.getRest_id());
 		data.setDd(dao.detail(sovo));
 	}
 
@@ -436,7 +447,7 @@ public class ShopController {
 
 	      try {
 	         String outPath = request.getRealPath("/resources/img");
-	         outPath = "C:\\projwork\\haeunju\\src\\main\\webapp\\resources\\img";
+	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\img";
 	         String realPath = outPath + "\\" + vo.getFf().getOriginalFilename();
 	         File file = new File(realPath);
 	         if (file.exists()) {
@@ -473,7 +484,7 @@ public class ShopController {
 
 	      try {
 	         String outPath = request.getRealPath("/resources/img");
-	         outPath = "C:\\projwork\\haeunju\\src\\main\\webapp\\resources\\img";
+	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\img";
 	         String realPath = outPath + "\\" + vo.getFf().getOriginalFilename();
 	         File file = new File(realPath);
 	         if (file.exists()) {
@@ -509,7 +520,7 @@ public class ShopController {
 
 	      try {
 	         String outPath = request.getRealPath("/resources/img");
-	         outPath = "C:\\projwork\\haeunju\\src\\main\\webapp\\resources\\img";
+	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\img";
 	         String realPath = outPath + "\\" + vo.getFf().getOriginalFilename();
 	         File file = new File(realPath);
 	         if (file.exists()) {
@@ -537,6 +548,14 @@ public class ShopController {
 	         // TODO Auto-generated catch block
 	         e.printStackTrace();
 	      }
+	}
+	public void fileDelete(String k)
+	{
+		if(k!=null &&!k.equals("")&& !k.equals("null"))
+		{
+			File ff = new File( "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\img"+k);
+			ff.delete();
+		}
 	}
 	void test() {
 		/* data.setDd(oppdao.list(0)); */
@@ -575,7 +594,7 @@ public class ShopController {
 		 */
 		data.setRedirect(true);
 		System.out.println("----!!!----!!!---!!!------\n\n\n\n\n\n\n" + sovo);
-		data.setPath("redirect:view?id=" + sovo.getRest_id());
+		data.setPath("redirect:view?rest_id=" + sovo.getRest_id());
 		dao.detail(sovo);
 	}
 
@@ -585,7 +604,7 @@ public class ShopController {
 		System.out.println("\n\n\n\n\n\n\n a =" + a);
 		System.out.println("menuplus에 들어옴!!!!!!!!!!!!!!!\n\n\n\n\n\n\n");
 		data.setRedirect(true);
-		data.setPath("redirect:menuinsertform?id=" + sovo.getRest_id() + "&cnt=" + a);
+		data.setPath("redirect:menuinsertform?rest_id=" + sovo.getRest_id() + "&cnt=" + a);
 		System.out.println("menuplus에 들어옴!!!!!!!!!!!!!!!\n\n\n\n\n\n\n2222222");
 		dao.detail(sovo);
 		System.out.println("menuplus에 들어옴!!!!!!!!!!!!!!!\n\n\n\n\n\n\n3333333svo" + dao.detail(sovo));

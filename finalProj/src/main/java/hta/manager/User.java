@@ -117,7 +117,7 @@ public class User implements SubControll {
 		data.setPath("redirect:view?user_id="+vo.getUser_id());
 	}
 	void idReg() {
-		if(dao.detail(vo).getUser_name() != null) {
+		if(dao.detail(vo) != null) {
 			data.getSession().setAttribute("idchek", "fa");
 		}else{
 			data.getSession().setAttribute("idchek", "tr");

@@ -1,18 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-	<form action="reg" method="post" enctype="multipart/form-data">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=true"></script>
+	<c:if test="${loginuser.grade == 'w' }">
+	<form action="reg" method="post" enctype="multipart/form-data" name="regshop" id="regshop">
 		<input type="hidden" name="grade" value="w"/>
 		<table border="">
 			<tr>
 				<td>id</td>
-				<td><input type="text" name="id"/></td>
+				<td><input type="hidden" name="rest_id" value="${loginuser.user_id }" /></td>
 			</tr>
 			<tr>
 				<td>브랜드</td>
@@ -38,7 +34,10 @@
 			</tr>
 			<tr>
 				<td>주소</td>
-				<td><input type="text" name="addr" /></td>
+				<td><input type="text" id="addr" name="addr"  onclick="openDaumPostcode()"><br>
+					상세주소 : <input type="text" id="addr2" name="addr2" >
+					<!-- <input type="hidden" name="xlet" id="xlet" /><input type="hidden" name="ylng" id="ylng" /> -->
+					</td>
 			</tr>
 			<tr>
 				<td>오픈시간</td>
@@ -57,10 +56,9 @@
 				<td><input type="file" name="ff" /></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><input type="submit" value="가입" />
+				<td colspan="2" align="center"><a href="#a" id="addcheck">가입</a>
 					<a href="list">리스트로</a></td>
 			</tr>
 		</table>
 	</form>
-</body>
-</html>
+	</c:if>

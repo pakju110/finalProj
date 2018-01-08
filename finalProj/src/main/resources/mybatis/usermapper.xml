@@ -41,7 +41,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 		insert into finaluser ( user_id, reg_date, user_name,user_phone,
 		user_pw, user_address,grade,sysfile,orifile) values
 		(#{user_id},sysdate,#{user_name},#{user_phone}, #{user_pw},
-		#{user_address},'w',#{sysfile},#{orifile})
+		#{user_address},'w',#{sysfile,jdbcType=VARCHAR},#{orifile,jdbcType=VARCHAR})
 
 	</insert>
 

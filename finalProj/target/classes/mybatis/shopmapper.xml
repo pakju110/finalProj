@@ -35,7 +35,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    <update id="modify" parameterType="alishop">
    		update shop set 
    		opentime = #{opentime}, closetime = #{closetime},
-   		 contents = #{contents}, sysfile = '1', orifile = '이창준이 해주기로함'
+   		 contents = #{contents}, sysfile = #{sysfile,jdbcType=VARCHAR}, orifile = #{orifile,jdbcType=VARCHAR}
    		 where rest_id = #{rest_id}
    </update>
    
@@ -46,9 +46,17 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 	   		select max(id)+1 from shop
 	   </selectKey> -->
    	insert into shop 
-   	(rest_id,  brand, name, type, star, addr,  opentime, closetime, contents, tel, orifile, sysfile,grade)
+   	(rest_id,  brand, name, 
+   	type, star, addr, addr2,
+   	opentime, closetime, contents, 
+   	tel, orifile, 
+   	sysfile,grade,xlet,ylng)
    	values
-   	(#{rest_id}, #{brand}, #{name}, #{type}, 0, #{addr}, #{opentime}, #{closetime}, #{contents}, #{tel}, #{orifile}, #{sysfile},#{grade})
+   	(#{rest_id}, #{brand}, #{name}, 
+   	#{type}, 0, #{addr}, #{addr2}, 
+   	#{opentime}, #{closetime}, #{contents}, 
+   	#{tel}, #{orifile,jdbcType=VARCHAR} , 
+   	#{sysfile,jdbcType=VARCHAR},'w',#{xlet},#{ylng})
    
    </insert>
    

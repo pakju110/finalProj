@@ -37,7 +37,7 @@ input[disabled="disabled"] { background:#f7f7f7;}
 
 input[type="password"],
 input[type="file"],
-input[type="text"] { height:15px; line-height:15px;}
+input[type="text"] { height:30px; line-height:30px;}
 input[type="file"] { width:100%;}
 input[type="radio"] { vertical-align:text-bottom;}
 

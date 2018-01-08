@@ -11,7 +11,7 @@
 	<table border="">
 		<tr>
 			<td>글번호</td>
-			<td>${data.dd.id}</td>
+			<td>${data.dd.rest_id}</td>
 		</tr>
 		<tr>
 			<td colspan="2"><jsp:include page="menu.jsp"/></td>
@@ -42,10 +42,10 @@
 		</c:if>
 		<tr>
 			<td colspan="2" align="right"><a
-				href="deleteForm?id=${data.dd.id}">회원탈퇴</a> 
-				<a href="modifyForm?id=${data.dd.id}">회원수정</a> <a href="list">리스트로</a>
-				<a href="menuinsertform?id=${data.dd.id}&cnt=0">메뉴생성</a>
-				<a href="menumodifyForm?id=${data.dd.id}">메뉴수정</a>
+				href="deleteForm?id=${data.dd.rest_id}">회원탈퇴</a> 
+				<a href="modifyForm?id=${data.dd.rest_id}">회원수정</a> <a href="list">리스트로</a>
+				<a href="menuinsertform?id=${data.dd.rest_id}&cnt=0">메뉴생성</a>
+				<a href="menumodifyForm?id=${data.dd.rest_id}">메뉴수정</a>
 			</td>
 		</tr>
 	</table>
@@ -56,8 +56,8 @@
 	</c:if>
 	<div>
 		<c:if test="${reviewgrade }"><br>댓글권한 있음!!!!!!!!!!!!!!!!!!!!!!<br></c:if>
-		<form action="reviewinsert?id=${data.dd.id }" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="rest_id" value="${data.dd.id}">
+		<form action="reviewinsert?id=${data.dd.rest_id }" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="rest_id" value="${data.dd.rest_id}">
 			<input type="hidden" name="user_id" value="${loginuser.user_id}">
 			<select name="star">
 				<option value="0">별점을 선택해주세요.</option>

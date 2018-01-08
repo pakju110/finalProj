@@ -4,14 +4,42 @@ import org.apache.ibatis.type.Alias;
 import org.springframework.web.multipart.MultipartFile;
 @Alias("alishop")
 public class ShopVo {
-	String rest_id="",brand="",name="",type="",addr="",contents="",tel="",orifile="",sysfile="";
+	String rest_id="",brand="",name="",type="",addr="",addr2,contents="",tel="",orifile="",sysfile="",grade;
 	
 	int star=0,opentime=0,closetime=0;
+	Double xlet,ylng;
+	
 	
 	
 	MultipartFile ff;
 	
 	
+	
+	
+	public String getAddr2() {
+		return addr2;
+	}
+
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
+
+	public Double getXlet() {
+		return xlet;
+	}
+
+	public void setXlet(Double xlet) {
+		this.xlet = xlet;
+	}
+
+	public Double getYlng() {
+		return ylng;
+	}
+
+	public void setYlng(Double ylng) {
+		this.ylng = ylng;
+	}
+
 	public MultipartFile getFf() {
 		return ff;
 	}
@@ -116,11 +144,20 @@ public class ShopVo {
 		this.closetime = closetime;
 	}
 
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
 	@Override
 	public String toString() {
-		return "ShopVo [rest_id=" + rest_id + ", brand=" + brand + ", name=" + name + ", type=" + type + ", addr=" + addr
-				+ ", contents=" + contents + ", tel=" + tel + ", orifile=" + orifile + ", sysfile=" + sysfile
-				+ ", star=" + star + ", opentime=" + opentime + ", closetime=" + closetime + ", ff=" + ff + "]";
+		return "ShopVo [rest_id=" + rest_id + ", brand=" + brand + ", name=" + name + ", type=" + type + ", addr="
+				+ addr + ", addr2=" + addr2 + ", contents=" + contents + ", tel=" + tel + ", orifile=" + orifile
+				+ ", sysfile=" + sysfile + ", grade=" + grade + ", star=" + star + ", opentime=" + opentime
+				+ ", closetime=" + closetime + ", xlet=" + xlet + ", ylng=" + ylng + ", ff=" + ff + "]";
 	}
 	
 	
