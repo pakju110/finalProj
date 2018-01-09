@@ -29,7 +29,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 
 
 	<insert id="insertOne" parameterType="alisuser">
-		insert into finaluser (iddd, user_id, reg_date, user_name,user_phone,
+		insert into finaluser (user_id, reg_date, user_name,user_phone,
 		user_pw, user_address,grade) values
 		(#{user_id},sysdate,#{user_name},#{user_phone}, #{user_pw},
 		#{user_address},'u')
@@ -38,7 +38,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 	
 	
 	<insert id="insertTwo" parameterType="alisuser">
-		insert into finaluser ( user_id, reg_date, user_name,user_phone,
+		insert into finaluser (user_id, reg_date, user_name,user_phone,
 		user_pw, user_address,grade,sysfile,orifile) values
 		(#{user_id},sysdate,#{user_name},#{user_phone}, #{user_pw},
 		#{user_address},'w',#{sysfile,jdbcType=VARCHAR},#{orifile,jdbcType=VARCHAR})
