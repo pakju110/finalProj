@@ -151,7 +151,7 @@ public class MypageController {
 		 
 		 subMenu.put("mypage", new ArrayList<>());
         
-        subMenu.get("mypage").add(new Menu("list", "내 정보", "list"));
+        subMenu.get("mypage").add(new Menu("mypage", "내 정보", "list"));
         subMenu.get("mypage").add(new Menu("modify", "정보 수정", "modifyform"));
         subMenu.get("mypage").add(new Menu("pay", "주문 내역", "paylist"));
         
@@ -285,7 +285,7 @@ public class MypageController {
 		try {
 			vo.setOrifile(vo.getFf().getOriginalFilename());
 			String outPath = request.getRealPath("/resources/img");
-			outPath = "E:\\xp\\2017java\\spring\\joinSun\\src\\main\\webapp\\resources\\up";
+			outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\img";
 			outPath += "/"+vo.getOrifile();
 			
 			
@@ -324,7 +324,7 @@ public class MypageController {
 		try {
 			//cfvo.setCf_oriimg(cfvo.getFf().getOriginalFilename());
 			String outPath = request.getRealPath("/resources/cf");
-			outPath = "E:\\xp\\2017java\\spring\\joinSun\\src\\main\\webapp\\resources\\cf";
+			outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\cf";
 			String realPath = outPath+ "\\"+cfvo.getCf_oriimg();
 			File file = new File(realPath);
 			 if (file.exists()) {

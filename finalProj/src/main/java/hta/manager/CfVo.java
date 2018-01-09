@@ -15,7 +15,7 @@ public class CfVo {
 	String
 	sinchung,rest_id,approval,path="";
 	
-	String cf_oriimg="",cf_sysimg="", startDD,nowMM;
+	String cf_oriimg="",cf_sysimg="", startDD,nowMM,payhow;
 	
 	Date reg_date,start_date,end_date,todate,todate2;;
 	
@@ -32,6 +32,18 @@ public class CfVo {
 	
 	
 	
+
+
+
+	public String getPayhow() {
+		return payhow;
+	}
+
+
+
+	public void setPayhow(String payhow) {
+		this.payhow = payhow;
+	}
 
 
 

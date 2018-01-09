@@ -6,7 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<link href="../../../resources/js/layout.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../../../resources/css/sub.css">
+<link rel="stylesheet" type="text/css" href="../../../resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../../../resources/css/default.css">
+<link rel="stylesheet" type="text/css" href="../../../resources/css/layout.css">
 
 <script type="text/javascript" src="../../../resources/js/jquery.js"></script>
 <script type="text/javascript" src="../../../resources/js/common.js"></script>

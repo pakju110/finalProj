@@ -1,0 +1,10 @@
+@charset "EUC-KR";
+
+
+select { padding:8px 0; text-indent:5px; height:auto;}
+.big_view .swiper1 .swiper-wrapper,
+.big_view .swiper1 .swiper-slide { height:500px !important;}
+.product_option TABLE.t2 .more_option .cash { width:105px;}
+.product_option TABLE.t2 .more_option .cash a { margin-left:1px;}
+.count_box INPUT[type='text'] { width:131px;}
+.bbs_search .btn_search { top:1px;}

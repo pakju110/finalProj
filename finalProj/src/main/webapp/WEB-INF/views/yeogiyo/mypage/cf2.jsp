@@ -17,12 +17,12 @@
 </script>
 </head>
 <body>
-	<form action="cfreg" method="post" enctype="multipart/form-data">
+	<form action="card " method="post" enctype="multipart/form-data">
 	<input type="hidden" name="rest_id" value="${loginuser.user_id}">
 		<table border="">
-		<input type="hidden" name="no" value="${data.dd.no}">
+		
 			<tr>
-			<td></td>
+			<td><input type="hidden" name="no" value="${data.dd.no}"></td>
 			<td>여기요${data.dd.no}번광고</td>
 			
 

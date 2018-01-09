@@ -2,27 +2,27 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-	<table border="">
-		<tr>
-			<td>글번호</td>
-			<td>등록일</td>
-			<td>이름</td>
-		</tr>
-		<c:forEach items="${data.dd}" var="vo">
-			<tr>
-				<td>${vo.rest_id}</td>
-				<td>${vo.name}</td>
-				<td><a href="view?rest_id=${vo.rest_id}">${vo.name}</a></td>
-			</tr>
-		</c:forEach>
-		<tr>
-			<td colspan="4" align="right"><a href="registerForm">회원가입</a></td>
-		</tr>
-		<tr>
-			<td colspan="4" align="right"><a href="test">test</a></td>
-		</tr>
-		
-	</table>
+	<div class="carlist carlist01"> <!-- 자동차 리스트 -->
+	<c:forEach items="${data.dd}" var="vo">
+            <div class="li lion">
+                <a href="view?rest_id=${vo.rest_id}">
+                    <span class="img"><img src="../../../resources/up/${vo.sysfile}" alt="" /></span>
+                    <span class="con">
+                        <span class="h3">${vo.brand}</span>
+                        <span class="p1">${vo.name}</span>
+                        <span class="p2">${vo.addr }</span>
+                    </span>
+                    <span class="eff">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </a>
+            </div>
+            </c:forEach>
+            </div>
+            <div class="bx_btn notice"><a href="registerForm" class=" btn type4">회원가입</a></div>
 <div class="bx_pagebtn">
 			<c:if test="${data.startPage>1 }">
 				<a href="?page=1">[처음으로]</a>

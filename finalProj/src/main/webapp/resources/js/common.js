@@ -2,7 +2,22 @@
  * 
  */
 $(document).ready(function() {
-
+/*	$(document).on('mouseover', '.carlist .li a',function(){
+		$(this).addClass('on');
+		$(this).removeClass('out');
+	});
+	$(document).on('mouseleave','.carlist .li a',function(){
+		$(this).removeClass('on');
+		$(this).addClass('out');
+	});
+	$(document).on('focusin', '.carlist .li a',function(){
+		$(this).addClass('on');
+		$(this).removeClass('out');
+	});
+	$(document).on('focusout','.carlist .li a',function(){
+		$(this).removeClass('on');
+		$(this).addClass('out');
+	});*/
 	$(".input").bind("keyup", function() {
 /*
 		var re = /[~!@\#$%^&*\()\=+']/gi;
@@ -87,7 +102,7 @@ function Request() {
 }
 function add_item(obj) {
 
-	var no = obj.value;
+	var no = obj;
 
 	var request = new Request();
 	var hrf = "orderoption?rest_id=" + request.getParameter("rest_id") + "&no="
@@ -98,7 +113,7 @@ function add_item(obj) {
 }
 
 function remove_item(obj) {
-	var no = obj.value;
+	var no = obj;
 	var request = new Request();
 	var hrf = "removeoption?rest_id=" + request.getParameter("rest_id")
 			+ "&no=" + no;

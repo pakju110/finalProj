@@ -6,15 +6,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import hta.controll.SubControll;
-import hta.down.model.DownVo;
-import hta.model.ManagerData;
 import hta.model.ShopData;
-import hta.notice.model.NoticeVO;
 import hta.user.model.UserRepository;
 import hta.user.model.UserVo;
 
@@ -23,6 +17,7 @@ public class User implements SubControll {
 
 	@Resource
 	ShopData data;
+	
 	@Resource
 	UserRepository dao;
 	
@@ -58,6 +53,12 @@ public class User implements SubControll {
 				break;
 			case "reg":
 				reg();
+				break;
+			case "idReg":
+				idReg();
+				break;
+			case "idReg2":
+				idReg2();
 				break;
 			case "restreg":
 				restreg();
@@ -111,7 +112,27 @@ public class User implements SubControll {
 		data.setPath("redirect:view?user_id="+vo.getUser_id());
 	}
 	
-	
+	void idReg() {
+		if(dao.idPwChk(vo)!=null)
+		{
+			data.getRequest().setAttribute("idchek", "fl");
+		}else {data.getRequest().setAttribute("idchek", "tr");}
+		data.setRedirect(true);
+		data.setPath("redirect:userjoin?user_id="+vo.getUser_id());
+
+	}
+	void idReg2() {
+		if(dao.idPwChk(vo)!=null)
+		{
+			if(dao.idPwChk(vo)!=null)
+			{
+				data.getRequest().setAttribute("idchek", "fl");
+			}else {data.getRequest().setAttribute("idchek", "tr");}
+		}
+		data.setRedirect(true);
+		data.setPath("redirect:restjoin?user_id="+vo.getUser_id());
+
+	}
 	
 	void view() {
 		
