@@ -14,13 +14,16 @@ public class CfRepository {
 
 	@Resource
 	SqlSessionTemplate template;
+	
+	public List<CfVo> nonList(CfVo vo) {
+		return template.selectList("cf.nonList", vo);
+	}
+	
 
 	public List<CfVo> list() {
 		return template.selectList("cf.selectList");
 	}
-	public List<CfVo> wlist() {
-		return template.selectList("cf.selectwList");
-	}
+	
 	public List<CfVo> nowcflist() {
 		return template.selectList("cf.selectnowcflist");
 	}
@@ -39,6 +42,7 @@ public class CfRepository {
 	}
 	
 	public void insert2(CfVo vo) {
+		System.out.println("값 가져오긴하냐 "+vo);
 		template.insert("cf.insertTwo", vo);
 	}
 	
@@ -66,5 +70,13 @@ public class CfRepository {
 	public CfVo idPwChk(CfVo vo) {
 		return template.selectOne("cf.idPwChk", vo);
 	}
+	public List<CfVo> inpay() {
+		return template.selectList("cf.inpay");
+	}
+	
+	public List<CfVo> inpaysch(CfVo vo) {
+		return template.selectList("cf.inpaysch",vo);
+	}
+	
 
 }

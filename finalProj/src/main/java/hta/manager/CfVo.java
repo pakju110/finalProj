@@ -15,13 +15,165 @@ public class CfVo {
 	String
 	sinchung,rest_id,approval,path="";
 	
-	String cf_oriimg="",cf_sysimg="";
+	String cf_oriimg="",cf_sysimg="", startDD,nowMM;
 	
-	Date reg_date,start_date,end_date;
+	Date reg_date,start_date,end_date,todate,todate2;;
 	
-	
+	ArrayList<String> dds;
 	
 	MultipartFile ff,ff2;
+	
+	Integer no,price;
+	
+	Integer year1,year2,month1,month2;
+	
+	Object isNums;
+	
+	
+	
+	
+
+
+
+	public Date getTodate() {
+		return todate;
+	}
+
+
+
+	public void setTodate(Date todate) {
+		this.todate = todate;
+	}
+
+
+
+	public Date getTodate2() {
+		return todate2;
+	}
+
+
+
+	public void setTodate2(Date todate2) {
+		this.todate2 = todate2;
+	}
+
+
+
+	public Integer getYear1() {
+		return year1;
+	}
+
+
+
+	public void setYear1(Integer year1) {
+		this.year1 = year1;
+	}
+
+
+
+	public Integer getYear2() {
+		return year2;
+	}
+
+
+
+	public void setYear2(Integer year2) {
+		this.year2 = year2;
+	}
+
+
+
+	public Integer getMonth1() {
+		return month1;
+	}
+
+
+
+	public void setMonth1(Integer month1) {
+		this.month1 = month1;
+	}
+
+
+
+	public Integer getMonth2() {
+		return month2;
+	}
+
+
+
+	public void setMonth2(Integer month2) {
+		this.month2 = month2;
+	}
+
+
+
+	public Integer getPrice() {
+		return price;
+	}
+
+
+
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+
+
+
+	public Object getIsNums() {
+		return isNums;
+	}
+
+
+
+	public void setIsNums(Object isNums) {
+		this.isNums = isNums;
+	}
+
+
+
+	public Integer getNo() {
+		return no;
+	}
+
+
+
+	public void setNo(Integer no) {
+		this.no = no;
+	}
+
+
+
+	public String getStartDD() {
+		return startDD;
+	}
+
+
+
+	public void setStartDD(String startDD) {
+		this.startDD = startDD;
+	}
+
+
+
+	public String getNowMM() {
+		return nowMM;
+	}
+
+
+
+	public void setNowMM(String nowMM) {
+		this.nowMM = nowMM;
+	}
+
+
+
+	public ArrayList<String> getDds() {
+		return dds;
+	}
+
+	public void setDds(ArrayList<String> dds) {
+		this.dds = dds;
+	}
 
 
 	public String getSinchung() {
@@ -29,11 +181,9 @@ public class CfVo {
 	}
 
 
-
 	public void setSinchung(String sinchung) {
 		this.sinchung = sinchung;
 	}
-
 
 
 	public MultipartFile getFf() {
@@ -41,17 +191,13 @@ public class CfVo {
 	}
 
 
-
 	public void setFf(MultipartFile ff) {
 		this.ff = ff;
 	}
 
-
-
 	public String getRest_id() {
 		return rest_id;
 	}
-
 
 
 	public void setRest_id(String rest_id) {
@@ -59,11 +205,9 @@ public class CfVo {
 	}
 
 
-
 	public String getApproval() {
 		return approval;
 	}
-
 
 
 	public void setApproval(String approval) {
@@ -71,11 +215,9 @@ public class CfVo {
 	}
 
 
-
 	public String getCf_oriimg() {
 		return cf_oriimg;
 	}
-
 
 
 	public void setCf_oriimg(String cf_oriimg) {
@@ -83,11 +225,9 @@ public class CfVo {
 	}
 
 
-
 	public String getCf_sysimg() {
 		return cf_sysimg;
 	}
-
 
 
 	public void setCf_sysimg(String cf_sysimg) {
@@ -95,11 +235,9 @@ public class CfVo {
 	}
 
 
-
 	public Date getReg_date() {
 		return reg_date;
 	}
-
 
 
 	public void setReg_date(Date reg_date) {
@@ -107,11 +245,9 @@ public class CfVo {
 	}
 
 
-
 	public Date getStart_date() {
 		return start_date;
 	}
-
 
 
 	public void setStart_date(Date start_date) {
@@ -119,11 +255,9 @@ public class CfVo {
 	}
 
 
-
 	public Date getEnd_date() {
 		return end_date;
 	}
-
 
 
 	public void setEnd_date(Date end_date) {
@@ -131,14 +265,9 @@ public class CfVo {
 	}
 
 
-
-
-
-
 	public MultipartFile getFf2() {
 		return ff2;
 	}
-
 
 
 	public void setFf2(MultipartFile ff2) {
@@ -146,15 +275,15 @@ public class CfVo {
 	}
 
 
-
 	@Override
 	public String toString() {
-		return "CfVo [rest_id=" + rest_id + ", approval=" + approval + ", cf_oriimg=" + cf_oriimg + ", cf_sysimg="
-				+ cf_sysimg + ", reg_date=" + reg_date + ", start_date=" + start_date + ", end_date=" + end_date
-				+ ", ff2=" + ff2 + "]";
+		return "CfVo [sinchung=" + sinchung + ", rest_id=" + rest_id + ", approval=" + approval + ", cf_oriimg="
+				+ cf_oriimg + ", cf_sysimg=" + cf_sysimg + ", startDD=" + startDD + ", nowMM=" + nowMM + ", reg_date="
+				+ reg_date + ", start_date=" + start_date + ", end_date=" + end_date + ", todate=" + todate
+				+ ", todate2=" + todate2 + ", dds=" + dds + ", ff=" + ff + ", ff2=" + ff2 + ", no=" + no + ", price="
+				+ price + ", year1=" + year1 + ", year2=" + year2 + ", month1=" + month1 + ", month2=" + month2
+				+ ", isNums=" + isNums + "]";
 	}
-	
-	
-	
-	
+
+
 }

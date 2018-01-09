@@ -10,10 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import hta.manager.CfVo;
+import hta.manager.PayorderVo;
 import hta.model.ManagerData;
 import hta.model.Menu;
+import hta.model.ShopData;
 import hta.pay.model.PayVo;
 import hta.shop.model.ShopVo;
 import hta.user.model.UserVo;
@@ -27,24 +30,26 @@ public class ManagerController {
     MyProvider  provider;
     
     @Resource
-    ManagerData data;
+	ShopData data;
 
     
     @ModelAttribute("data")
-    ManagerData data(
+    ShopData data(
     		 @PathVariable String cate2,
             @PathVariable String service,
+            @RequestParam(value="page", required=false, defaultValue="1")Integer page,
            PayVo payVO,
            UserVo userVO,
            ShopVo shopVo,
            CfVo cfVO,
+           PayorderVo payorderVO,
             HttpServletRequest request
             ) {
         
     	
         data.setRedirect(false);
        data.setSubMenu(null);
- 
+       data.setNowPage(page);
         data.setCate1("manager");
         data.setCate2(cate2);
         data.setService(service);
@@ -67,9 +72,11 @@ public class ManagerController {
         	case "cf":
         		data.setDd(cfVO);
         		break;
-        	case "inpay":
-        		data.setDd(payVO);
+        	case "payorder":
+        		data.setDd(payorderVO);
         		break;
+        		
+        
         }
         
 
@@ -97,7 +104,8 @@ public class ManagerController {
         subMenu.get("manager").add(new Menu("user", "회원 관리", "list"));
         subMenu.get("manager").add(new Menu("shop", "가게 관리", "list"));
         subMenu.get("manager").add(new Menu("cf", "광고관리", "list"));
-        subMenu.get("manager").add(new Menu("inpay", "정산관리", "list"));
+        subMenu.get("manager").add(new Menu("payorder", "정산관리", "list"));
+        subMenu.get("manager").add(new Menu("cf", "광고비용관리", "inpay"));
         
 
        

@@ -16,7 +16,7 @@ public class ShopData {
 
 	String cate1,cate2, service, path="", depth="../../";
 	
-	Object dd,dd2,cart,review;
+	Object dd,dd2,cart,review,cfdetailimg;
 	
 	MenuChange menuChange;
 	CartList cartList;
@@ -33,6 +33,12 @@ public class ShopData {
 	int nowPage = 1;
 	int total;
 	
+	public Object getCfdetailimg() {
+		return cfdetailimg;
+	}
+	public void setCfdetailimg(Object cfdetailimg) {
+		this.cfdetailimg = cfdetailimg;
+	}
 	public int getStartPage() {
 		return (nowPage-1)/pageLimit*pageLimit+1;
 	}

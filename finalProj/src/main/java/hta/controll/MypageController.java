@@ -2,7 +2,11 @@ package hta.controll;
  
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 import javax.annotation.Resource;
@@ -16,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import hta.manager.CfRepository;
 import hta.manager.CfVo;
+import hta.manager.PayorderRepository;
+import hta.manager.PayorderVo;
 import hta.model.ManagerData;
 import hta.model.Menu;
 import hta.pay.model.PayRepository;
@@ -39,11 +45,17 @@ public class MypageController {
 	PayRepository paydao;
 	
 	@Resource
+	PayorderRepository payorderdao;
+	
+	
+	
+	@Resource
 	CfRepository cfdao;
 	
     UserVo vo;
     PayVo pvo;
     UserVo vv;
+    PayorderVo povo;
     
     CfVo cfvo;
    /* @Resource
@@ -56,6 +68,7 @@ public class MypageController {
         UserVo userVo,///각 카테고리별  bean을 가져옴
            PayVo payVo,
            CfVo cfVo,
+           PayorderVo poVo,
             HttpServletRequest request,
             HttpSession session
             ) {
@@ -76,7 +89,7 @@ public class MypageController {
         vo = userVo;
         vo.setUser_id(vv.getUser_id());
         pvo = payVo;
-        
+        povo =poVo;
         cfvo = cfVo;
  
         switch(data.getService())
@@ -105,6 +118,19 @@ public class MypageController {
 		cfreg();
 		break;
 		
+		case "mypagemesang":
+			mypagemesang();
+			break;
+			
+		case "mypagemesangsch":
+			mypagemesangsch();
+			break;
+		case "cf":
+			cf();
+			break;
+		case "cf2":
+			cf2();
+			break;
 		}
         
         
@@ -125,12 +151,12 @@ public class MypageController {
 		 
 		 subMenu.put("mypage", new ArrayList<>());
         
-        subMenu.get("mypage").add(new Menu("mypage", "내 정보", "list"));
-       // subMenu.get("mypage").add(new Menu("modify", "정보 수정", "modifyform"));
+        subMenu.get("mypage").add(new Menu("list", "내 정보", "list"));
+        subMenu.get("mypage").add(new Menu("modify", "정보 수정", "modifyform"));
         subMenu.get("mypage").add(new Menu("pay", "주문 내역", "paylist"));
-        System.out.println("\n\n\n\nMENU()\n\n\n"+vv.getGrade()+"\n\n\n\n");
+        
         if(vv.getGrade().equals("r")) {
-        	subMenu.get("mypage").add(new Menu("test", "매출정보", "TEST"));
+        	subMenu.get("mypage").add(new Menu("mypagemesang", "매출정보", "mypagemesang"));
         	subMenu.get("mypage").add(new Menu("cf", "광고신청", "cf"));
         }
         
@@ -167,10 +193,10 @@ public class MypageController {
 		
 		if(dao.idPwChk(vo)!=null)
 		{
-			//fileupload(vo, data.getRequest());
+			fileupload(vo, data.getRequest());
 			dao.modify(vo);
 			data.setDd(dao.detail(vo));
-			//data.getSession().setAttribute("loginuser", vo);
+			data.getSession().setAttribute("loginuser", vo);
 			
 		}
 		data.setPath("redirect:list");
@@ -203,6 +229,39 @@ public class MypageController {
 		data.setDd(vo.getUser_id());
 	}
 	
+	void cf() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
+		
+		Calendar today = Calendar.getInstance();
+		today.add(Calendar.MONTH, 1);
+		if(cfvo.getNowMM()==null) {
+			cfvo.setNowMM(sdf.format(today.getTime()));
+		}
+		
+		cfvo.setIsNums(cfdao.nonList(cfvo));
+		
+		
+			
+		ArrayList<String> dds = new ArrayList<>();
+		
+		for (int i = 0; i <3; i++) {
+			
+			dds.add(sdf.format(today.getTime()));
+			today.add(Calendar.MONTH, 1);
+		}
+		cfvo.setDds(dds);
+		data.setDd(cfvo);
+		
+		data.setDd2(cfdao.list());
+		
+	}
+	
+	
+	void cf2() {
+		data.setDd(cfvo);
+
+	}
+	
 	void reg() {
 	
 		System.out.println("진입확인"+vo);
@@ -211,9 +270,8 @@ public class MypageController {
 		dao.insert(vo);
 		
 		data.setRedirect(true);
-		data.setPath("redirect:view?user_id="+vo.getUser_id());
+		data.setPath("redirect:cf2?user_id="+vo.getUser_id());
 	}
-	
 	
 	void paylist() {
 
@@ -253,9 +311,9 @@ public class MypageController {
 		System.out.println("cfvo = "+cfvo);
 		//System.out.println(cfvo.getFf());
 		fileupload2(cfvo, data.getRequest());
-		cfdao.insert(cfvo);
+		cfdao.insert2(cfvo);
 		data.setRedirect(true);
-		data.setPath("redirect:list");
+		data.setPath("redirect:cf");
 		
 	}
 	
@@ -300,6 +358,31 @@ public class MypageController {
 		
 		
 	}
+	
+	void 	mypagemesang() {
+		
+		data.setDd(payorderdao.mypagepayorderlist(vv.getUser_id()));
+		
+	}
+	
+	
 
+	void mypagemesangsch() {
+		String old = povo.getYear1()+"-"+povo.getMonth1()+"-01";
+		String prn = povo.getYear2()+"-"+povo.getMonth2()+"-31";
+		Date date1,date2;
+		try {
+			date1 = new SimpleDateFormat("yyyy-MM-dd").parse(old);
+			date2 = new SimpleDateFormat("yyyy-MM-dd").parse(prn);
+			povo.setTodate(date1);
+			povo.setTodate2(date2);
+			System.out.println("\n\n\n\n"+povo+"\n\n\n");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		data.setDd(payorderdao.mypagemesangsch(povo));
+	}
     
 }

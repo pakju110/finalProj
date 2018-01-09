@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="payordermapper">
+
+   <select id="selectList" resultType="alispayorder">
+   		select * from payorder 
+   </select>
+ <!--   
+     <select id="resList" resultType="alispayorder">
+   		select * from payorder
+   </select> -->
+   
+  
+  <!-- 마이페이지 매출관리 로그인한 아이디 리스트 -->
+   <select id="mypagepayorderlist" resultType="alispayorder" parameterType="String">
+   select * from  payorder where rest_id = #{user_id}<!--where rest_id = #{vo}  and 
+ reg_date >=to_date('#{years1}-#{month1}-01 01:00:00', 'YYYY-MM-DD HH24:MI:SS')  and  
+ reg_date = to_date('#{years2}-#{month2}-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'); -->
+   </select>
+  
+<!-- 관리자 메뉴 매출관리 총리스트  -->
+    <select id="managerpayorderlistsch" resultType="alispayorder"  parameterType="alispayorder"  >	
+   		<![CDATA[select * from  payorder where
+ reg_date >= #{todate}  and  
+ reg_date <= #{todate2}
+ order by rest_id]]>
+   </select>
+   
+   
+ <select id="mypagemesangsch" resultType="alispayorder"  parameterType="alispayorder"  >	
+   		<![CDATA[select * from  payorder where rest_id =#{user_id} and
+ reg_date >= #{todate}  and  
+ reg_date <= #{todate2}]]>
+   </select>
+   
+
+   
+   <select id="schList" resultType="alispayorder">
+   	   select * from  payorder where rest_id = #{user_id} and 
+	   reg_date >=to_date('2017-01-01 01:00:00', 'YYYY-MM-DD HH24:MI:SS') <!--  and  
+ 	   reg_date <= to_date('2018-02-01 00:00:00', 'YYYY-MM-DD HH24:MI:SS'); -->
+   </select>
+   
+   
+<!--    <select id="selectList2" resultType="alispayorder" parameterType="String">
+   		select * from payorder where user_id = #{user_id}
+   </select>
+      <select id="restselectDetail" resultType="alispayorder" parameterType="alispayorder">
+   		select * from payorder where  rest_id = #{rest_id}
+   </select>
+   
+   
+   <select id="userselectDetail" resultType="alispayorder" parameterType="alispayorder">
+   select * from payorder where user_id = #{user_id}
+   </select>
+   
+    <delete id="delete" parameterType="alispayorder">
+   		delete from payorder where  rest_id = #{rest_id}
+   </delete>
+   
+   <delete id="modify" parameterType="alispayorder">
+   		update payorder set  title = #{menu}, price = #{ price} where  rest_id = #{ rest_id} and  user_id = #{ user_id}
+   </delete>
+   
+   <insert id="insertOne" parameterType="alispayorder">
+	   <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+	   		select max(id)+1 from payorder
+	   </selectKey>
+   	insert into payorder (rest_id,  user_id, reg_date,  menu, price,  count,phone,address,payorderhow,content) values 
+   	(#{rest_id},#{user_id},sysdate,#{menu},#{price}, #{count},#{phone},#{address},#{payorderhow},#{content})
+   
+   </insert>
+   
+   <select id="idPwChk" resultType="alispayorder" parameterType="alispayorder">
+   		select * from payorder where  rest_id = #{ rest_id} and  user_id = #{ user_id}
+   </select> -->
+
+</mapper>

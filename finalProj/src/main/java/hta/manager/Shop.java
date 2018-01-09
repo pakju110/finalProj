@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 
 import hta.controll.SubControll;
-import hta.model.ManagerData;
+import hta.model.ShopData;
 import hta.shop.model.MenuRepository;
 import hta.shop.model.ShopRepository;
 import hta.shop.model.ShopVo;
@@ -17,7 +17,7 @@ import hta.shop.model.ShopVo;
 public class Shop implements SubControll {
 
 	@Resource
-	ManagerData data;
+	ShopData data;
 	
 	@Resource
 	ShopRepository dao;
@@ -93,7 +93,7 @@ public class Shop implements SubControll {
 		
 	void view() {
 		System.out.println(sovo);
-		System.out.println("sovo view들어가라ㅏ 좀 ");
+		
 		System.out.println(dao.detail(sovo));
 		data.setDd(dao.detail(sovo));
 		data.setDd2(menu.list(sovo.getRest_id()));
@@ -122,15 +122,16 @@ public class Shop implements SubControll {
 		data.setDd2(menu.list(sovo.getRest_id()));
 	}
 
-
+	
 	void  list() {
-		data.setDd(dao.list());
-		System.out.println("shop list 통과");
-		System.out.println(dao.list());
+
+		data.setTotal(dao.wTotal());
+		data.setDd(dao.list(data));
 	}		
 	
 	void wlist() {
-		data.setDd(dao.wList());
+		data.setTotal(dao.wTotal());
+		data.setDd(dao.wList(data));
 		
 	}
 	

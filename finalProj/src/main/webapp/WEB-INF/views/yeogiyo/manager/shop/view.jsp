@@ -10,18 +10,18 @@
 <body>
 	<table border="">
 		<tr>
-			<td>글번호</td>
+			<td>아이디</td>
 			<td>${data.dd.rest_id}</td>
 		</tr>
 		<%-- <tr>
 			<td colspan="2"><jsp:include page="menu.jsp"/></td>
 		</tr> --%>
 		<tr>
-			<td>제목</td>
+			<td>이름</td>
 			<td>${data.dd.name}</td>
 		</tr>
 		<tr>
-			<td>글 내용</td>
+			<td>설명</td>
 			<td>${data.dd.contents}</td>
 		</tr>
 		<c:if test="${!empty data.dd.sysfile}">
@@ -33,11 +33,10 @@
 			</tr>
 		</c:if>
 		<tr>
-			<td colspan="2" align="right"><a
-				href="deleteForm?id=${data.dd.rest_id}">회원탈퇴</a> 
-				<a href="modifyForm?id=${data.dd.rest_id}">회원수정</a> <a href="list">리스트로</a>
-				<a href="menuinsertform?id=${data.dd.rest_id}">메뉴생성</a>
-				<a href="menumodifyForm?id=${data.dd.rest_id}">메뉴수정</a>
+			<td colspan="2" align="right">
+				<a href="modifyForm?rest_id=${data.dd.rest_id}">회원수정</a> 
+				<a href="list">리스트로</a>
+			
 			</td>
 		</tr>
 	</table>

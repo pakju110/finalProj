@@ -4,10 +4,10 @@
 
 <form action="cfapproval" method="post">
 	<table border="">
-	<input type="hidden" name="rest_id" value="${data.dd.id}"> 
+	<input type="hidden" name="rest_id" value="${data.dd.rest_id}"> 
 		<tr>
 			<td>¾ÆÀÌµğ</td>
-			<td>${data.dd.id}</td>
+			<td>${data.dd.rest_id}</td>
 		</tr>
 		<%-- <tr>
 			<td colspan="2"><jsp:include page="menu.jsp"/></td>

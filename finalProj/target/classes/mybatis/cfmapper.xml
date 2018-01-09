@@ -4,69 +4,53 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cf">
 
+
+	<select id="nonList" resultType="aliscf">
+		select * from cf where startdd = #{nowMM}	order by no
+	</select>
+
 	<select id="selectList" resultType="aliscf">
 		select * from cf
 	</select>
+	
 
+		<select id="selectnowcflist" resultType="aliscf">
+		select * from cf where start_date between to_date(trunc(sysdate,'mm') ,'yyyy-mm-dd hh24:mi:ss') and to_date(trunc(sysdate+1,'mm') ,'yyyy-mm-dd hh24:mi:ss')
+		
+		
+	</select>
+		<select id="selectendcflist" resultType="aliscf">
+select * from cf where end_date between to_date('1999-01-06 01:00:00', 'YYYY-MM-DD HH24:MI:SS') and to_date('2017-12-30 23:59:59', 'YYYY-MM-DD HH24:MI:SS')
+	</select>
+<!-- 
 	<select id="selectDetail" resultType="aliscf" parameterType="aliscf">
 		select * from cf where rest_id = #{rest_id}
-	</select>
+	</select> -->
 
 	<delete id="delete" parameterType="aliscf">
 		delete from cf where rest_id = #{rest_id}
 	</delete>
 
-
-<!-- 	<delete id="modify" parameterType="aliscf">
-		update inpay set user_address = #{user_address}, user_phone =
-		#{user_phone} where rest_id = #{rest_id} 
-	</delete>
-	
-	<delete id="grademodify" parameterType="aliscf">
-		update inpay set grade = #{grade} where rest_id = #{rest_id} 
-	</delete> -->
 	
 	
-	<insert id="insertOne" parameterType="aliscf">
-		insert into cf (rest_id, reg_date ,cf_sysimg,cf_oriimg,approval) values
-		(#{rest_id},sysdate,#{cf_sysimg,jdbcType=VARCHAR},#{cf_oriimg,jdbcType=VARCHAR},'w')
-	</insert>
-	
-	
-	<!-- <insert id="insertTwo" parameterType="aliscf">
-		<selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+	<insert id="insertTwo" parameterType="aliscf">
+		<!-- <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
 			select max(id)+1 from inpay
-		</selectKey>
-		insert into inpay (id, rest_id, reg_date, user_name,user_phone,
-		user_pw, user_address,grade,sysfile,orifile) values
-		(#{id},#{rest_id},sysdate,#{user_name},#{user_phone}, #{user_pw},
-		#{user_address},'w',#{sysfile},#{orifile})
+		</selectKey> -->
+	insert into cf (rest_id,reg_date,cf_sysimg,cf_oriimg,startdd,no,price) values
+	(#{rest_id},sysdate,#{cf_sysimg},#{cf_oriimg},#{nowMM},#{no},'50000')
+	
+	</insert>
 
-	</insert> -->
-
-
-
-
-
-	<!-- <sql id="sch"> <where> <if test="what!=null and what!=''"> ${kind} 
-		like '%'||#{what}||'%' </if> </where> </sql> <select id="selectListSch" resultType="UserVo" 
-		parameterType="boardSch"> select * from inpay <include refid="sch"/> 
-		</select> <sql id="sch2"> <if test="sss.what!=null and sss.what!=''"> ${sss.kind} 
-		like '%'||#{sss.what}||'%' or </if> </sql> -->
-
-	<!-- <select id="selectListSchList" resultType="UserVo" parameterType="boardSch"> 
-		select * from inpay <where> <if test="list!=null"> <foreach collection="list" 
-		item="sss"> <include refid="sch2"/> </foreach> 1!=1 </if> <if test="cnt!=null 
-		and cnt!=0"> <if test="list!=null"> or </if> <![CDATA[ cnt >= #{cnt} ]]> 
-		</if> </where> </select> -->
-
-
-
-
-	<!-- <update id="fileDelete" parameterType="UserVo"> update inpay set 
-		upfile = null where id = #{id} </update> -->
-
-
+	<select id="inpay" resultType="aliscf" parameterType="aliscf">
+		select * from cf where price = '50000' order by startDD
+	</select>
+	
+ <select id="inpaysch" resultType="aliscf" parameterType="aliscf">	
+   		<![CDATA[select * from cf where
+ reg_date >= #{todate}  and  
+ reg_date <= #{todate2}]]>
+   </select>
 
 
 </mapper>

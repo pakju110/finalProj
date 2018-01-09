@@ -1,6 +1,9 @@
 package hta.manager;
 
 import java.io.FileOutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import hta.controll.SubControll;
 import hta.down.model.DownVo;
 import hta.model.ManagerData;
+import hta.model.ShopData;
 import hta.notice.model.NoticeVO;
 import hta.shop.model.ShopRepository;
 import hta.shop.model.ShopVo;
@@ -23,10 +27,11 @@ import hta.user.model.UserRepository;
 public class Cf implements SubControll {
 
 	@Resource
-	ManagerData data;
+	ShopData data;
 	
 	@Resource
 	CfRepository dao;
+	
 	@Resource
 	ShopRepository sdao;
 	
@@ -49,18 +54,18 @@ public class Cf implements SubControll {
 		case "list":
 			list();
 			break;
-		case "wlist":
+		/*case "wlist":
 			wlist();
-			break;
+			break;*/
 		case "nowcflist":
 			nowcflist();
 			break;
 		case "endcflist":
 			endcflist();
 			break;
-			case "view":
+			/*case "view":
 				view();
-				break;
+				break;*/
 			case "modify":
 				modify();
 				break;
@@ -82,6 +87,15 @@ public class Cf implements SubControll {
 			case "cfapproval":
 				cfapproval();
 				break;
+			case "cfreg":
+				cfreg();
+				break;
+			case "inpay":
+				inpay();
+				break;
+			case "inpaysch":
+				inpaysch();
+		
 			
 		}
 		
@@ -134,9 +148,11 @@ public class Cf implements SubControll {
 		
 		
 		ShopVo svo= new ShopVo();
-		svo.setRest_id(data.getRequest().getParameter("Rest_id"));
+		svo.setRest_id(data.getRequest().getParameter("rest_id"));
 	
+		System.out.println("\n\n\n\ntest"+svo+"\n\n\n\ntest");
 		
+		System.out.println("\n\n\n\ntest"+sdao.detail(svo)+"\n\n\n\ntest");
 		//data.setCfdetailimg(data.getRequest().getParameter("cf_sysimg"));
 		//System.out.println("cf이미지!!!"+data.getRequest().getParameter("cf_sysimg"));
 		data.setCfdetailimg(dao.detail(vo));
@@ -173,10 +189,10 @@ public class Cf implements SubControll {
 
 		data.setDd(dao.list());
 	}
-	void  wlist() {
+	/*void  wlist() {
 
 		data.setDd(dao.wlist());
-	}
+	}*/
 	
 	void  nowcflist() {
 
@@ -199,18 +215,18 @@ public class Cf implements SubControll {
 		data.setDd(dao.list());
 		
 	}
-	/*void fileupload(CfVo vo, HttpServletRequest request)
+	void fileupload(CfVo vo, HttpServletRequest request)
 	{
 		
 		try {
-			vo.setOrifile(vo.getFf().getOriginalFilename());
-			String outPath = request.getRealPath("/resources/img");
-			outPath = "E:\\xp\\2017java\\spring\\joinSun\\src\\main\\webapp\\resources\\up";
-			outPath += "/"+vo.getOrifile();
+			vo.setCf_oriimg(vo.getFf().getOriginalFilename());
+			String outPath = request.getRealPath("/resources/cf");
+			outPath = "E:\\xp\\2017java\\spring\\joinSun\\src\\main\\webapp\\resources\\cf";
+			outPath += "/"+vo.getCf_oriimg();
 			
 			
-			vo.setOrifile(vo.getOrifile());
-			vo.setSysfile(vo.getOrifile());
+			vo.setCf_oriimg(vo.getCf_oriimg());
+			vo.setCf_sysimg(vo.getCf_oriimg());
 			
 			FileOutputStream fos = new FileOutputStream(outPath);
 			
@@ -224,7 +240,7 @@ public class Cf implements SubControll {
 		}
 		
 		
-	}*/
+	}
 	
 
 	
@@ -254,6 +270,37 @@ public class Cf implements SubControll {
 		return mav;
 	}
 	
+	void cfreg() {	
+		
+		fileupload(vo, data.getRequest());
+		dao.insert(vo);
+		
+		data.setRedirect(true);
+		data.setPath("redirect:cf");
+	}
+	void inpay() {
+		data.setDd(dao.inpay());
+	}
+	
+	
+	void inpaysch() {
+		String old = vo.getYear1()+"-"+vo.getMonth1()+"-01";
+		String prn = vo.getYear2()+"-"+vo.getMonth2()+"-31";
+		Date date1,date2;
+		try {
+			date1 = new SimpleDateFormat("yyyy-MM-dd").parse(old);
+			date2 = new SimpleDateFormat("yyyy-MM-dd").parse(prn);
+			vo.setTodate(date1);
+			vo.setTodate2(date2);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("인페이 검색"+vo);
+		System.out.println("인페이데이터디디"+data.getDd());
+		data.setDd(dao.inpaysch(vo));
+		
+	}
 
 	
 }

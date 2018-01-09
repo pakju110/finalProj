@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import hta.model.Menu;
+import hta.model.ShopData;
 import hta.model.ManagerData;
 
 import hta.user.model.UserVo;
@@ -25,13 +26,13 @@ public class UserController {
     MyProvider  provider;
     
     @Resource
-    ManagerData data;
+	ShopData data;
     
    /* @Resource
     TopMenu topmenu;*/
     
     @ModelAttribute("data")
-    ManagerData data(
+    ShopData data(
             @PathVariable String cate2,
             @PathVariable String service,
            UserVo userVo,///각 카테고리별  bean을 가져옴

@@ -28,6 +28,12 @@ public class ShopRepository {
 		return template.selectOne("shopmapper.allTotal");
 	}
 	
+	public Integer wTotal()
+	{
+		return template.selectOne("shopmapper.wTotal");
+	}
+	
+	
 	public List<ShopVo> list(ShopData shopData){
 		
 		return template.selectList("shopmapper.selectList", shopData);

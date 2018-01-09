@@ -1,6 +1,9 @@
 package hta.manager;
 
 import java.io.FileOutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -19,14 +22,15 @@ import hta.user.model.UserRepository;
 import hta.user.model.UserVo;
 
 @Service
-public class User implements SubControll {
+public class Payorder implements SubControll {
 
 	@Resource
 	ShopData data;
-	@Resource
-	UserRepository dao;
 	
-	UserVo vo;
+	@Resource
+	PayorderRepository dao;
+	
+	PayorderVo vo;
 	
 	
 	@Override
@@ -35,7 +39,7 @@ public class User implements SubControll {
 		// TODO Auto-generated method stub
 		
 		System.out.println("center 진입성공:"+data);
-		vo = (UserVo)data.getDd();
+		vo = (PayorderVo)data.getDd();
 		
 		
 		
@@ -44,7 +48,13 @@ public class User implements SubControll {
 			case "list":
 				list();
 				break;
-			case "view":
+			case "mypagemesangsch":
+				mypagemesangsch();
+				break;
+			case "schlist":
+				schlist();
+				break;
+			/*case "view":
 				view();
 				break;
 			case "modify":
@@ -64,13 +74,40 @@ public class User implements SubControll {
 				break;
 			case "grademodify":
 				grademodify();
-				break;
+				break;*/
 			
 		}
 		
 	}
+	
+	void schlist() {
+		String old = vo.getYear1()+"-"+vo.getMonth1()+"-01";
+		String prn = vo.getYear2()+"-"+vo.getMonth2()+"-31";
+		Date date1,date2;
+		try {
+			date1 = new SimpleDateFormat("yyyy-MM-dd").parse(old);
+			date2 = new SimpleDateFormat("yyyy-MM-dd").parse(prn);
+			vo.setTodate(date1);
+			vo.setTodate2(date2);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-	void delete() {
+		data.setDd(dao.managerpayorderlistsch(vo));
+	}
+	
+	void  list() {
+
+		data.setDd(dao.list());
+	}
+	
+	void  mypagemesangsch() {
+
+		data.setDd(dao.schlist(vo));
+	}
+
+/*	void delete() {
 		data.setRedirect(true);
 		
 		if(dao.idPwChk(vo)!=null)
@@ -144,10 +181,7 @@ public class User implements SubControll {
 	}
 
 	
-	void  list() {
-
-		data.setDd(dao.list());
-	}
+	
 	
 	void fileupload(UserVo vo, HttpServletRequest request)
 	{
@@ -178,7 +212,7 @@ public class User implements SubControll {
 	
 
 	
-	/*ModelAndView  modifySubmit(UserVo vo, HttpServletRequest request) {
+	ModelAndView  modifySubmit(UserVo vo, HttpServletRequest request) {
 
 		String url = "redirect:modifyForm";
 		
