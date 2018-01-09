@@ -21,7 +21,82 @@ public class ShopData {
 	MenuChange menuChange;
 	CartList cartList;
 	HttpSession session;
+
+	@Resource
+	ArrayList<Menu> topMenu;
 	
+	
+	ArrayList<Menu> subMenu;
+	
+	boolean redirect , btnGo = false;
+	int limit = 8, pageLimit =4;
+	int nowPage = 1;
+	int total;
+	
+	public int getStartPage() {
+		return (nowPage-1)/pageLimit*pageLimit+1;
+	}
+	public int getEndPage() {
+		int res = getStartPage()+pageLimit-1;
+		if(res>getTotalPage())
+			res=getTotalPage();
+		return  res;
+	}
+	
+	
+	public int getTotalPage() {
+		
+		int res = total/limit;	
+		if(total%limit!=0)
+			res++;	
+		
+		return res;
+	}
+	
+	
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal(int total) {
+		this.total = total;
+	}
+	public int getStartNum() {
+		return (nowPage-1)*limit+1;
+	}
+	public int getEndNum() {
+		return nowPage*limit;
+	}
+	public int getNowPage() {
+		return nowPage;
+	}
+	public void setNowPage(int nowPage) {
+		this.nowPage = nowPage;
+	}
+	public int getLimit() {
+		return limit;
+	}
+	public void setLimit(int limit) {
+		if(total < limit)
+			this.limit = total;
+		else
+		this.limit = limit;
+	}
+	public int getPageLimit() {
+		return pageLimit;
+	}
+	public void setPageLimit(int pageLimit) {
+		this.pageLimit = pageLimit;
+	}
+	
+	
+	public boolean isBtnGo() {
+		return btnGo;
+	}
+
+	public void setBtnGo(boolean btnGo) {
+		this.btnGo = btnGo;
+	}	
+
 	
 	public Object getReview() {
 		return review;
@@ -70,13 +145,6 @@ public class ShopData {
 		this.menuChange = menuChange;
 	}
 
-	@Resource
-	ArrayList<Menu> topMenu;
-	
-	
-	ArrayList<Menu> subMenu;
-	
-	boolean redirect;
 
 
 	public Object getDd2() {

@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-	<table>
-<tr>
-<td>회원가입</td>
-</tr>
-<tr>
-<td><a href="restjoin"><input type="button" value="기업용"></a></td>
-<td><a href="userjoin"><input type="button" value="개인용"></a></td>
-</tr>
-</table>
+
+<div class="both joinlist">
+	<a href="restjoin"><img src="../../../resources/img/icon_brand_02.gif"><span class="txt">기업회원</span></a>
+	<a href="userjoin"><img src="../../../resources/img/icon_brand_01.gif"><span class="txt">일반회원</span></a>
+</div>

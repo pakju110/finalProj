@@ -7,6 +7,9 @@ import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
 
+import hta.model.PathData;
+import hta.model.ShopData;
+
 
 
 @Service
@@ -15,18 +18,27 @@ public class ShopRepository {
 
 	@Resource
 	SqlSessionTemplate template;
+
+	public Integer selectTotal(String vo)
+	{
+		return template.selectOne("shopmapper.selectTotal",vo);
+	}
+	public Integer allTotal()
+	{
+		return template.selectOne("shopmapper.allTotal");
+	}
 	
-	public List<ShopVo> list(){
+	public List<ShopVo> list(ShopData shopData){
 		
-		return template.selectList("shopmapper.selectList");
+		return template.selectList("shopmapper.selectList", shopData);
 	}
-	public List<ShopVo> wList(){
+	public List<ShopVo> wList(ShopData shopData){
 		
-		return template.selectList("shopmapper.selectwList");
+		return template.selectList("shopmapper.selectwList", shopData);
 	}
-	public List<ShopVo> typelist(String vo){
+	public List<ShopVo> typelist(ShopData shopData){
 		
-		return template.selectList("shopmapper.cateList", vo);
+		return template.selectList("shopmapper.cateList", shopData);
 	}
 	
 	public ShopVo detail(ShopVo vo){

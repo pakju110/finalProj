@@ -7,9 +7,20 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 	<!-- <select id="selectList2" resultType="shopVo" parameterType="shopVo">
 		select * from shop where type = #{type}
 	</select> -->
-	
+	<select id="selectTotal" resultType="java.lang.Integer" parameterType="String">
+   		select count(*) from shop where type = #{type}
+   </select>
+   <select id="allTotal" resultType="java.lang.Integer">
+   		select count(*) from shop 
+   </select>
 	<select id="selectList" resultType="alishop">
-   		select * from shop where grade = 'r'
+   		<![CDATA[
+		  select * from 
+		(select rownum rnum, t1.* from 
+		(select * from shop  order by star) t1)
+		  where rnum >= #{startNum} and rnum<= #{endNum}
+		  
+		  ]]>
    </select>
       <select id="selectwList" resultType="alishop">
    		select * from shop where grade = 'w'
@@ -17,8 +28,11 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    <select id="wList" resultType="alishop">
    		select * from shop where grade = 'w'
    </select>
-   <select id="cateList" resultType="alishop" parameterType="String">
-   		select * from shop where type = #{type}
+   <select id="cateList" resultType="alishop" parameterType="shopData">
+   		<![CDATA[ select * from 
+		(select rownum rnum, t1.* from 
+		(select * from shop where type = #{cate2} order by star) t1)
+		  where rnum >= #{startNum} and rnum<= #{endNum} ]]>
    </select>
    
       <select id="selectDetail" resultType="alishop" parameterType="alishop">

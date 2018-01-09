@@ -48,40 +48,28 @@ public class Login implements SubControll {
 		
 		switch(data.getService())
 		{
-			case "loginform":
-				loginform();
-				break;
 			case "loginres":
 				loginres();
 				break;
 			case "logout":
 				logout();
 				break;
-			case "view":
-				view();
-				break;
-			case "reg":
-				reg();
+
 				
 				
 		}
 		
 	}
 
-	public String loginform() {
-		return "loginform";
-		
-	}
+
 	
-	String view() {
-		return "view";
-	}
+
 	void logout() {
 		//data.getRequest().removeAttribute("loginuser");
 
 		data.getSession().invalidate();
 		data.setRedirect(true);
-		data.setPath("redirect:loginform");
+		data.setPath("redirect:list");
 		
 	}
 	
@@ -101,55 +89,14 @@ public class Login implements SubControll {
 			data.getSession().setAttribute("loginuser", vo1);
 			data.setPath("redirect:view?user_id="+vo.getUser_id());
 		}else{
-			data.setPath("redirect:loginform");
+			data.setPath("redirect:list");
 		}
-		
-		//data.setDd(dao.detail(vo));
-	}
-	
-	
-	
-	
-	void reg() {
-		
-		System.out.println("진입확인"+vo);
-		
-		//fileupload(vo, data.getRequest());
-		dao.insert(vo);
-		
-		data.setRedirect(true);
-		data.setPath("redirect:login");
+
 	}
 	
 
+	
 
-	
-	/*ModelAndView  modifySubmit(UserVo vo, HttpServletRequest request) {
-
-		String url = "redirect:modifyForm";
-		
-		//vo.setUpfile(vo.getFf().getOriginalFilename());
-		
-		if(dao.modify(vo))
-		{
-			//fileupload(vo, request);
-			url = "redirect:detail";
-		}
-		ModelAndView mav = new ModelAndView(url);
-		
-		
-		mav.addObject("user_id", vo.getUser_id());
-		return mav;
-	}
-	
-	
-	ModelAndView  deleteForm(@ModelAttribute("vo") UserVo vo) {
-		
-		ModelAndView mav = new ModelAndView();
-		System.out.println("deleteForm:"+vo.getUser_id());
-		return mav;
-	}*/
-	
 
 	
 }

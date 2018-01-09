@@ -13,8 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import hta.model.Menu;
+import hta.model.PathData;
 import hta.model.ShopData;
 import hta.pay.model.PayRepository;
 import hta.shop.model.CartRepository;
@@ -62,6 +64,7 @@ public class ShopController {
 	@ModelAttribute("data")
 	ShopData data(@PathVariable String cate2,
 			@PathVariable String service,
+			@RequestParam(value="page", required=false, defaultValue="1")Integer page,
 			ShopVo shopVo, MenuVo menuVo,
 			CartVo cartVo,
 			ReviewVo reviewVo,
@@ -78,7 +81,7 @@ public class ShopController {
 		data.setRequest(request);
 		data.setSession(session);
 		data.setMenuChange(menuChange);
-
+		data.setNowPage(page);
 		menu();
 		data.setCart(cartVo);
 		data.setDd(shopVo);
@@ -102,9 +105,9 @@ public class ShopController {
 		switch (data.getService()) {
 		case "list":
 			if(!data.getCate2().equals("all")) {
-				list2();
+				list2(data);
 			}else {
-				list();
+				list(data);
 			}
 			
 			break;
@@ -433,11 +436,22 @@ public class ShopController {
 		data.setDd2(menu.list(sovo.getRest_id()));
 	}
 
-	void list() {
-		data.setDd(dao.list());
+	void list(ShopData shopData) {
+		//data.setDd(dao.list(shopData));
+//		data.setTotal(dao.selectTotal(data.getCate2()));
+		data.setTotal(dao.allTotal());
+		data.setDd(dao.list(shopData));
+		
 	}
-	void list2() {
-		data.setDd(dao.typelist(data.getCate2()));
+	void list2(ShopData shopData) {
+		System.out.println(shopData);
+		System.out.println();
+		System.out.println("\n\n\n\n\n"+dao.selectTotal(data.getCate2())+"\n\n\n\n\n");
+		data.setTotal(dao.selectTotal(data.getCate2()));
+		data.setDd(dao.typelist(shopData));
+		
+		//data.setDd(dao.list(shopData));
+		
 	}
 	
 	void fileupload(ShopVo vo, HttpServletRequest request) { // 파일 업로드 메소드 !!!!!!!!!!!!!! upfile = 파일정보,

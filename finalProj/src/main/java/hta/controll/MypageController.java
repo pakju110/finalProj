@@ -125,8 +125,8 @@ public class MypageController {
 		 
 		 subMenu.put("mypage", new ArrayList<>());
         
-        subMenu.get("mypage").add(new Menu("list", "내 정보", "list"));
-        subMenu.get("mypage").add(new Menu("modify", "정보 수정", "modifyform"));
+        subMenu.get("mypage").add(new Menu("mypage", "내 정보", "list"));
+       // subMenu.get("mypage").add(new Menu("modify", "정보 수정", "modifyform"));
         subMenu.get("mypage").add(new Menu("pay", "주문 내역", "paylist"));
         System.out.println("\n\n\n\nMENU()\n\n\n"+vv.getGrade()+"\n\n\n\n");
         if(vv.getGrade().equals("r")) {
