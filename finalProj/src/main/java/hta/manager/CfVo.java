@@ -13,11 +13,11 @@ import org.springframework.web.multipart.MultipartFile;
 @Alias("aliscf")
 public class CfVo {
 	String
-	sinchung,rest_id,approval,path="";
+	sinchung,rest_id,path="";
 	
 	String cf_oriimg="",cf_sysimg="", startDD,nowMM,payhow;
 	
-	Date reg_date,start_date,end_date,todate,todate2;;
+	Date reg_date,todate,todate2;;
 	
 	ArrayList<String> dds;
 	
@@ -30,9 +30,6 @@ public class CfVo {
 	Object isNums;
 	
 	
-	
-	
-
 
 
 	public String getPayhow() {
@@ -217,16 +214,6 @@ public class CfVo {
 	}
 
 
-	public String getApproval() {
-		return approval;
-	}
-
-
-	public void setApproval(String approval) {
-		this.approval = approval;
-	}
-
-
 	public String getCf_oriimg() {
 		return cf_oriimg;
 	}
@@ -257,26 +244,6 @@ public class CfVo {
 	}
 
 
-	public Date getStart_date() {
-		return start_date;
-	}
-
-
-	public void setStart_date(Date start_date) {
-		this.start_date = start_date;
-	}
-
-
-	public Date getEnd_date() {
-		return end_date;
-	}
-
-
-	public void setEnd_date(Date end_date) {
-		this.end_date = end_date;
-	}
-
-
 	public MultipartFile getFf2() {
 		return ff2;
 	}
@@ -286,16 +253,6 @@ public class CfVo {
 		this.ff2 = ff2;
 	}
 
-
-	@Override
-	public String toString() {
-		return "CfVo [sinchung=" + sinchung + ", rest_id=" + rest_id + ", approval=" + approval + ", cf_oriimg="
-				+ cf_oriimg + ", cf_sysimg=" + cf_sysimg + ", startDD=" + startDD + ", nowMM=" + nowMM + ", reg_date="
-				+ reg_date + ", start_date=" + start_date + ", end_date=" + end_date + ", todate=" + todate
-				+ ", todate2=" + todate2 + ", dds=" + dds + ", ff=" + ff + ", ff2=" + ff2 + ", no=" + no + ", price="
-				+ price + ", year1=" + year1 + ", year2=" + year2 + ", month1=" + month1 + ", month2=" + month2
-				+ ", isNums=" + isNums + "]";
-	}
 
 
 }

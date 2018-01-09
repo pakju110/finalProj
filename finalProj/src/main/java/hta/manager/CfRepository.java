@@ -23,19 +23,10 @@ public class CfRepository {
 	public List<CfVo> list() {
 		return template.selectList("cf.selectList");
 	}
-	
-	public List<CfVo> nowcflist() {
-		return template.selectList("cf.selectnowcflist");
-	}
-	public List<CfVo> endcflist() {
-		return template.selectList("cf.selectendcflist");
-	}
 
 	public CfVo detail(CfVo vo) {
 		return template.selectOne("cf.selectDetail", vo);
 	}
-	
-
 
 	public void insert(CfVo vo) {
 		template.insert("cf.insertOne", vo);
@@ -56,12 +47,7 @@ public class CfRepository {
 	public boolean cfapproval(CfVo vo) {
 		return template.update("cf.cfapproval", vo) > 0;
 	}
-	
-	
-	
-	public boolean grademodify(CfVo vo) {
-		return template.update("cf.grademodify", vo) > 0;
-	}
+
 
 	public boolean delete(CfVo vo) {
 		return template.delete("cf.delete", vo) > 0;

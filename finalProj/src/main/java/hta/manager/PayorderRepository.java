@@ -21,11 +21,7 @@ public class PayorderRepository {
 	public List<PayorderVo> list() {
 		return template.selectList("payordermapper.selectList");
 	}
-	/*
 	
-	public List<PayorderVo> reslist(String vo) {
-		return template.selectList("payordermapper.resList");
-	}*/
 	
 	
 	public List<PayorderVo> schlist(PayorderVo vo) {

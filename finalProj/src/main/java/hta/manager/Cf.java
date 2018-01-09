@@ -49,15 +49,6 @@ public class Cf implements SubControll {
       case "list":
          list();
          break;
-      /*case "wlist":
-         wlist();
-         break;*/
-      case "nowcflist":
-         nowcflist();
-         break;
-      case "endcflist":
-         endcflist();
-         break;
          case "view":
             view();
             break;
@@ -76,12 +67,7 @@ public class Cf implements SubControll {
          case "restreg":
             restreg();
             break;
-         case "grademodify":
-            grademodify();
-            break;
-         case "cfapproval":
-            cfapproval();
-            break;
+      
          case "cfreg":
             cfreg();
             break;
@@ -173,11 +159,7 @@ public class Cf implements SubControll {
    }
    
    
-   void grademodify() {
-      data.setRedirect(true);
-      data.setPath("redirect:list");
-      data.setDd(dao.grademodify(vo));
-   }
+  
 
    
    void  list() {
@@ -189,27 +171,10 @@ public class Cf implements SubControll {
       data.setDd(dao.wlist());
    }*/
    
-   void  nowcflist() {
-
-      data.setDd(dao.nowcflist());
-   }
+ 
    
    
-   void  endcflist() {
-
-      data.setDd(dao.endcflist());
-   }
-   
-   
-   void cfapproval() {
-      data.setDd(dao.cfapproval(vo));
-      
-      data.setRedirect(true);
-      data.setPath("redirect:list");
-      
-      data.setDd(dao.list());
-      
-   }
+ 
    void fileupload(CfVo vo, HttpServletRequest request)
    {
       
