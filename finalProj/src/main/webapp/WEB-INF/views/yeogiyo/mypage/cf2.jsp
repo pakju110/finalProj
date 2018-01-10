@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
+
 <script type="text/javascript">
 
 
@@ -16,14 +14,31 @@
  */
 </script>
 </head>
+
+
 <body>
+
+	<ul class="navi3">
+	<c:forEach items="${data.subMenu }" var="mm">
+		<c:choose>
+			<c:when test="${mm.name != data.cate2 }">
+				<li><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="m5_on"><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+</ul>
+
+
 	<form action="card " method="post" enctype="multipart/form-data">
 	<input type="hidden" name="rest_id" value="${loginuser.user_id}">
-		<table border="">
+		<table class="e_table2">
 		
 			<tr>
-			<td><input type="hidden" name="no" value="${data.dd.no}"></td>
-			<td>여기요${data.dd.no}번광고</td>
+			<td class="join_t1"><input type="hidden" name="no" value="${data.dd.no}"></td>
+			<td class="join_t2">여기요${data.dd.no}번광고</td>
 			
 
 			</tr>
@@ -64,10 +79,13 @@
 			<tr>
 
 				<td colspan="2" align="center">
-				<input type="submit" value="신청하기" />
-					<a href="../../mypage/cf/cf">취소</a></td>
+					<div class="bx_btn center">
+						<button class="btn type4">신청하기</button>
+						<a href="../../mypage/cf/cf" class="btn type5">취소</a>
+					</div>
+
+				</td>
 			</tr>
 		</table>
 	</form>
 </body>
-</html>
