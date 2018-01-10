@@ -63,35 +63,10 @@
 
 
 <div class="bx_btn center">
-	<a href="view?user_id=${loginuser.user_id}" class="btn type5">뒤로</a>
+	
 	<button class="btn type4">수정</button>
+	<a href="../mypage/list" class="btn type5">취소</a>
 </div>
 
 </form>
 
-
-<!--<form action="modify" method="post">
-	<input type="hidden" name="user_id" value="${loginuser.user_id}" />
-		<table border="">
-		
-			<tr>
-				<td>pw</td>
-				<td><input type="text" name="user_pw" /></td>
-			</tr>
-			<tr>
-				<td>전화번호</td>
-				<td><input type="text" name="user_phone"
-					value="${loginuser.user_phone}" /></td>
-			</tr>
-			<tr>
-				<td>주소</td>
-				<td><input type="text" name="user_address"
-					value="${loginuser.user_address}" /></td>
-			</tr>
-			<tr>
-
-				<td colspan="2" align="center"><input type="submit" value="수정" />
-					<a href="view?user_id=${loginuser.user_id}">뒤로</a></td>
-			</tr> 
-		</table>
-	</form> 	 -->
