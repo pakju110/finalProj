@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
 
 <script type="text/javascript">
 
@@ -22,14 +17,28 @@ function mmChange(){
 }
 
 </script>
-</head>
+
+
 <body>
 	
+	<ul class="navi3">
+	<c:forEach items="${data.subMenu }" var="mm">
+		<c:choose>
+			<c:when test="${mm.name != data.cate2 }">
+				<li><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="m5_on"><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+</ul>
+	
 	<input type="hidden" name="rest_id" value="${loginuser.user_id}">
-		<table border="">
+		<table class="e_table2">
 			<tr>
-			<td>광고가능여부</td>
-			<td>
+			<td class="join_t1">광고가능여부</td>
+			<td class="join_t2">
 			<c:forEach begin="1" end="3" var="no">
 				<c:set var="noNum" value="true"/>
 					<c:forEach items="${data.dd.isNums }" var="nums">
@@ -41,6 +50,7 @@ function mmChange(){
 						
 					</c:forEach>
 					<c:if test="${noNum }">
+					
 						<input type="button" onclick="reser(${no })" value="${no }번자리 신청가능">
 					</c:if>
 				</c:forEach></td>
@@ -72,13 +82,6 @@ function mmChange(){
 				<td>비용</td>
 				<td>${50000 }원</td>
 			</tr>
-		
-		
-			<tr>
-
-				
-			</tr>
 		</table>
 	
 </body>
-</html>

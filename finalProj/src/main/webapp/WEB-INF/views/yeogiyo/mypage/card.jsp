@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <body>
 <form action="cfreg" method="post" enctype="multipart/form-data">
 <input type="hidden" name="rest_id" value="${loginuser.user_id}">
@@ -13,9 +10,9 @@
 <input type="hidden" name="nowMM" value="${data.dd.nowMM }">
 <input type="hidden" name="cf_sysimg" value="${data.dd.cf_sysimg }">
 <input type="hidden" name="cf_oriimg" value="${data.dd.cf_oriimg }">
-<table border="1">
+	<table class="e_table2">
 <tr>
-<td colspan="2">신용카드</td>
+<td class="join_t1"colspan="2">신용카드</td>
 </tr>
 <tr>
 <td>카드선택</td>
