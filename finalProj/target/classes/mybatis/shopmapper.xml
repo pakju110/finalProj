@@ -96,7 +96,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    <update id="reviewshopmodify" parameterType="alishop">
    		update shop set 
    		star = #{star}
-   		where id = #{id}
+   		where rest_id = #{rest_id}
    </update>
    
    <select id="reviewcheck" resultType="alireview" parameterType="Integer">

@@ -19,21 +19,12 @@ $(document).ready(function() {
 		$(this).addClass('out');
 	});*/
 	$(".input").bind("keyup", function() {
-/*
-		var re = /[~!@\#$%^&*\()\=+']/gi;
-
-		var temp = $(".input").val();
-*/
 		if (!(event.keyCode >= 37 && event.keyCode <= 40)) {
 
 			var inputVal = $(this).val();
 
 			$(this).val(inputVal.replace(/[^a-z0-9]/gi, ''));
-			/*if (re.test(temp)) { // 
 
-				$(".input").val(temp.replace(re, ""));
-				alert("");
-			}*/
 		}
 
 	});
@@ -50,11 +41,12 @@ $(document).ready(function() {
 
 
 			});
-	
+	$(".addresscheck").click(function() {
 	navigator.geolocation.getCurrentPosition(function(position){
 	    console.log('latitude: ', position.coords.latitude);
 	    console.log('longitude: ', position.coords.longitude);
 	    });
+	});
 	$('#addcheck').click(function(){
 		var request = new Request();
 		alert($('#addr').val());
@@ -84,6 +76,8 @@ $(document).ready(function() {
 		
 	});
 });
+
+
 function Request() {
 	var requestParam = "";
 	this.getParameter = function(param) {
@@ -107,8 +101,9 @@ function add_item(obj) {
 	var request = new Request();
 	var hrf = "orderoption?rest_id=" + request.getParameter("rest_id") + "&no="
 			+ no;
-	option.action = hrf;
 	alert(hrf);
+	option.action = hrf;
+	
 	option.submit();
 }
 
@@ -122,7 +117,7 @@ function remove_item(obj) {
 	option.submit();
 }
 
-function remove_all(obj) {
+function remove_all() {
 	var request = new Request();
 	var hrf = "allremove?rest_id=" + request.getParameter("rest_id");
 	option.action = hrf;
@@ -132,7 +127,7 @@ function remove_all(obj) {
 
 function remove_menu(obj) {
 	var request = new Request();
-	var no = obj.value;
+	var no = obj;
 	var hrf = "menudelte?rest_id=" + request.getParameter("rest_id") + "&no="
 			+ no;
 	menumodi.action = hrf;

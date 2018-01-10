@@ -5,7 +5,7 @@
 
 	<form action="menuinsert" method="post" enctype="multipart/form-data" name="mif">
 		<c:forEach begin="0" end="${param.cnt}" step="1" varStatus="no">
-			<input type="hidden" value="${data.dd.id}" name="mm[${no.index }].id" />
+			<input type="hidden" value="${data.dd.rest_id}" name="mm[${no.index }].id" />
 			<p>Type<input type="text" name="mm[${no.index }].type"/></p>
 			<p>name<input type="text" name="mm[${no.index }].name"/></p>
 			<p>price<input type="text" name="mm[${no.index }].price" value="0"/></p>
