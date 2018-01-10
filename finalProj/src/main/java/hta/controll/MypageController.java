@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import hta.manager.CfRepository;
 import hta.manager.CfVo;
@@ -24,6 +25,10 @@ import hta.manager.PayorderRepository;
 import hta.manager.PayorderVo;
 import hta.model.ManagerData;
 import hta.model.Menu;
+import hta.model.PathData;
+import hta.model.ShopData;
+import hta.notice.model.NoticeRepository;
+import hta.notice.model.NoticeVO;
 import hta.pay.model.PayRepository;
 import hta.pay.model.PayVo;
 import hta.pay.model.PaylistVo;
@@ -40,6 +45,8 @@ public class MypageController {
     @Resource
     ManagerData data;
     
+
+    
 	@Resource
 	UserRepository dao;
 	@Resource
@@ -48,8 +55,9 @@ public class MypageController {
 	@Resource
 	PayorderRepository payorderdao;
 	
-	
-	
+	@Resource
+	NoticeRepository noticedao;
+
 	@Resource
 	CfRepository cfdao;
 	
@@ -59,6 +67,7 @@ public class MypageController {
     PayorderVo povo;
     PaylistVo plvo;
     CfVo cfvo;
+    NoticeVO novo;
    /* @Resource
     TopMenu topmenu;*/
     
@@ -71,6 +80,8 @@ public class MypageController {
            CfVo cfVo,
            PayorderVo poVo,
            PaylistVo plVo,
+           NoticeVO noVo,
+           @RequestParam(value="page", required=false, defaultValue="1")Integer page,
             HttpServletRequest request,
             HttpSession session
             ) {
@@ -87,6 +98,8 @@ public class MypageController {
         
         menu();
         
+       
+        
         vv = (UserVo)data.getSession().getAttribute("loginuser");
         vo = userVo;
         vo.setUser_id(vv.getUser_id());
@@ -94,6 +107,12 @@ public class MypageController {
         povo =poVo;
         cfvo = cfVo;
         plvo = plVo;
+        novo=noVo;
+        
+        
+       
+    		
+    		
         switch(data.getService())
 		{
 		case "list":
@@ -133,16 +152,27 @@ public class MypageController {
 		case "cf2":
 			cf2();
 			break;
+		case "qnalist":
+			qnalist(data);
+			break;
+		case "detail":
+		view();
+		break;
+		case "noticemodify":
+			noticemodify();
+			break;
+			
+		case "noticemodifyForm":
+			noticemodifyForm();
+			break;
 		}
-        
-        
-        
-        
-        
-        
+       
         return data;
         
     }
+    
+   
+    
     
     //hta.model에 Topmenu로 뺌
     void menu() {
@@ -162,8 +192,10 @@ public class MypageController {
         	subMenu.get("mypage").add(new Menu("cf", "광고신청", "cf"));
         }
         
-        
+        subMenu.get("mypage").add(new Menu("qna", "1:1문의", "qnalist"));
         subMenu.get("mypage").add(new Menu("delete", "회원 탈퇴", "deleteForm"));
+
+        
         
        
         
@@ -388,5 +420,108 @@ public class MypageController {
 
 		data.setDd(payorderdao.mypagemesangsch(povo));
 	}
+	
+	
+	
+void qnalist(ManagerData pathData) {
+		
+		//System.out.println(pathData);
+		data.setTotal(noticedao.selectTotal(data.getCate2()));
+		data.setDd(noticedao.qnalist(pathData));
+		
+		switch(data.getCate2()) {
+			case "fnq":
+			case "notice":
+				if(vo!=null && vo.getUser_id().equals("admin"))
+					data.setBtnGo(true);
+				break;
+				
+			case "qna":
+				if(vo!=null)
+					data.setBtnGo(true);
+				break;
+		}
+
+	}
+
+
+void view() {
+	
+	noticedao.addCount(novo);
+	data.setDd(noticedao.detail(novo));
+}
+
+void noticemodify() {
+	data.setRedirect(true);	
+	if(noticedao.noPwChk(novo)!=null)
+	{
+		fileDelete(novo);
+		fileupload3(novo, data.getRequest());
+		data.setDd(noticedao.modify(novo));
+	}
+	data.setPath("redirect:detail?no="+novo.getNo());
+	data.setDd(noticedao.detail(novo));
+}
+
+
+void  noticemodifyForm() {
+	System.out.println(noticedao.detail(novo));
+	data.setDd(noticedao.detail(novo));
+}
+
+void fileDelete(NoticeVO novo) 
+{ 
+	if(novo.getSysfile()!=null && ! novo.getSysfile().equals("")&& ! novo.getSysfile().equals("null")) 
+		{ 
+		
+		String path = "C:\\eclWork\\joinSun\\src\\main\\webapp\\resources\\up";
+		path += "\\"+vo.getSysfile();
+
+		File ff = new File(path); 
+			ff.delete(); 
+			noticedao.fileDelete(novo);
+		} 
+	data.setRedirect(true);
+	data.setPath("redirect:noticemodifyForm?no="+novo.getNo());
+	
+	}
+
+void fileupload3(NoticeVO vo, HttpServletRequest request) { // 파일 업로드 메소드 !!!!!!!!!!!!!! upfile = 파일정보,
+    // request = 업로드할 폴더정보
+    FileOutputStream fos;
+    vo.setOrifile(vo.getFf().getOriginalFilename());
+    vo.setSysfile(vo.getOrifile());
+    try {
+       String outPath = request.getRealPath("/resources/up");
+       outPath = "C:\\eclWork\\joinSun\\src\\main\\webapp\\resources\\up";
+       String realPath = outPath + "\\" + vo.getFf().getOriginalFilename();
+       File file = new File(realPath);
+       if (file.exists()) {
+          int count = 0;
+          int dot = vo.getOrifile().lastIndexOf(".");
+          String nameonly = vo.getOrifile().substring(0, dot);
+          String hwak = vo.getOrifile().substring(dot);
+
+          while (file.exists()) {
+             count++;
+             vo.setSysfile(nameonly + "_" + count + hwak);
+             realPath = outPath + "\\" + vo.getSysfile();
+
+             file = new File(realPath);
+          }
+       }
+
+       fos = new FileOutputStream(realPath);
+       vo.setOrifile(vo.getFf().getOriginalFilename());
+       fos.write(vo.getFf().getBytes());
+       
+       fos.close();
+    } catch (Exception e) {
+       // TODO Auto-generated catch block
+       e.printStackTrace();
+    }
+ }
+
+	
     
 }

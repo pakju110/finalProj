@@ -7,7 +7,9 @@ import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
 
+import hta.model.ManagerData;
 import hta.model.PathData;
+import hta.model.ShopData;
 
 
 @Service
@@ -15,11 +17,18 @@ public class NoticeRepository {
 
 	@Resource
 	SqlSessionTemplate template;
-	
+
 	public List<NoticeVO> list(PathData pathData)
 	{
 		return template.selectList("notice.typelist", pathData);
 	}
+	
+
+	public List<NoticeVO> qnalist(ManagerData pathData)
+	{
+		return template.selectList("notice.typelist", pathData);
+	}
+	
 	
 	public NoticeVO detail(NoticeVO vo)
 	{
@@ -28,7 +37,7 @@ public class NoticeRepository {
 	
 	public Integer selectTotal(String vo)
 	{
-		return template.selectOne("selectTotal",vo);
+		return template.selectOne("notice.selectTotal",vo);
 	}
 	
 	public void insert(NoticeVO vo)
