@@ -92,7 +92,7 @@
 	<c:if
 		test="${loginuser.user_id == 'admin' || loginuser.user_id == data.dd.id}">
 		<a href="deleteForm?no=${data.dd.no }">삭제</a>
-		<a href="modifyForm?no=${data.dd.no }" a>수정</a>
+		<a href="modifyForm?no=${data.dd.no }">수정</a>
 	</c:if>
 	<a href="list">리스트로</a>
 </div>

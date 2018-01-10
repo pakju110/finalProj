@@ -9,7 +9,7 @@
 </head>
 <body>
 	<form name="menumodi" action="menumodify" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="id" value="${data.dd.id }" />
+		<input type="hidden" name="rest_id" value="${data.dd.rest_id }" />
 		<c:forEach items="${data.dd2}" var="me" varStatus="no">
 			<div>
 			<input type="hidden" value="${me.no}" name="mm[${no.index }].no" />

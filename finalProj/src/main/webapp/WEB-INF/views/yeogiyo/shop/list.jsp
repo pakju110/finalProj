@@ -22,8 +22,11 @@
             </div>
             </c:forEach>
             </div>
+            <c:if test="${loginuser.grade == 'w'}">
             <div class="bx_btn notice"><a href="registerForm" class=" btn type4">가게 등록</a></div>
+            </c:if>
 <div class="bx_pagebtn">
+
 			<c:if test="${data.startPage>1 }">
 				<a href="?page=1">[처음으로]</a>
 				<a href="?page=${data.startPage-1 }" class="btn">&gt;</a>

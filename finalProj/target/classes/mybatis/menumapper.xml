@@ -24,7 +24,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    
    <delete id="modify" parameterType="alimenu">
    		update menu set  name = #{name}, 
-   		price = #{price}, type = #{type},
+   		price = #{price},
    		<!-- orifile = #{orifile}, sysfile = #{sysfile}, --> state = #{state}
    		 where id = #{id} and no = #{no}
    </delete>
@@ -36,7 +36,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    	insert into menu 
    	(id, no, name, price, type, orifile, sysfile, state)
    	values
-   	(#{id},#{no}, #{name}, #{price}, #{type}, #{orifile,jdbcType=VARCHAR}, #{sysfile,jdbcType=VARCHAR}, #{state})
+   	(#{id},#{no}, #{name}, #{price}, 'g', #{orifile,jdbcType=VARCHAR}, #{sysfile,jdbcType=VARCHAR}, #{state})
    
    </insert>
    
