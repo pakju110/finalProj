@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import hta.model.Menu;
 import hta.model.PathData;
 import hta.model.ShopData;
+import hta.notice.model.NoticeVO;
 import hta.pay.model.PayRepository;
 import hta.shop.model.CartRepository;
 import hta.shop.model.CartVo;
@@ -220,11 +221,12 @@ public class ShopController {
 
 		for (int i = 0; i < res.size(); i++) {
 			MenuVo vo = res.get(i);
+			MenuVo vo2 = menu.detail(vo);
 			if(vo.getFf() != null)
 				fileupload2(vo, data.getRequest());
 			if(vo.getSysfile()!=null) 
 	 		{ 
-				fileDelete(vo.getSysfile());
+				fileDelete(vo2.getSysfile());
 				
 	 		} 
 
@@ -421,16 +423,23 @@ public class ShopController {
 	}
 
 	void modify() {
-
+		System.out.println("\n\n\n\n" + sovo);
 		data.setRedirect(true);
-
-		if (dao.idPwChk(sovo) != null) {
-			fileDelete(dao.idPwChk(sovo).getSysfile());
+	
+		
+		ShopVo fv = dao.detail(sovo);
+		if(sovo.getFf() != null) {
 			fileupload(sovo, data.getRequest());
-			dao.modify(sovo);
-			//data.setDd(dao.modify(sovo));
 		}
-		// data.setPath("redirect:view?id="+sovo.getId());
+		if(sovo.getSysfile()!=null) 
+ 		{ 
+			fileDelete(fv.getSysfile());
+			
+ 		} 
+		dao.modify(sovo);
+		
+			
+			
 
 		data.setPath("redirect:view?rest_id=" + sovo.getRest_id());
 		data.setDd(dao.detail(sovo));
@@ -572,14 +581,21 @@ public class ShopController {
 	         e.printStackTrace();
 	      }
 	}
-	public void fileDelete(String k)
+	void fileDelete(String k)
 	{
 		if(k!=null)
 		{
-			File ff = new File( "C:\\Users\\pakju\\git\\finalProj\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up"+k);
+
+			String path = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up";
+			path += "\\"+k;
+	
+			File ff = new File(path); 
+
 			ff.delete();
 		}
 	}
+	
+
 	void test() {
 		/* data.setDd(oppdao.list(0)); */
 	}

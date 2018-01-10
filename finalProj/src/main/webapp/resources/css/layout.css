@@ -338,9 +338,13 @@
 .shop.view > .right .bx_con .btn.type6 { position: absolute; left:0; bottom:0;}
 .shop.view .cart { padding:5px 10px; width:280px; height:20px;}
 .shop.view .cart:after,.shop.view > .left > .bx_cen .menu a:after { contents:""; display: block; clear: both;}
-.shop.view .cart > * { float:right;}
+
+.shop.view .cart > .txt {float:left;}
+.shop.view .cart > p { float:right;}
+
+
 .shop.view .cart > p a {padding:0 5px;}
-.shop.view .cart .txt { float:left; width:50px;}
+.shop.view .cart .txt { float:left; }
 .bx_review { padding:20px 0; }
 .bx_review .h { padding-bottom:10px; font-size: 18px; font-weight: bold; color:#333;}
 .bx_review .bx_btn.txt_right {padding:10px 0;}
