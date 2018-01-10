@@ -19,8 +19,8 @@
 <body>
 <table class="e_table2">
 		<tr>
-			<td>아이디</td>
-			<td>${data.dd.rest_id}</td>
+			<td class="join_t1">아이디</td>
+			<td class="join_t1">${data.dd.rest_id}</td>
 		</tr>
 		<%-- <tr>
 			<td colspan="2"><jsp:include page="menu.jsp"/></td>

@@ -18,11 +18,11 @@
 <body>
 	<form action="grademodify" method="post">
 		<input type="hidden" value="${data.dd.user_id }" name="user_id">
-		<table border="">
+	<table class="e_table2">
 
 			<tr>
-				<td>아이디</td>
-				<td>${data.dd.user_id }</td>
+				<td  class="join_t1">아이디</td>
+				<td  class="join_t1">${data.dd.user_id }</td>
 			</tr>
 			<tr>
 				<td>이름</td>

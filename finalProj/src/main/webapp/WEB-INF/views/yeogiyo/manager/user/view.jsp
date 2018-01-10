@@ -21,7 +21,7 @@
 <table class="e_table2">
 		<tr>
 			<td class="join_t1">id</td>
-			<td class="join_t2">${data.dd.user_id}</td>
+			<td class="join_t1">${data.dd.user_id}</td>
 		</tr>
 		<tr>
 			<td>°¡ÀÔÀÏ</td>

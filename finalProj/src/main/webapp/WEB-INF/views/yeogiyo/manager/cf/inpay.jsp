@@ -57,8 +57,8 @@
       </c:forEach>
       </select>
       월
-      
-      <input type="submit" value="검색">
+  
+    <button class="btn type2">검색</button>
       
       </form>
       </td>

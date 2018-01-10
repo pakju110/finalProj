@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+
+
 <ul class="navi3">
 	<c:forEach items="${data.subMenu }" var="mm">
 		<c:choose>
@@ -63,6 +65,7 @@
 
 	
 		<button class="btn type4">검색</button>
+		<!-- <button class="btn type5"><a href="../down">다운로드</a></button> -->
 			</td>	
 		</tr>
 	

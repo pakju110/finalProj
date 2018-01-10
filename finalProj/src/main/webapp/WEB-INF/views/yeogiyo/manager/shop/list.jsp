@@ -23,15 +23,15 @@
 			<td class="join_t1" colspan="2"><a href="wlist"><b>신청대기목록</b></a></td>
 		</tr>
 		<tr>
-			<td>글번호</td>
-			<td>등록일</td>
+			<td>ID</td>
+			<td>가게이름</td>
 			<td>이름</td>
 		</tr>
 		<c:forEach items="${data.dd}" var="vo">
 			<tr>
-				<td>${vo.rest_id}</td>
+				<td><a href="view?rest_id=${vo.rest_id}&ct=0">${vo.rest_id}</a></td>
 				<td>${vo.name}</td>
-				<td><a href="view?rest_id=${vo.rest_id}&ct=0">${vo.name}</a></td>
+				<td>${vo.name}</td>
 			</tr>
 		</c:forEach>
 		

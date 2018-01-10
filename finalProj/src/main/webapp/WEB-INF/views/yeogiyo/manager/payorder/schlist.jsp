@@ -17,17 +17,13 @@
 </ul>
 
 <body>
-	<table border="">
+<table class="e_table2">
 	
-		<tr>
-			<td>가게명</td>
-			<td>날짜</td>
-			<td>가격</td>
-		</tr>
+	
 		
 		<tr>
 		
-		<td colspan="3">
+		<td  class="join_t1" colspan="3">
 		
 		
 		<form action="schlist" method="post">
@@ -67,13 +63,18 @@
 		</select>
 		월
 		
-		<input type="submit" value="검색">
+	 <button class="btn type2">검색</button>
 		</form>
 		</td>
-		
-		
-	
 		</tr>
+		
+			<tr>
+			<td>가게명</td>
+			<td>날짜</td>
+			<td>가격</td>
+		</tr>
+		
+		
 		<c:set value="difngidfgon444" var="rest_id"/>
 		<c:set value="0" var="price"/>	
 		<c:forEach items="${data.dd}" var="vo" varStatus="no">
@@ -105,7 +106,7 @@
 				<tr>
 						<td colspan="2">${rest_id}</td>
 						
-						<td>${price }</td>
+						<td> ${price }</td>
 			 
 				</tr>
 			</c:if>

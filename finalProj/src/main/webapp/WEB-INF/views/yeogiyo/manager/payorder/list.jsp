@@ -22,7 +22,7 @@
 		
 		
 		<tr>
-		<td class="join_t1"colspan="3">
+		<td class="join_t1" colspan="3">
 		<form action="schlist" method="post">
 		<select name="year1">
 		<option value="2017">2017</option>
@@ -60,7 +60,7 @@
 		</select>
 		월
 		
-		<input type="submit" value="검색">
+	 <button class="btn type2">검색</button>
 		</form>
 		</td> 
 		</tr>
@@ -74,7 +74,7 @@
 		<c:forEach items="${data.dd}" var="vo">
 			<c:set var="pricetotal" value="${vo.price + sum}"/>
 			<tr>
-				<td>${vo.rest_id}</td>
+				<td >${vo.rest_id}</td>
 				<td><fmt:formatDate value="${vo.reg_date}" pattern="yyyy-MM-dd"/></td>
 				<td>${vo.price }</td>
 				
