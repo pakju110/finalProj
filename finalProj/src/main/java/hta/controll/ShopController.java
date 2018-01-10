@@ -220,8 +220,17 @@ public class ShopController {
 
 		for (int i = 0; i < res.size(); i++) {
 			MenuVo vo = res.get(i);
-			fileDelete(menu.idPwChk(vo).getSysfile());
-			fileupload2(vo, data.getRequest());
+			if(vo.getFf() != null)
+				fileupload2(vo, data.getRequest());
+			if(vo.getSysfile()!=null) 
+	 		{ 
+				fileDelete(vo.getSysfile());
+				
+	 		} 
+
+			
+			
+			
 			menu.modify(vo);
 			System.out.println(res.get(i));
 
@@ -565,7 +574,7 @@ public class ShopController {
 	}
 	public void fileDelete(String k)
 	{
-		if(k!=null &&!k.equals("")&& !k.equals("null"))
+		if(k!=null)
 		{
 			File ff = new File( "C:\\Users\\pakju\\git\\finalProj\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up"+k);
 			ff.delete();

@@ -12,47 +12,36 @@
 			<c:choose>
 				<c:when test="${no.index == 0 }">
 					<tr>
-						<td colspan="2" class="join_t1">메뉴${no.index}<input
+						<td colspan="2" class="join_t1">메뉴${no.index + 1}<input
 							type="hidden" name="mm[${no.index }].state" value="on" /><input
 							type="hidden" value="${data.dd.rest_id}"
 							name="mm[${no.index }].id" /></td>
 					</tr>
-					<tr>
-						<th>NAME</th>
-						<td><input type="text" name="mm[${no.index }].name" /></td>
-					</tr>
-					<tr>
-						<th>PRAICE</th>
-						<td><input type="text" name="mm[${no.index }].price"
-							value="0" class="noman" /></td>
-					</tr>
-					<tr>
-						<th>IMG</th>
-						<td><input type="file" name="mm[${no.index }].ff" /></td>
-					</tr>
+
 				</c:when>
 				<c:otherwise>
 					<tr>
-						<td colspan="2" class="join_t2">메뉴${no.index}<input
+						<td colspan="2" class="join_t2">메뉴${no.index +1}<input
 							type="hidden" name="mm[${no.index }].state" value="on" /><input
 							type="hidden" value="${data.dd.rest_id}"
 							name="mm[${no.index }].id" /></td>
 					</tr>
-					<tr>
-						<th>NAME</th>
-						<td><input type="text" name="mm[${no.index }].name" /></td>
-					</tr>
-					<tr>
-						<th>PRAICE</th>
-						<td><input type="text" name="mm[${no.index }].price"
-							value="0" class="noman" /></td>
-					</tr>
-					<tr>
-						<th>IMG</th>
-						<td><input type="file" name="mm[${no.index }].ff" /></td>
-					</tr>
+
 				</c:otherwise>
 			</c:choose>
+			<tr>
+				<th>NAME</th>
+				<td><input type="text" name="mm[${no.index }].name" /></td>
+			</tr>
+			<tr>
+				<th>PRAICE</th>
+				<td><input type="text" name="mm[${no.index }].price" value="0"
+					class="noman" /></td>
+			</tr>
+			<tr>
+				<th>IMG</th>
+				<td><input type="file" name="mm[${no.index }].ff" /></td>
+			</tr>
 		</c:forEach>
 
 	</table>

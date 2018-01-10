@@ -25,7 +25,11 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    <delete id="modify" parameterType="alimenu">
    		update menu set  name = #{name}, 
    		price = #{price},
-   		<!-- orifile = #{orifile}, sysfile = #{sysfile}, --> state = #{state}
+   		<if test="sysfile!=null and sysfile!=''"> 
+   		orifile = #{orifile,jdbcType=VARCHAR},
+   		 sysfile = #{sysfile,jdbcType=VARCHAR}, 
+   		 </if>
+   		 state = #{state}
    		 where id = #{id} and no = #{no}
    </delete>
    
