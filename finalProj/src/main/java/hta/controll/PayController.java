@@ -71,6 +71,9 @@ public class PayController {
 			case "list":
 				list();
 				break;
+			case "next1":
+				next1();
+				break;
 			case "reg":
 				reg();
 				break;
@@ -134,6 +137,8 @@ public class PayController {
     		
     		
     	}
+    	
+    	
     	public String timepay() {
 			CartVo cavo = new CartVo();
     		cavo.setId(uservo.getUser_id());
@@ -144,7 +149,15 @@ public class PayController {
     	void notpay() {
     		data.setRedirect(true);
     		data.setPath("redirect:notpay");	
-    	}	
+    	}
+    	
+    	void next1() {
+    		CartVo cavo = new CartVo();
+    		cavo.setId(uservo.getUser_id());
+    		cavo.setRest_id(orvo.getRest_id());
+    		data.setCart(cart.list(cavo));
+    		data.setDd(orvo);
+    	}
     	void reg() {
         	
     		System.out.println("진입확인"+orvo);

@@ -359,6 +359,39 @@
 .bx_review .review p:first-child + p { padding:5px 0; color:#e60000;}
 .bx_review .review p img { max-width: 100%;}
 .bx_review .review .txt_con {padding:5px 0;}
+
+
+
+
+/*결재창*/
+
+.wrap.paycon { padding:60px 10px 10px 10px; background: #fff;}
+.payh { position:absolute; top:0; left:0; width:100%; height: 50px; line-height: 50px; background:#e60000; color:#fff; font-size: 18px; font-weight: bold; text-align: center; box-sizing: border-box; }
+
+
+.paytable {}
+
+.paytable { width:100%; box-sizing:border-box; background: #fff;}
+.paytable th { padding-left:10px; height:43px; border:1px solid #e7e7e7; border-top:none; background:#fafafa; font-family:dotum; text-align:left; color:#454545; letter-spacing:-1px; box-sizing:border-box;}
+.paytable th.th1 { background: #ddd;}
+.paytable td { padding-left:10px; height:43px; border:1px solid #e7e7e7; border-top:none;	}
+.paytable td.p0 {padding:0; box-sizing: border-box;}
+
+.paytable input[type="text"] { width:98%;}
+.paytable .card input[type="text"] { width:22%;}
+.paytable .card2 input[type="text"] { width:47%;}
+.paytable textarea { padding:10px; width:423px; height:100px;}
+
+.payclear .bx_btn { padding-bottom: 30px;}
+.payclear > * { padding:10px 0; font-size: 24px; color: #333; text-align: center;}
+
+
+
+
+
+
+
+
 /*----------페이징-------------*/
 .bx_pagebtn {padding:10px 0; text-align: center;}
 .bx_pagebtn a { margin:2px; height: 20px; line-height: 20px;}
@@ -367,8 +400,10 @@
 
 .wrap .bx_btn.notice { padding:10px 0 0 0;  text-align: right;}
 .wrap .bx_btn.center { padding:10px 0 0 0;  text-align: center;}
+.wrap .bx_btn.center .btn { margin: 0 5px;}
 .wrap .bx_btn.txt_right {text-align: right;}
 .wrap .bx_btn.txt_right .btn { margin-left:5px;}
+
 .wrap .btn.type1 {
 	background: none;
     color: #fff;
@@ -445,4 +480,6 @@
 	
 	
 }
+
+
 /*-------------------------------------    */

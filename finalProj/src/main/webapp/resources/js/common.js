@@ -4,7 +4,9 @@
  */
 
 
-
+function close(){
+	myWindow.close();  
+}
 function Request() {
 	var requestParam = "";
 	this.getParameter = function(param) {
