@@ -168,8 +168,14 @@ public class MypageController {
 		case "card":
         	card();
         	break;
+		case "insertForm":
+			insertForm();
+			break;
+		
+            case "insert":
+				insert();
+				break;
 		}
-        
        
         return data;
         
@@ -498,7 +504,7 @@ void fileupload3(NoticeVO vo, HttpServletRequest request) { // 파일 업로드 메소�
     vo.setSysfile(vo.getOrifile());
     try {
        String outPath = request.getRealPath("/resources/up");
-       outPath = "C:\\eclWork\\joinSun\\src\\main\\webapp\\resources\\up";
+       outPath = "C:\\Users\\user\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up";
        String realPath = outPath + "\\" + vo.getFf().getOriginalFilename();
        File file = new File(realPath);
        if (file.exists()) {
@@ -532,6 +538,23 @@ void card() {
 	data.setDd(cfvo);
 		
 	}
+void insertForm() {
 	
+data.setDd(novo);
+}
+
+void insert() {
+	
+	
+	fileupload3(novo, data.getRequest());
+		
+	novo.setId(vo.getUser_id());
+	novo.setPname(vo.getUser_name());
+	noticedao.insert(novo);
+	
+	data.setRedirect(true);
+	data.setPath("redirect:detail?no="+novo.getNo());
+	
+}
     
 }

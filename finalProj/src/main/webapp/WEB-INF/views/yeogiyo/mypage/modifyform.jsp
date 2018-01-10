@@ -2,7 +2,18 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<ul class="navi3">
+		<c:forEach items="${data.subMenu }" var="mm">
+			<c:choose>
+				<c:when test="${mm.name != data.cate2 }">
+					<li><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
+				</c:when>
+				<c:otherwise>
+					<li class="m5_on"><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+	</ul>
 
 <script type="text/javascript">
 	function fileDelete() {
@@ -14,23 +25,10 @@
 	}
 </script>
 
-<ul class="navi3">
-	<c:forEach items="${data.subMenu }" var="mm">
-		<c:choose>
-			<c:when test="${mm.name != data.cate2 }">
-				<li><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
-			</c:when>
-			<c:otherwise>
-				<li class="m5_on"><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
-			</c:otherwise>
-		</c:choose>
-	</c:forEach>
-</ul>
 <form action="modify" method="post">
 	<table class="e_table2">
 		<tbody>
 			<tr>
-
 				<th class="join_t1"><p class="th_rel">
 						<label for="et4">ID</label>
 					</p></th>
