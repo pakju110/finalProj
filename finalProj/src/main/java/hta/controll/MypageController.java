@@ -165,7 +165,11 @@ public class MypageController {
 		case "noticemodifyForm":
 			noticemodifyForm();
 			break;
+		case "card":
+        	card();
+        	break;
 		}
+        
        
         return data;
         
@@ -346,9 +350,10 @@ public class MypageController {
 	void cfreg() {
 		System.out.println("cfvo = "+cfvo);
 		//System.out.println(cfvo.getFf());
-		fileupload2(cfvo, data.getRequest());
+		
 		cfdao.insert2(cfvo);
 		data.setRedirect(true);
+		
 		data.setPath("redirect:cf");
 		
 	}
@@ -360,7 +365,7 @@ public class MypageController {
 		try {
 			//cfvo.setCf_oriimg(cfvo.getFf().getOriginalFilename());
 			String outPath = request.getRealPath("/resources/cf");
-			outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\cf";
+			outPath = "C:\\Users\\user\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\cf";
 			String realPath = outPath+ "\\"+cfvo.getCf_oriimg();
 			File file = new File(realPath);
 			 if (file.exists()) {
@@ -474,7 +479,7 @@ void fileDelete(NoticeVO novo)
 	if(novo.getSysfile()!=null && ! novo.getSysfile().equals("")&& ! novo.getSysfile().equals("null")) 
 		{ 
 		
-		String path = "C:\\eclWork\\joinSun\\src\\main\\webapp\\resources\\up";
+		String path = "C:\\Users\\user\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\cf";
 		path += "\\"+vo.getSysfile();
 
 		File ff = new File(path); 
@@ -521,7 +526,12 @@ void fileupload3(NoticeVO vo, HttpServletRequest request) { // 파일 업로드 메소�
        e.printStackTrace();
     }
  }
-
+void card() {
+	
+	fileupload2(cfvo, data.getRequest());
+	data.setDd(cfvo);
+		
+	}
 	
     
 }
