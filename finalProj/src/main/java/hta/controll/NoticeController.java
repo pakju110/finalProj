@@ -227,6 +227,7 @@ public class NoticeController {
 	void typelist(PathData pathData) {
 		
 		//System.out.println(pathData);
+		System.out.println(dao.selectTotal(data.getCate1())+"\n\n\n\n\n\n\n\n\n");
 		data.setTotal(dao.selectTotal(data.getCate1()));
 		data.setDd(dao.list(pathData));
 		

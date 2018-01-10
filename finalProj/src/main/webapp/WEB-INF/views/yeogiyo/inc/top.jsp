@@ -7,7 +7,7 @@
 	<div class="bx_tp">
 		<div class="con">
 			<h1>
-				<a href="#"><img src="../../../resources/img/logo.png" alt="여기여"></a>
+				<a href="${data.depth}shop/all/list"><img src="../../../resources/img/logo.png" alt="여기여"></a>
 			</h1>
 			<div class="bx_login">
 			<c:if test="${loginuser.user_id == null}">
@@ -35,9 +35,9 @@
 	<c:if test="${data.cate1 == 'shop' }">
 		<div class="bx_serch">
 			<div class="bx_con">
-				<form action="serchreg">
-					<a href="javascript:serch1"><img src="../../../resources/img/ico/btn_serch1.png"></a>
-					<p><input type="text" id="serch" name="serch" class="serch_input"><a href="javascript:serch2" class="btn_serch">검색</a></p>
+				<form action="serchlist" name="adressserch" method="post" id="adressserch">
+					<a href="javascript:;" class="btn_xyserch"><img src="../../../resources/img/ico/btn_serch1.png"></a>
+					<p><input type="text" id="serch" name="serch" class="serch_input" value="${param.pramaddr }"><a href="javascript:;" class="btn_serch btn_addrserch">검색</a></p>
 				</form>
 			</div>
 		</div>

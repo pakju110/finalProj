@@ -4,7 +4,7 @@ import org.apache.ibatis.type.Alias;
 import org.springframework.web.multipart.MultipartFile;
 @Alias("alishop")
 public class ShopVo {
-	String rest_id="",brand="",name="",type="",addr="",addr2,contents="",tel="",orifile="",sysfile="",grade;
+	String rest_id="",brand="",name="",type="",addr="",addr2,contents="",tel="",orifile="",sysfile="",grade,cate2;
 	
 	int star=0,opentime=0,closetime=0;
 	Double xlet,ylng;
@@ -16,6 +16,14 @@ public class ShopVo {
 	
 	
 	
+	public String getCate2() {
+		return cate2;
+	}
+
+	public void setCate2(String cate2) {
+		this.cate2 = cate2;
+	}
+
 	public String getAddr2() {
 		return addr2;
 	}

@@ -28,7 +28,7 @@ public class NoticeRepository {
 	
 	public Integer selectTotal(String vo)
 	{
-		return template.selectOne("selectTotal",vo);
+		return template.selectOne("notice.selectTotal",vo);
 	}
 	
 	public void insert(NoticeVO vo)
