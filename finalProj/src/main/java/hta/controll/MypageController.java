@@ -221,8 +221,9 @@ public class MypageController {
 		{
 			//fileupload(vo, request);
 			dao.delete(vo);
+			data.getSession().invalidate();
 		}
-		data.setPath("redirect:list");
+		data.setPath("redirect:../../../yeogiyo/shop/all/list");
 		data.setDd(dao.detail(vo));
 		
 	}
