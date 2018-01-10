@@ -96,6 +96,7 @@
 				<div class="bx_btn txt_right">
 				<a href="menuinsertform?rest_id=${data.dd.rest_id}&cnt=0" class="btn type4">메뉴생성</a> 
 				<a href="menumodifyForm?rest_id=${data.dd.rest_id}" class="btn type4">메뉴수정</a>
+				<a href="modifyForm?rest_id=${data.dd.rest_id}" class="btn type4">가게수정</a>
 </div>
 			</c:if>
 		</div>
