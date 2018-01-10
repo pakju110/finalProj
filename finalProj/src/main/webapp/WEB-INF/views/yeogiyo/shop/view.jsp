@@ -75,7 +75,7 @@
 	<div class="left">
 		<div class="bx_top both">
 			<div class="left bx_img">
-				<img alt="" src="../../../resources/up/${data.dd.sysfile}">
+				<img alt="" src="../../../resources/up/${data.dd.sysfile}" width="175px">
 			</div>
 			<div class="left">
 				<p>${data.dd.name}</p>
@@ -93,7 +93,7 @@
 				<p>${data.dd.addr},${data.dd.addr2}</p>
 			</div>
 			<c:if test="${data.dd.rest_id == loginuser.user_id }">
-				<div class="bx_btn right">
+				<div class="bx_btn txt_right">
 				<a href="menuinsertform?rest_id=${data.dd.rest_id}&cnt=0" class="btn type4">메뉴생성</a> 
 				<a href="menumodifyForm?rest_id=${data.dd.rest_id}" class="btn type4">메뉴수정</a>
 </div>
@@ -147,7 +147,7 @@
 					</c:if>
 				</c:if>
 			</form>
-			<c:if test="${loginuser.user_id == null && data.cart == null }">
+			<c:if test="${loginuser.user_id == null || data.cart == null }">
 				<p>주문서에 담긴 메뉴가 없습니다.</p>
 			</c:if>
 		</div>

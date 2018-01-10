@@ -220,8 +220,17 @@ public class ShopController {
 
 		for (int i = 0; i < res.size(); i++) {
 			MenuVo vo = res.get(i);
-			fileDelete(menu.idPwChk(vo).getSysfile());
-			fileupload2(vo, data.getRequest());
+			if(vo.getFf() != null)
+				fileupload2(vo, data.getRequest());
+			if(vo.getSysfile()!=null) 
+	 		{ 
+				fileDelete(vo.getSysfile());
+				
+	 		} 
+
+			
+			
+			
 			menu.modify(vo);
 			System.out.println(res.get(i));
 
@@ -301,7 +310,7 @@ public class ShopController {
 		sovo.setYlng(ylng);
 		System.out.println("진입확인" + sovo);
 		fileupload(sovo, data.getRequest());
-		
+		System.out.println(sovo);
 		dao.insert(sovo);
 
 		data.setRedirect(true);
@@ -460,8 +469,8 @@ public class ShopController {
 	      vo.setOrifile(vo.getFf().getOriginalFilename());
 
 	      try {
-	         String outPath = request.getRealPath("/resources/img");
-	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\img";
+	         String outPath = request.getRealPath("/resources/up");
+	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up";
 	         String realPath = outPath + "\\" + vo.getFf().getOriginalFilename();
 	         File file = new File(realPath);
 	         if (file.exists()) {
@@ -497,8 +506,8 @@ public class ShopController {
 	      vo.setOrifile(vo.getFf().getOriginalFilename());
 
 	      try {
-	         String outPath = request.getRealPath("/resources/img");
-	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\img";
+	         String outPath = request.getRealPath("/resources/up");
+	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up";
 	         String realPath = outPath + "\\" + vo.getFf().getOriginalFilename();
 	         File file = new File(realPath);
 	         if (file.exists()) {
@@ -533,8 +542,8 @@ public class ShopController {
 	      vo.setOrifile(vo.getFf().getOriginalFilename());
 
 	      try {
-	         String outPath = request.getRealPath("/resources/img");
-	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\img";
+	         String outPath = request.getRealPath("/resources/up");
+	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up";
 	         String realPath = outPath + "\\" + vo.getFf().getOriginalFilename();
 	         File file = new File(realPath);
 	         if (file.exists()) {
@@ -565,9 +574,9 @@ public class ShopController {
 	}
 	public void fileDelete(String k)
 	{
-		if(k!=null &&!k.equals("")&& !k.equals("null"))
+		if(k!=null)
 		{
-			File ff = new File( "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\img"+k);
+			File ff = new File( "C:\\Users\\pakju\\git\\finalProj\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up"+k);
 			ff.delete();
 		}
 	}
@@ -620,7 +629,6 @@ public class ShopController {
 		data.setRedirect(true);
 		data.setPath("redirect:menuinsertform?rest_id=" + sovo.getRest_id() + "&cnt=" + a);
 		System.out.println("menuplus에 들어옴!!!!!!!!!!!!!!!\n\n\n\n\n\n\n2222222");
-		dao.detail(sovo);
 		System.out.println("menuplus에 들어옴!!!!!!!!!!!!!!!\n\n\n\n\n\n\n3333333svo" + dao.detail(sovo));
 	}
 

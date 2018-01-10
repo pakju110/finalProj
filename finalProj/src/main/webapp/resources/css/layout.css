@@ -9,6 +9,7 @@
 .btn { display:inline-block; text-align:center;}
 .p10 { padding:10px;}
 .m_t10 { margin-top:10px;}
+.ptb10 { padding:10px 0;}
 
 /*-------------------------------------    */
 
@@ -49,7 +50,7 @@
 .wrap .header > .bx_tp .bx_login .bx_mymenu a { color:#fff;}
 #btn_gnb { display: block; position: relative; padding:10px 20px; width: 60px; height: 60px; cursor: pointer; }
 #btn_gnb span { display: block; width: 60px; height: 40px; }
-#btn_gnb .bx span { position: absolute; width: 60px; height: 5px; background: #333; transition: all 1s;  }
+#btn_gnb .bx span { position: absolute; width: 60px; height: 5px; background: #fff; transition: all 1s;  }
 #btn_gnb .bx span:first-child { top:5px; }
 #btn_gnb .bx span:first-child + span { top:20px; }
 #btn_gnb .bx span:first-child + span + span { top:35px; }
@@ -181,7 +182,7 @@
 
 .evn_con > p { padding-top:20px; text-align:center;}
 
-
+.e_table2 .textarea { height:200px;}
 
 
 /*-------°¡°Ô-----------*/
@@ -290,6 +291,7 @@
 	padding:10px;
 	
 }
+.shop.view > .left > .bx_top .bx_btn.txt_right {     float: left; width:100%;}
 .shop.view > .left .left p { padding:5px 0;}
 .shop.view > .left .left p:first-child { padding:10px 0 5px; font-size: 18px; color:#333; font-weight: bold;}
 .shop.view > .left > .bx_top .bx_img { overflow:hidden; width:214px; height: 212px;}
@@ -362,6 +364,7 @@
 .wrap .bx_btn.notice { padding:10px 0 0 0;  text-align: right;}
 .wrap .bx_btn.center { padding:10px 0 0 0;  text-align: center;}
 .wrap .bx_btn.txt_right {text-align: right;}
+.wrap .bx_btn.txt_right .btn { margin-left:5px;}
 .wrap .btn.type1 {
 	background: none;
     color: #fff;

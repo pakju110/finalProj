@@ -64,11 +64,12 @@ function remove_menu(obj) {
 
 function menuplus(obj) {
 	var request = new Request();
-	var cnt = obj.value;
+	var cnt = obj;
 	var hrf = "menuplus?rest_id=" + request.getParameter("rest_id") + "&cnt="
 			+ cnt;
+	alert(obj);
 	mif.action = hrf;
-	alert(hrf);
+	
 	mif.submit();
 
 }
@@ -124,22 +125,13 @@ function menu() {
 
 
 $(document).ready(function() {
-/*	$(document).on('mouseover', '.carlist .li a',function(){
-		$(this).addClass('on');
-		$(this).removeClass('out');
+	$(".noman").bind("keyup", function() {
+			var inputVal = $(this).val();
+
+			$(this).val(inputVal.replace(/[^a-z0-9]/g, ''));
+
+
 	});
-	$(document).on('mouseleave','.carlist .li a',function(){
-		$(this).removeClass('on');
-		$(this).addClass('out');
-	});
-	$(document).on('focusin', '.carlist .li a',function(){
-		$(this).addClass('on');
-		$(this).removeClass('out');
-	});
-	$(document).on('focusout','.carlist .li a',function(){
-		$(this).removeClass('on');
-		$(this).addClass('out');
-	});*/
 	$(".input").bind("keyup", function() {
 		if (!(event.keyCode >= 37 && event.keyCode <= 40)) {
 
