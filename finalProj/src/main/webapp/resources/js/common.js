@@ -1,81 +1,8 @@
 /**
+
  * 
  */
-$(document).ready(function() {
-/*	$(document).on('mouseover', '.carlist .li a',function(){
-		$(this).addClass('on');
-		$(this).removeClass('out');
-	});
-	$(document).on('mouseleave','.carlist .li a',function(){
-		$(this).removeClass('on');
-		$(this).addClass('out');
-	});
-	$(document).on('focusin', '.carlist .li a',function(){
-		$(this).addClass('on');
-		$(this).removeClass('out');
-	});
-	$(document).on('focusout','.carlist .li a',function(){
-		$(this).removeClass('on');
-		$(this).addClass('out');
-	});*/
-	$(".input").bind("keyup", function() {
-		if (!(event.keyCode >= 37 && event.keyCode <= 40)) {
 
-			var inputVal = $(this).val();
-
-			$(this).val(inputVal.replace(/[^a-z0-9]/gi, ''));
-
-		}
-
-	});
-	
-	$(".input2").bind("keyup", function() {
-				var re = /[~!@\#$%^&*\()\=+']/gi;
-
-				var temp = $(".input").val();
-
-					if (re.test(temp)) { // 
-						$(".input").val(temp.replace(re, ""));
-						alert("특수문자를 사용하실수없습니다.");
-					}
-
-
-			});
-	$(".addresscheck").click(function() {
-	navigator.geolocation.getCurrentPosition(function(position){
-	    console.log('latitude: ', position.coords.latitude);
-	    console.log('longitude: ', position.coords.longitude);
-	    });
-	});
-	$('#addcheck').click(function(){
-		var request = new Request();
-		alert($('#addr').val());
-		$.ajax({
-
-			url:'http://maps.googleapis.com/maps/api/geocode/json',
-			type:'GET',
-			data:{address:$('#addr').val()},
-			dataType:'json',
-			success:function(data){
-				//log(data.results[0].geometry.location.lat,data.results[0].geometry.location.lng);
-				//xlet.value = data.results[0].geometry.location.lat;
-				
-				/*log(data.results[0].geometry.location.lat);
-				log(data.results[0].geometry.location.lng);*/
-//				$('#xlet').val(data.results[0].geometry.location.lat);
-//				$('#ylng').val(data.results[0].geometry.location.lng);
-			
-				$("#regshop").attr("action","reg?xlet="+data.results[0].geometry.location.lat+"&ylng="+data.results[0].geometry.location.lng);
-				regshop.submit();
-				alert(data.results[0].geometry.location.lat+"<br>"+data.results[0].geometry.location.lng);
-				//ylng.value = ata.results[0].geometry.location.lng;
-			}
-			
-		});
-		
-		
-	});
-});
 
 
 function Request() {
@@ -187,6 +114,90 @@ function openDaumPostcode() {
 }
 
 
+function menu() {
+	var gnb = document.getElementById("Gnb");
+	var btn_gnb = document.getElementById("btn_gnb");
+	btn_gnb.classList.toggle("open");
+	gnb.classList.toggle("open");
+		
+}
+
+
+$(document).ready(function() {
+/*	$(document).on('mouseover', '.carlist .li a',function(){
+		$(this).addClass('on');
+		$(this).removeClass('out');
+	});
+	$(document).on('mouseleave','.carlist .li a',function(){
+		$(this).removeClass('on');
+		$(this).addClass('out');
+	});
+	$(document).on('focusin', '.carlist .li a',function(){
+		$(this).addClass('on');
+		$(this).removeClass('out');
+	});
+	$(document).on('focusout','.carlist .li a',function(){
+		$(this).removeClass('on');
+		$(this).addClass('out');
+	});*/
+	$(".input").bind("keyup", function() {
+		if (!(event.keyCode >= 37 && event.keyCode <= 40)) {
+
+			var inputVal = $(this).val();
+
+			$(this).val(inputVal.replace(/[^a-z0-9]/gi, ''));
+
+		}
+
+	});
+	
+	$(".input2").bind("keyup", function() {
+				var re = /[~!@\#$%^&*\()\=+']/gi;
+
+				var temp = $(".input").val();
+
+					if (re.test(temp)) { // 
+						$(".input").val(temp.replace(re, ""));
+						alert("특수문자를 사용하실수없습니다.");
+					}
+
+
+			});
+	$(".addresscheck").click(function() {
+	navigator.geolocation.getCurrentPosition(function(position){
+	    console.log('latitude: ', position.coords.latitude);
+	    console.log('longitude: ', position.coords.longitude);
+	    });
+	});
+	$('#addcheck').click(function(){
+		var request = new Request();
+		alert($('#addr').val());
+		$.ajax({
+
+			url:'http://maps.googleapis.com/maps/api/geocode/json',
+			type:'GET',
+			data:{address:$('#addr').val()},
+			dataType:'json',
+			success:function(data){
+				//log(data.results[0].geometry.location.lat,data.results[0].geometry.location.lng);
+				//xlet.value = data.results[0].geometry.location.lat;
+				
+				/*log(data.results[0].geometry.location.lat);
+				log(data.results[0].geometry.location.lng);*/
+//				$('#xlet').val(data.results[0].geometry.location.lat);
+//				$('#ylng').val(data.results[0].geometry.location.lng);
+			
+				$("#regshop").attr("action","reg?xlet="+data.results[0].geometry.location.lat+"&ylng="+data.results[0].geometry.location.lng);
+				regshop.submit();
+				alert(data.results[0].geometry.location.lat+"<br>"+data.results[0].geometry.location.lng);
+				//ylng.value = ata.results[0].geometry.location.lng;
+			}
+			
+		});
+		
+		
+	});
+});
 
 
 

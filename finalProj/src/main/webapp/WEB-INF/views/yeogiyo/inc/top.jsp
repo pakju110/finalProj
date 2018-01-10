@@ -15,8 +15,10 @@
 				<a href="${data.depth}user/join/list" class="btn type2">회원가입</a>
 			</c:if>
 			<c:if test="${loginuser.user_id != null}">
-				<a href="#a" class="btn_pop"><img src="../../../resources/img/mylogin.gif" width="53px"></a>
-				<ul class="bx_mymenu">
+				<a  onclick="menu()" id="btn_gnb"><span class="bx">
+				<span></span><span></span><span></span>
+			</span></a>
+				<ul class="bx_mymenu"  id="Gnb">
 					<li><a href="${data.depth}mypage/mypage/list">마이페이지</a></li>
 					
 					<c:if
@@ -24,12 +26,22 @@
 				<li><a href="${data.depth}manager/user/list">관리자메뉴</a></li>
 				
 			</c:if>
-			<li><a href="${data.depth}login/login/logout" class="btn type1">로그아웃</a></li>
+			<li><a href="${data.depth}login/login/logout" class="">로그아웃</a></li>
 				</ul>
 			</c:if>
 			</div>
 		</div>
 	</div>
+	<c:if test="${data.cate1 == 'shop' }">
+		<div class="bx_serch">
+			<div class="bx_con">
+				<form action="serchreg">
+					<a href="javascript:serch1"><img src="../../../resources/img/ico/btn_serch1.png"></a>
+					<p><input type="text" id="serch" name="serch" class="serch_input"><a href="javascript:serch2" class="btn_serch">검색</a></p>
+				</form>
+			</div>
+		</div>
+	</c:if>
 	<div class="gnb">
 			<ul>
 				<li><a href="${data.depth}shop/all/list">전체</a></li>

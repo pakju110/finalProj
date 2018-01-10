@@ -74,7 +74,7 @@
 <div class="shop view both">
 	<div class="left">
 		<div class="bx_top both">
-			<div class="left">
+			<div class="left bx_img">
 				<img alt="" src="../../../resources/up/${data.dd.sysfile}">
 			</div>
 			<div class="left">
@@ -86,18 +86,26 @@
 					<c:if test="${data.dd.star == 0}">☆</c:if>
 				</p>
 				<p>
-					<c:if test="${data.dd.opentime < 10 }">0</c:if>${data.dd.opentime}:00
+					OPEN <c:if test="${data.dd.opentime < 10 }">0</c:if>${data.dd.opentime}:00
 					~
-					<c:if test="${data.dd.closetime < 10 }">0</c:if>${data.dd.closetime}:00
+					CLOSE<c:if test="${data.dd.closetime < 10 }">0</c:if>${data.dd.closetime}:00
 				</p>
 				<p>${data.dd.addr},${data.dd.addr2}</p>
 			</div>
+			<c:if test="${data.dd.rest_id == loginuser.user_id }">
+				<div class="bx_btn right">
+				<a href="menuinsertform?rest_id=${data.dd.rest_id}&cnt=0" class="btn type4">메뉴생성</a> 
+				<a href="menumodifyForm?rest_id=${data.dd.rest_id}" class="btn type4">메뉴수정</a>
+</div>
+			</c:if>
 		</div>
+		<p class="menu_h">MENU</p>
 		<div class="bx_cen">
 			<c:forEach items="${data.dd2}" var="me">
 				<c:if test="${me.state == 'on'}">
 					<div class="menu">
-						<a href="javascript:add_item(${me.no})"> <c:if
+						<a href="javascript:add_item(${me.no})"> 
+							<c:if
 								test="${me.sysfile != null }">
 								<span class="img"><img
 									src="../../../resources/up/${me.sysfile}"></span>
@@ -158,7 +166,7 @@
 				</p>
 				<p>
 					<c:forEach begin="1" end="${review.star}">
-						<span class="ft_yel">★</span>
+						<span class="ft_red">★</span>
 					</c:forEach>
 					<c:if test="${review.star == 0}">☆</c:if>
 				</p>
