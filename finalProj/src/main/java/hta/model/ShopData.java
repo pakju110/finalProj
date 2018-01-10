@@ -21,7 +21,7 @@ public class ShopData {
 	MenuChange menuChange;
 	CartList cartList;
 	HttpSession session;
-
+	Double xlet,ylng;
 	@Resource
 	ArrayList<Menu> topMenu;
 	
@@ -33,6 +33,20 @@ public class ShopData {
 	int nowPage = 1;
 	int total;
 	
+	
+	
+	public Double getXlet() {
+		return xlet;
+	}
+	public void setXlet(Double xlet) {
+		this.xlet = xlet;
+	}
+	public Double getYlng() {
+		return ylng;
+	}
+	public void setYlng(Double ylng) {
+		this.ylng = ylng;
+	}
 	public Object getCfdetailimg() {
 		return cfdetailimg;
 	}

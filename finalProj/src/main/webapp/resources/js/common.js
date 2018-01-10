@@ -157,11 +157,49 @@ $(document).ready(function() {
 
 
 			});
-	$(".addresscheck").click(function() {
-	navigator.geolocation.getCurrentPosition(function(position){
-	    console.log('latitude: ', position.coords.latitude);
-	    console.log('longitude: ', position.coords.longitude);
+	$(".btn_xyserch").click(function() {
+		
+
+		navigator.geolocation.getCurrentPosition(function(position){
+	    /*console.log('latitude: ', position.coords.latitude);
+	    console.log('longitude: ', position.coords.longitude);*/
+
+			$("#adressserch").attr("action","serchlist?xlet="+position.coords.latitude+"&ylng="+position.coords.longitude);
+		    adressserch.submit();
+			
 	    });
+		
+		
+		
+	});
+	$('.btn_addrserch').click(function(){
+		var request = new Request();
+		alert($('#serch').val());
+		$.ajax({
+
+			url:'http://maps.googleapis.com/maps/api/geocode/json',
+			type:'GET',
+			data:{address:$('#serch').val()},
+			dataType:'json',
+			success:function(data){
+				//log(data.results[0].geometry.location.lat,data.results[0].geometry.location.lng);
+				//xlet.value = data.results[0].geometry.location.lat;
+				
+				/*log(data.results[0].geometry.location.lat);
+				log(data.results[0].geometry.location.lng);*/
+//				$('#xlet').val(data.results[0].geometry.location.lat);
+//				$('#ylng').val(data.results[0].geometry.location.lng);
+			
+				$("#adressserch").attr("action","serchlist?xlet="+data.results[0].geometry.location.lat+"&ylng="+data.results[0].geometry.location.lng);
+				//+"&pramaddr="+$('#serch').val()
+				adressserch.submit();
+				//alert(data.results[0].geometry.location.lat+"<br>"+data.results[0].geometry.location.lng);
+				//ylng.value = ata.results[0].geometry.location.lng;
+			}
+			
+		});
+		
+		
 	});
 	$('#addcheck').click(function(){
 		var request = new Request();

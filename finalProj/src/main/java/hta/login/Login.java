@@ -53,10 +53,7 @@ public class Login implements SubControll {
 				break;
 			case "logout":
 				logout();
-				break;
-
-				
-				
+				break;		
 		}
 		
 	}
@@ -87,9 +84,9 @@ public class Login implements SubControll {
 			UserVo vo1 = dao.detail(vo);
 			System.out.println(vo1);
 			data.getSession().setAttribute("loginuser", vo1);
-			data.setPath("redirect:view?user_id="+vo.getUser_id());
+			data.setPath("redirect:../../shop/all/list");
 		}else{
-			data.setPath("redirect:list");
+			data.setPath("redirect:../../shop/all/list");
 		}
 
 	}

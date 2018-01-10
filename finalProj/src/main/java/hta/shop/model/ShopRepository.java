@@ -23,11 +23,18 @@ public class ShopRepository {
 	{
 		return template.selectOne("shopmapper.selectTotal",vo);
 	}
+	public Integer selectTotal2(ShopData shopData)
+	{
+		return template.selectOne("shopmapper.selectTotal2",shopData);
+	}
 	public Integer allTotal()
 	{
 		return template.selectOne("shopmapper.allTotal");
 	}
-	
+	public Integer allTotal2(ShopData shopData)
+	{
+		return template.selectOne("shopmapper.allTotal2",shopData);
+	}
 	public Integer wTotal()
 	{
 		return template.selectOne("shopmapper.wTotal");
@@ -37,6 +44,14 @@ public class ShopRepository {
 	public List<ShopVo> list(ShopData shopData){
 		
 		return template.selectList("shopmapper.selectList", shopData);
+	}
+	public List<ShopVo> xylist(ShopData shopData){
+		
+		return template.selectList("shopmapper.xyList", shopData);
+	}
+	public List<ShopVo> xylist2(ShopData shopData){
+		
+		return template.selectList("shopmapper.xyList2", shopData);
 	}
 	public List<ShopVo> wList(ShopData shopData){
 		

@@ -66,6 +66,8 @@ public class ShopController {
 	ShopData data(@PathVariable String cate2,
 			@PathVariable String service,
 			@RequestParam(value="page", required=false, defaultValue="1")Integer page,
+			@RequestParam(value="xlet", required=false, defaultValue="0.0")Double xlet,
+			@RequestParam(value="ylng", required=false, defaultValue="0.0")Double ylng,
 			ShopVo shopVo, MenuVo menuVo,
 			CartVo cartVo,
 			ReviewVo reviewVo,
@@ -83,6 +85,8 @@ public class ShopController {
 		data.setSession(session);
 		data.setMenuChange(menuChange);
 		data.setNowPage(page);
+		data.setXlet(xlet);
+		data.setYlng(ylng);
 		menu();
 		data.setCart(cartVo);
 		data.setDd(shopVo);
@@ -161,6 +165,9 @@ public class ShopController {
 			
 		case "reviewdelete":
 			reviewdelete();
+			break;
+		case "serchlist":
+			serchreg(data);
 			break;
 			
 		}
@@ -458,18 +465,30 @@ public class ShopController {
 		//data.setDd(dao.list(shopData));
 //		data.setTotal(dao.selectTotal(data.getCate2()));
 		data.setTotal(dao.allTotal());
-		data.setDd(dao.list(shopData));
+		
+
+			data.setDd(dao.list(shopData));
+
 		
 	}
 	void list2(ShopData shopData) {
-		System.out.println(shopData);
-		System.out.println();
-		System.out.println("\n\n\n\n\n"+dao.selectTotal(data.getCate2())+"\n\n\n\n\n");
 		data.setTotal(dao.selectTotal(data.getCate2()));
-		data.setDd(dao.typelist(shopData));
 		
-		//data.setDd(dao.list(shopData));
+			
+			data.setDd(dao.typelist(shopData));
+
 		
+	}
+	
+	void serchreg(ShopData shopData) {
+		if(data.getCate2().equals("all")) {
+			data.setTotal(dao.allTotal2(shopData));
+			
+			data.setDd(dao.xylist(shopData));
+		}else {
+			data.setTotal(dao.selectTotal2(shopData));
+			data.setDd(dao.xylist2(shopData));
+		}
 	}
 	
 	void fileupload(ShopVo vo, HttpServletRequest request) { // 파일 업로드 메소드 !!!!!!!!!!!!!! upfile = 파일정보,
@@ -647,7 +666,10 @@ public class ShopController {
 		System.out.println("menuplus에 들어옴!!!!!!!!!!!!!!!\n\n\n\n\n\n\n2222222");
 		System.out.println("menuplus에 들어옴!!!!!!!!!!!!!!!\n\n\n\n\n\n\n3333333svo" + dao.detail(sovo));
 	}
-
+	
+	
+	
+	
 	@RequestMapping
 	String mapping() {
 		String res = "yeogiyo/template";

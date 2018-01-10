@@ -6,9 +6,22 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 
 	<select id="selectTotal" resultType="java.lang.Integer" parameterType="String">
    		select count(*) from shop where type = #{type}
-   </select>
+   	</select>
    <select id="allTotal" resultType="java.lang.Integer">
    		select count(*) from shop 
+   </select>
+   <select id="selectTotal2" resultType="java.lang.Integer" parameterType="shopData">
+   		<![CDATA[select count(*) from shop
+   		 where type = #{cate2} 
+   			and grade = 'r' and
+			ylng + 0.007 > #{ylng} and ylng-0.007 < #{ylng} and
+			xlet + 0.007 > #{xlet} and xlet-0.007 < #{xlet} ]]>
+   	</select>
+   <select id="allTotal2" resultType="java.lang.Integer" parameterType="shopData">
+   		<![CDATA[select count(*) from shop 
+   		where grade = 'r' and
+			ylng + 0.007 > #{ylng} and ylng-0.007 < #{ylng} and
+			xlet + 0.007 > #{xlet} and xlet-0.007 < #{xlet} ]]>
    </select>
    <select id="wTotal" resultType="java.lang.Integer">
    		select count(*) from shop where grade = 'w'
@@ -40,6 +53,31 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 		  where rnum >= #{startNum} and rnum<= #{endNum} ]]>
    </select>
    
+<!-- 주소 체크 리스트       -->
+	<select id="xyList" resultType="alishop" parameterType="shopData">
+   		<![CDATA[
+		  select * from 
+		(select rownum rnum, t1.* from 
+		(select * from shop where grade = 'r' and
+			ylng + 0.007 > #{ylng} and ylng-0.007 < #{ylng} and
+			xlet + 0.007 > #{xlet} and xlet-0.007 < #{xlet}  order by star) t1)
+		  where rnum >= #{startNum} and rnum<= #{endNum}
+		  
+		  ]]>
+   </select>
+  
+   <select id="xyList2" resultType="alishop" parameterType="shopData">
+   		<![CDATA[ 
+		  select * from 
+		(select rownum rnum, t1.* from 
+		(select * from shop where grade = 'r' and
+			type = #{cate2} and
+			ylng + 0.007 > #{ylng} and ylng-0.007 < #{ylng} and
+			xlet + 0.007 > #{xlet} and xlet-0.007 < #{xlet}  order by star) t1)
+		  where rnum >= #{startNum} and rnum<= #{endNum}
+		   ]]>
+   </select>
+<!--// 주소 체크 리스트     -->
       <select id="selectDetail" resultType="alishop" parameterType="alishop">
    		select * from shop where rest_id = #{rest_id}
    </select>
