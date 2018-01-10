@@ -5,7 +5,7 @@
 ${data.dd.orderno}
  --%>
  
- ¹¹ ½Ã¹ß
+ ¹¹ 
  
  ${loginuser.user_id}
  

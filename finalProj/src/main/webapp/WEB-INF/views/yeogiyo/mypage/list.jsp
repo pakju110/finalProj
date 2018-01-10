@@ -39,7 +39,7 @@
 			<th><p class="th_rel">
 					<label for="et4">전화번호</label>
 				</p></th>
-			<td colspan="3">${data.dd.user_name}</td>
+			<td colspan="3">${data.dd.user_phone}</td>
 		</tr>
 		<tr>
 			<th><p class="th_rel">

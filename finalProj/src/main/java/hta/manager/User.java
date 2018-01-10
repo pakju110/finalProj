@@ -78,6 +78,7 @@ public class User implements SubControll {
 		{
 			//fileupload(vo, request);
 			data.setDd(dao.delete(vo));
+			data.getSession().invalidate();
 		}
 		data.setPath("redirect:list");
 		data.setDd(dao.detail(vo));

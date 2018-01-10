@@ -45,8 +45,6 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 
 	</insert>
 
-
-
 	<select id="idPwChk" resultType="alisuser" parameterType="alisuser">
 		select * from finaluser where user_id = #{user_id} and user_pw = #{user_pw}
 	</select>
@@ -63,13 +61,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 		and cnt!=0"> <if test="list!=null"> or </if> <![CDATA[ cnt >= #{cnt} ]]> 
 		</if> </where> </select> -->
 
-
-
-
 	<!-- <update id="fileDelete" parameterType="UserVo"> update finaluser set 
 		upfile = null where id = #{id} </update> -->
-
-
-
 
 </mapper>

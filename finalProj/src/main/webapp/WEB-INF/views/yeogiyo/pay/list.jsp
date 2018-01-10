@@ -143,7 +143,7 @@
 		<tr>
 			<td>총 주문금액</td>
 			<td><input type="text" name="price" value="${price }"
-				readonly="reaonly"></td>
+				readonly="readonly"></td>
 
 		</tr>
 

@@ -5,7 +5,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 <mapper namespace="paymapper">
 
    <select id="selectList" resultType="alispay">
-   		select * from pay 
+   		select * from pay
    </select>
    <select id="selectList2" resultType="alispay" parameterType="String">
    		select * from pay where user_id = #{user_id}
