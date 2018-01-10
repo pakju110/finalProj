@@ -57,7 +57,7 @@
 		</c:if>
 	</tbody>
 </table>
-<div class="bx_btn notice"><a href="modifyform" class="btn type4">수정</a></div>
+<div class="bx_btn notice"><a href="../modify/modifyform" class="btn type4">수정</a></div>
 <%--	<table border="">
 		 <tr>
 			<td>id</td>
