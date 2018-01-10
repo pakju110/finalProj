@@ -1,22 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-   pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
+
+<ul class="navi3">
+	<c:forEach items="${data.subMenu }" var="mm">
+		<c:choose>
+			<c:when test="${mm.name != data.cate2 }">
+				<li><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="m5_on"><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+</ul>
 <body>
-   <table border="">
-   <tr>
-   <!-- <td><a href="list">전체보기</a></td> -->
-   
-      </tr>
-   
+<table class="e_table2">
       <tr>
-      <td colspan="5">
+      <td colspan="5" class="join_t1">
          <form action="inpaysch" method="post">
       <select name="year1">
       <option value="2017">2017</option>
@@ -57,8 +59,8 @@
       <input type="submit" value="검색">
       </form>
       </td>
-      
       </tr>
+      
          <tr>
          <td>신청가게 아이디</td>
          <td>광고신청일</td>

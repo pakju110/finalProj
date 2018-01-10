@@ -19,12 +19,6 @@
 
 	<div class="wrap">
 		<jsp:include page="../inc/top.jsp" />
-			<p>
-			서브메뉴시다<br>
-			<c:if test="${data.subMenu!=null}">
-				 <jsp:include page="../inc/sub.jsp"/>
-			</c:if>
-		</p>
 		<div class="contents">
 
 			<div class="con">

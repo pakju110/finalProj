@@ -1,18 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
+
+<ul class="navi3">
+	<c:forEach items="${data.subMenu }" var="mm">
+		<c:choose>
+			<c:when test="${mm.name != data.cate2 }">
+				<li><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="m5_on"><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+</ul>
+
 <body>
 	<table border="">
-	<tr >
-		
-		</tr>
+	
 		<tr>
 			<td>가게명</td>
 			<td>날짜</td>

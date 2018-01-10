@@ -29,7 +29,7 @@
 		<c:forEach items="${data.dd}" var="vo">
 			<tr>
 				<td>${vo.user_id}</td>
-				<td>${vo.reg_date}</td>
+					<td><fmt:formatDate value="${vo.reg_date}" pattern="yyyy-MM-dd"/></td>
 				<td><a href="view?user_id=${vo.user_id}">${vo.user_name}</a></td>
 				<td>${vo.grade}</td>
 			</tr>
