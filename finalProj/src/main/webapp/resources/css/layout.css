@@ -19,7 +19,7 @@
 .wrap .header > .bx_tp > .con { position:relative; margin:0 auto;  width: 1000px; }
 .wrap .header > .bx_tp h1 { position: absolute; top:10px; left:20px; width:130px; height: 50px;}
 .wrap .header > .bx_tp h1 a img {display: block; width:121px; }
-.wrap .header > .bx_tp .bx_login { position: absolute; top:8px; right:20px; width: 500px; height: 60px; line-height: 50px;text-align: right;}
+.wrap .header > .bx_tp .bx_login { position: absolute; top:12px; right:20px; height: 60px; line-height: 50px;text-align: right;}
 .wrap .header .gnb { position:absolute; bottom:0; left:0; width:100%; height:70px; background:#fff; box-shadow:0px 2px 5px #888888;  line-height: 70px; text-align: center;}
 .wrap .header .gnb > ul { display: inline-block; width:1000px; height:70px; line-height: 70px;  text-align:center;}
 .wrap .header .gnb > ul li { display: inline-block; width:9%; height:70px; line-height: 70px; }
@@ -28,6 +28,42 @@
 .wrap .contents > .con, .footer > .con { margin:0 auto; width: 1000px;}
 
 
+.wrap .header .bx_serch { position: relative; width:100%; height: 110px; }
+.wrap .header .bx_serch .bx_con { position: absolute; top:50%; left:50%; margin-top: -25px; margin-left: -196px; width:392px; height: 50px; }
+.wrap .header .bx_serch .bx_con form:after { content: ""; display: block; clear:both;}
+.wrap .header .bx_serch .bx_con form > * { float:left;}
+.wrap .header .bx_serch .bx_con form > p { float:right;}
+.wrap .header .bx_serch .bx_con form .serch_input { margin-top:-5px; width:260px; height: 28px; padding:5px; line-height: 40px; border-radius: 5px; }
+.wrap .header .bx_serch .bx_con form .btn_serch { display: inline-block; margin-left:5px; width:70px; height:40px; line-height:40px; font-size:20px; text-align: center; border-radius: 4px; color:#fff; background:#fac800;  }
+.wrap .header > .bx_tp .bx_login .bx_mymenu { 
+	position: absolute;
+	padding:10px;
+	width:100px;
+	right:0;
+	top:58px;
+	background: #333;
+	color:#fff;
+	border-radius: 4px;
+	z-index: 10;
+}
+.wrap .header > .bx_tp .bx_login .bx_mymenu a { color:#fff;}
+#btn_gnb { display: block; position: relative; padding:10px 20px; width: 60px; height: 60px; cursor: pointer; }
+#btn_gnb span { display: block; width: 60px; height: 40px; }
+#btn_gnb .bx span { position: absolute; width: 60px; height: 5px; background: #333; transition: all 1s;  }
+#btn_gnb .bx span:first-child { top:5px; }
+#btn_gnb .bx span:first-child + span { top:20px; }
+#btn_gnb .bx span:first-child + span + span { top:35px; }
+
+#btn_gnb.open .bx span {  }
+#btn_gnb.open .bx span:first-child { top:20px; transform: rotate(45deg); }
+#btn_gnb.open .bx span:first-child + span {  display: none; transition: all 0s; }
+#btn_gnb.open .bx span:first-child + span + span {top:20px; transform: rotate(135deg);  }
+
+#Gnb { overflow: hidden; padding:0 10px; height: 0;  transition: all 1s; box-sizing: border-box;}
+#Gnb ul li { overflow: hidden;  height: 0; transition: all 1s;  color: #fff;  }
+#Gnb ul li a {  display: block;padding:0 20px;height: 51px; line-height: 50px; color: #333; box-sizing: border-box; transition: all 0.5s;  }
+#Gnb.open { height: 150px;  }
+#Gnb.open ul li { height: 50px; }
 /*------------·Î±×ÀÎ---------*/
 .wrap .contents > .con {padding:20px 0;}
 .wrap .contents .bx_login {
@@ -43,6 +79,7 @@
 	background-size: 100px; 
 
 }
+
 .wrap .contents .bx_login div { padding:10px 0;}
 .wrap .contents .bx_login div span { display: inline-block; width:60px; text-align: center; font-size: 18px;}
 .wrap .contents .bx_login .input { padding:0 10px; width:230px; height:50px; line-height: 50px;font-size: 18px; box-sizing: border-box;}
@@ -151,6 +188,7 @@
 
 
 .carlist:after { content:""; display:block; clear:both;}
+.wrap .carlist + .bx_btn.notice {padding:10px 17px 0 0;}
 .carlist .li { float:left; overflow:hidden;  padding:18px; width:25%; height:345px; box-sizing:border-box;  transition:all 1s; }
 
 .carlist .li * { transition:all 1s;}
@@ -249,11 +287,17 @@
 
 .shop.view > .left > .bx_top {
 	margin-bottom:20px;
+	padding:10px;
 	
 }
-
-.shop.view > .left > .bx_cen {}
-.shop.view > .left > .bx_cen .menu { margin-top:-1px; height:70px; border-bottom:1px solid #cbcbcb; }
+.shop.view > .left .left p { padding:5px 0;}
+.shop.view > .left .left p:first-child { padding:10px 0 5px; font-size: 18px; color:#333; font-weight: bold;}
+.shop.view > .left > .bx_top .bx_img { overflow:hidden; width:214px; height: 212px;}
+.shop.view > .left > .bx_top .ft_yel { font-size: 24px;} 
+.wrap .ft_yel {color:#fac800;}
+.shop.view > .left > .bx_cen { background: #e60000; padding-top:4px;}
+.shop.view > .left > .bx_cen .menu:first-child { border-top:none;}
+.shop.view > .left > .bx_cen .menu { margin-top:-1px; height:70px; border-top:1px solid #cbcbcb; border-bottom:1px solid #cbcbcb; background: #fff; }
 .shop.view > .left > .bx_cen .menu a { display: block; padding:10px; width:620px; height:50px;}
 .shop.view > .left > .bx_cen .menu a > * { float: left; display: block;}
 .shop.view > .left > .bx_cen .menu a .img { padding-right:10px;}
@@ -261,7 +305,7 @@
 .shop.view > .left > .bx_cen .menu a .txt * { display: block;}
 .shop.view > .left > .bx_cen .menu a .txt .bx { padding-bottom:5px;font-size: 18px; }
 .shop.view > .left > .bx_cen .menu a .txt .bx.txt_right { padding:0; text-align: right; font-weight: bold;}
-
+.shop.view > .left > .menu_h {padding:5px; color:#333; font-size: 20px; font-weight: bold;}
 .shop.view > .right { width:300px;}
 
 .shop.view > .right .h {

@@ -22,7 +22,7 @@
             </div>
             </c:forEach>
             </div>
-            <div class="bx_btn notice"><a href="registerForm" class=" btn type4">회원가입</a></div>
+            <div class="bx_btn notice"><a href="registerForm" class=" btn type4">가게 등록</a></div>
 <div class="bx_pagebtn">
 			<c:if test="${data.startPage>1 }">
 				<a href="?page=1">[처음으로]</a>
