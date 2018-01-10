@@ -18,7 +18,7 @@ public class PayRepository {
 	public List<PayVo> list() {
 		return template.selectList("paymapper.selectList");
 	}
-	public List<PayVo> list2(String vo) {
+	public List<PaylistVo> list2(String vo) {
 		return template.selectList("paymapper.selectList2", vo);
 	}
 	public PayVo detail(PayVo vo) {

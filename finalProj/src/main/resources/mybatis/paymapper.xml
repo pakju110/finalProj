@@ -7,8 +7,10 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    <select id="selectList" resultType="alispay">
    		select * from pay
    </select>
-   <select id="selectList2" resultType="alispay" parameterType="String">
-   		select * from pay where user_id = #{user_id}
+   <select id="selectList2" resultType="alispayl" parameterType="String">
+   	<![CDATA[select c.orderno,c.rest_id,c.name,c.cnt,p.user_id,p.price,p.payhow,p.reg_date
+from cart c,payorder p
+where c.orderno = p.orderno and user_id = #{user_id} and p.reg_date <= sysdate and p.reg_date >=  sysdate-7 order by orderno desc]]>
    </select>
       <select id="restselectDetail" resultType="alispay" parameterType="alispay">
    		select * from pay where  rest_id = #{rest_id}

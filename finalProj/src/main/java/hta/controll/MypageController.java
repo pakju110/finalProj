@@ -26,6 +26,7 @@ import hta.model.ManagerData;
 import hta.model.Menu;
 import hta.pay.model.PayRepository;
 import hta.pay.model.PayVo;
+import hta.pay.model.PaylistVo;
 import hta.user.model.UserRepository;
 import hta.user.model.UserVo;
  
@@ -56,7 +57,7 @@ public class MypageController {
     PayVo pvo;
     UserVo vv;
     PayorderVo povo;
-    
+    PaylistVo plvo;
     CfVo cfvo;
    /* @Resource
     TopMenu topmenu;*/
@@ -69,6 +70,7 @@ public class MypageController {
            PayVo payVo,
            CfVo cfVo,
            PayorderVo poVo,
+           PaylistVo plVo,
             HttpServletRequest request,
             HttpSession session
             ) {
@@ -91,7 +93,7 @@ public class MypageController {
         pvo = payVo;
         povo =poVo;
         cfvo = cfVo;
- 
+        plvo = plVo;
         switch(data.getService())
 		{
 		case "list":
