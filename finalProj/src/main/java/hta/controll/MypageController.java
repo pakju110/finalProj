@@ -175,6 +175,12 @@ public class MypageController {
             case "insert":
 				insert();
 				break;
+            case "noticedeleteForm":
+            	noticedeleteForm();
+            	break;
+            case "noticedeleteReg":		
+				noticedelete();
+				break;
 		}
        
         return data;
@@ -555,6 +561,22 @@ void insert() {
 	data.setRedirect(true);
 	data.setPath("redirect:detail?no="+novo.getNo());
 	
+}
+
+void noticedeleteForm() {
+	data.setDd(noticedao.detail(novo));
+}	
+void noticedelete() {
+	data.setRedirect(true);		
+
+	if(noticedao.noPwChk(novo)!=null)
+	{
+		fileDelete(novo);
+		data.setDd(noticedao.delete(novo));
+		
+	}	
+	data.setPath("redirect:list");
+	data.setDd(dao.detail(vo));	
 }
     
 }

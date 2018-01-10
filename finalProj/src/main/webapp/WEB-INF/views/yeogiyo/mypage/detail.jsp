@@ -55,5 +55,5 @@
 		<a href="noticedeleteForm?no=${data.dd.no }">삭제</a>
 		<a href="noticemodifyForm?no=${data.dd.no }">수정</a>
 	</c:if>
-	<a href="list">리스트로</a>
+	<a href="qnalist">리스트로</a>
 </div>
