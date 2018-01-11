@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import hta.model.PathData;
 import hta.model.ShopData;
+import hta.user.model.UserVo;
 
 
 
@@ -75,7 +76,13 @@ public class ShopRepository {
 	public boolean modify(ShopVo vo) {
 		return template.update("shopmapper.modify", vo) > 0;
 	}
-
+	public boolean modify2(ShopVo vo) {
+		return template.update("shopmapper.modify2", vo) > 0;
+	}//가게등급조정
+	public boolean modify3(ShopVo vo) {
+		return template.update("shopmapper.modify3", vo) > 0;
+	}
+	
 	public boolean delete(ShopVo vo) {
 		return template.delete("shopmapper.delete", vo) > 0;
 	}
