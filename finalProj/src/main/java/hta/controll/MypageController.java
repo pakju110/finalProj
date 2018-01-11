@@ -443,6 +443,7 @@ public class MypageController {
 void qnalist(ManagerData pathData) {
 		
 		//System.out.println(pathData);
+	    pathData.setVo((UserVo)vv);
 		data.setTotal(noticedao.selectTotal(data.getCate2()));
 		data.setDd(noticedao.qnalist(pathData));
 		

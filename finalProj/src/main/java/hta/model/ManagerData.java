@@ -6,11 +6,14 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.type.Alias;
 import org.springframework.stereotype.Component;
 
 import hta.shop.model.CartList;
 import hta.shop.model.MenuChange;
+import hta.user.model.UserVo;
 
+@Alias("managerData")
 @Component
 public class ManagerData {
 
@@ -24,6 +27,8 @@ public class ManagerData {
 	HttpSession session;
 	
 	HttpServletRequest request;
+	
+	UserVo vo;
 
 	@Resource
 	ArrayList<Menu> topMenu;
@@ -38,6 +43,12 @@ public class ManagerData {
 	
 	
 	
+	public UserVo getVo() {
+		return vo;
+	}
+	public void setVo(UserVo vo) {
+		this.vo = vo;
+	}
 	public Object getCfdetailimg() {
 		return cfdetailimg;
 	}
@@ -241,11 +252,15 @@ public class ManagerData {
 	public void setService(String service) {
 		this.service = service;
 	}
-
 	@Override
 	public String toString() {
-		return "PathData [cate1=" + cate1 + ", cate2=" + cate2 + ", service=" + service + "]";
+		return "ManagerData [vo=" + vo + ", cate1=" + cate1 + ", cate2=" + cate2 + ", service=" + service + ", path="
+				+ path + ", depth=" + depth + ", dd=" + dd + ", dd2=" + dd2 + ", cart=" + cart + ", review=" + review
+				+ ", cfdetailimg=" + cfdetailimg + ", menuChange=" + menuChange + ", cartList=" + cartList
+				+ ", session=" + session + ", request=" + request + ", topMenu=" + topMenu + ", subMenu=" + subMenu
+				+ ", redirect=" + redirect + ", btnGo=" + btnGo + ", limit=" + limit + ", pageLimit=" + pageLimit
+				+ ", nowPage=" + nowPage + ", total=" + total + "]";
 	}
-	
+
 	
 }

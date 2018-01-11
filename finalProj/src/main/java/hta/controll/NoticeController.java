@@ -186,6 +186,7 @@ public class NoticeController {
 		fileupload(vo, data.getRequest());
 			
 		vo.setId(userVo.getUser_id());
+		vo.setGid(userVo.getUser_id());
 		vo.setPname(userVo.getUser_name());
 		dao.insert(vo);
 		

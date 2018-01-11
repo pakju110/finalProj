@@ -32,7 +32,18 @@
 						<td>${data.startNum+no.index }</td>
 						<td>${vo.cate}</td>
 						<td>${vo.pname}</td>
-						<td class="tx_left"><a href="detail?no=${vo.no}">${vo.title}</a></td>
+						<td class="tx_left">
+						
+						<c:choose>
+						<c:when test="${data.cate2=='qna' && (loginuser.user_id!=vo.gid) &&  loginuser.user_id!='admin'}">
+							${vo.title}
+						</c:when>
+						<c:otherwise>
+							<a href="detail?no=${vo.no}">${vo.title}</a>
+							
+						</c:otherwise>
+						</c:choose>
+						</td>
 						<td><fmt:formatDate value="${vo.regdate}"
 								pattern="yyyy-MM-dd" /></td>
 						<td>${vo.cnt }</td>

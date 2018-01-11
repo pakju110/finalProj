@@ -10,13 +10,27 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
     <select id="selectTotal" resultType="java.lang.Integer" parameterType="String">
    		select count(*) from notice where cate = #{cate}
    </select>
-    <select id="typelist" resultType="noticeVo"  parameterType="pathData"  >
+    <select id="typelist" resultType="noticeVo"  parameterType="managerData"  >
    		
    		
-   		<![CDATA[ select * from 
+   		select * from 
 		(select rownum rnum, t1.* from 
-		(select * from notice where cate = #{cate2} order by gno,no) t1)
-		  where rnum >= #{startNum} and rnum<= #{endNum} ]]>
+		(select * from notice where cate = #{cate2}
+		
+		<if test="cate1 == 'mypage' and cate2 == 'qna'">
+			and gid = #{vo.user_id}
+		</if>
+		
+			
+		
+		
+		
+		
+		
+		  order by gno,no) t1)
+		
+		
+		<![CDATA[   where rnum >= #{startNum} and rnum<= #{endNum} ]]>
    		  
    </select>
    
@@ -28,8 +42,8 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 	   <selectKey keyProperty="no" order="BEFORE" resultType="java.lang.Integer">
 	   		select max(no)+1 from notice
 	   </selectKey>
-   	insert into notice (no, gno, id, grade, pname, cate,  title, content, orifile, sysfile,regdate, cnt, re) values 
-   	( #{no}, #{no}, #{id}, #{grade}, #{pname}, #{cate}, #{title}, #{content}, #{orifile}, #{sysfile}, sysdate, #{cnt}, #{re}) 
+   	insert into notice (no, gno, id, grade, pname, cate,  title, content, orifile, sysfile,regdate, cnt, re, gid) values 
+   	( #{no}, #{no}, #{id}, #{grade}, #{pname}, #{cate}, #{title}, #{content}, #{orifile}, #{sysfile}, sysdate, #{cnt}, #{re}, #{id}) 
    </insert>
    
    
@@ -38,8 +52,8 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 	   <selectKey keyProperty="no" order="BEFORE" resultType="java.lang.Integer">
 	   		select max(no)+1 from notice
 	   </selectKey>
-   	insert into notice (no, gno, id, grade, pname, cate,  title, content, orifile, sysfile,regdate, cnt) values 
-   	( #{no}, #{gno}, #{id}, #{grade}, #{pname}, 'qna', #{title}, #{content}, #{orifile}, #{sysfile}, sysdate, #{cnt}) 
+   	insert into notice (no, gno, id, grade, pname, cate,  title, content, orifile, sysfile,regdate, cnt, gid) values 
+   	( #{no}, #{gno}, #{id}, #{grade}, #{pname}, 'qna', #{title}, #{content}, #{orifile}, #{sysfile}, sysdate, #{cnt}, #{gid}) 
    </insert>
 
     <update id="replyCheck" parameterType="noticeVo">

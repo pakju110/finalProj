@@ -19,6 +19,7 @@
 <form name="fmt" action="replyReg" method="post" enctype="multipart/form-data">
 <input type="hidden" name="no" value="${data.dd.no }" />
 <input type="hidden" name="gno" value="${data.dd.gno }" />
+<input type="hidden" name="gid" value="${data.dd.gid }" />
 	<table class="e_table2">
 		<tr>
 			<th class="join_t1">Á¦¸ñ</th>

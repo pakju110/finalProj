@@ -20,12 +20,14 @@ public class NoticeRepository {
 
 	public List<NoticeVO> list(PathData pathData)
 	{
+		System.out.println(pathData);
 		return template.selectList("notice.typelist", pathData);
 	}
 	
 
 	public List<NoticeVO> qnalist(ManagerData pathData)
 	{
+		System.out.println(pathData);
 		return template.selectList("notice.typelist", pathData);
 	}
 	

@@ -13,7 +13,7 @@ public class NoticeVO {
 	
 	Integer no=0, gno=0;
 	Integer cnt=-1;
-	String id="";
+	String id="", gid;
 	String grade="";
 	String pname="";
 	String cate="";
@@ -28,6 +28,12 @@ public class NoticeVO {
 	
 	
 	
+	public String getGid() {
+		return gid;
+	}
+	public void setGid(String gid) {
+		this.gid = gid;
+	}
 	public Integer getRe() {
 		return re;
 	}
@@ -114,15 +120,13 @@ public class NoticeVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	
 	@Override
 	public String toString() {
-		return "NoticeVO [no=" + no + ", gno=" + gno + ", cnt=" + cnt + ", id=" + id + ", grade=" + grade + ", pname="
-				+ pname + ", cate=" + cate + ", title=" + title + ", content=" + content + ", orifile=" + orifile
-				+ ", sysfile=" + sysfile + ", ff=" + ff + ", regdate=" + regdate + "]";
+		return "NoticeVO [no=" + no + ", gno=" + gno + ", cnt=" + cnt + ", id=" + id + ", gid=" + gid + ", grade="
+				+ grade + ", pname=" + pname + ", cate=" + cate + ", title=" + title + ", content=" + content
+				+ ", orifile=" + orifile + ", sysfile=" + sysfile + ", re=" + re + ", ff=" + ff + ", regdate=" + regdate
+				+ "]";
 	}
-	
-	
 	
 	
 	
