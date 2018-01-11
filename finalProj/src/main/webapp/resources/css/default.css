@@ -22,7 +22,7 @@ a { color:#666; text-decoration:none;}
 a:focus,
 a:hover { text-decoration:none;}
 fieldset, img, button{border:0;}
- 
+ button { cursor: pointer;}
 select { padding:0 5px; height:38px; border:1px solid #e3e3e3;}
 textarea,
 input[type="file"],

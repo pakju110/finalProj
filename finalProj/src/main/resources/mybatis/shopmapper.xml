@@ -133,9 +133,9 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    
    <insert id="reviewinsert" parameterType="alireview">
    	insert into review 
-   	(orderno, rest_id, user_id, title, contents, orifile, sysfile, star, reg_date)
+   	(orderno, rest_id, user_id, contents, orifile, sysfile, star, reg_date)
    	values
-   	(#{orderno}, #{rest_id}, #{user_id}, #{title}, #{contents}, #{orifile,jdbcType=VARCHAR} , #{sysfile,jdbcType=VARCHAR} , #{star}, sysdate)
+   	(#{orderno}, #{rest_id}, #{user_id}, #{contents}, #{orifile,jdbcType=VARCHAR} , #{sysfile,jdbcType=VARCHAR} , #{star}, sysdate)
    
    </insert>
    <update id="reviewshopmodify" parameterType="alishop">

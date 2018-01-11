@@ -2,7 +2,7 @@
     pageEncoding="EUC-KR"%>
 <div class="footer_address">
 	<div class="con">
-	<p><a href="${data.depth}notice/notice/list">∞Ì∞¥ºæ≈Õ</a></p>
+	<p></p>
     	<img src="../../../resources/img/logo.png" width="120px" alt="">
         ∆¿∏Ì: ¿œ«ÿ∂Û «÷ªÍ
         <span></span>

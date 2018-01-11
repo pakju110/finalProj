@@ -164,8 +164,13 @@
 					</c:if>
 				</c:if>
 			</form>
-			<c:if test="${loginuser.user_id == null || data.cart == null }">
+			<c:if test="${loginuser.user_id == null}">
+				<p>주문서에 담긴 메뉴가 없습니다.<br>주문을 하시려면 로그인을 해주세요.</p>
+			</c:if>
+			<c:if test="${loginuser.user_id != null}">
+				<c:if test="${data.cart[0].name == null }">
 				<p>주문서에 담긴 메뉴가 없습니다.</p>
+				</c:if>
 			</c:if>
 		</div>
 

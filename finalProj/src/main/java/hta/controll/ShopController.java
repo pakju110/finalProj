@@ -418,9 +418,11 @@ public class ShopController {
 
 	void allremove() {
 		CartVo ca = cavo;
-		String rest_id = data.getRequest().getParameter("id");
+		String rest_id = data.getRequest().getParameter("rest_id");
 		ca.setRest_id(rest_id);
 		ca.setId(id);
+		
+		System.out.println("\n\n\n\n\n"+ca);
 		cart.delete(ca);
 		data.setCart(null);
 		data.setRedirect(true);

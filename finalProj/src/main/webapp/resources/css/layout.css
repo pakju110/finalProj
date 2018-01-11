@@ -335,7 +335,7 @@
 .shop.view > .right .bx_con > p {
 	text-align:center;
 	
-	line-height: 200px;
+	padding-top:97px;
 	 color:#999;
 	 font-weight: bold;
 	 font-size: 18px;
@@ -353,6 +353,7 @@
 .shop.view .cart > p a {padding:0 5px;}
 .shop.view .cart .txt { float:left; }
 .bx_review { padding:20px 0; }
+.bx_review textarea { height:100px;}
 .bx_review .h { padding-bottom:10px; font-size: 18px; font-weight: bold; color:#333;}
 .bx_review .bx_btn.txt_right {padding:10px 0;}
 .bx_review .review_form p { padding:5px 0; }

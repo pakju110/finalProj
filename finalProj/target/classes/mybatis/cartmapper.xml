@@ -19,6 +19,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    <delete id="delete" parameterType="alicart">
    		delete from cart where id = #{id} and rest_id = #{rest_id}
    </delete>
+   
    <delete id="delete2" parameterType="alicart">
    		delete from cart where id = #{id} and no = #{no}
    </delete>
