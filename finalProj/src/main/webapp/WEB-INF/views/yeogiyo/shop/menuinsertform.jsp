@@ -34,7 +34,7 @@
 				<td><input type="text" name="mm[${no.index }].name" /></td>
 			</tr>
 			<tr>
-				<th>PRAICE</th>
+				<th>PRICE</th>
 				<td><input type="text" name="mm[${no.index }].price" value="0"
 					class="noman" /></td>
 			</tr>

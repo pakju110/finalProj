@@ -16,9 +16,9 @@
 	</tr>
 	<c:forEach items="${data.dd}" var="vo">
 		<tr>
-			<td>${vo.rest_id}</td>
+			<td><a href="view?id=${vo.rest_id}&ct=0">${vo.rest_id}</a></td>
+			<td>${vo.brand}</td>
 			<td>${vo.name}</td>
-			<td><a href="view?id=${vo.rest_id}&ct=0">${vo.name}</a></td>
 		</tr>
 	</c:forEach>
 
