@@ -496,7 +496,7 @@ public class ShopController {
 
 	      try {
 	         String outPath = request.getRealPath("/resources/up");
-	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up";
+	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up";
 	         String realPath = outPath + "\\" + vo.getFf().getOriginalFilename();
 	         File file = new File(realPath);
 	         if (file.exists()) {
@@ -533,7 +533,7 @@ public class ShopController {
 
 	      try {
 	         String outPath = request.getRealPath("/resources/up");
-	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up";
+	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up";
 	         String realPath = outPath + "\\" + vo.getFf().getOriginalFilename();
 	         File file = new File(realPath);
 	         if (file.exists()) {
@@ -569,7 +569,7 @@ public class ShopController {
 
 	      try {
 	         String outPath = request.getRealPath("/resources/up");
-	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up";
+	         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up";
 	         String realPath = outPath + "\\" + vo.getFf().getOriginalFilename();
 	         File file = new File(realPath);
 	         if (file.exists()) {
@@ -603,7 +603,7 @@ public class ShopController {
 		if(k!=null)
 		{
 
-			String path = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up";
+			String path = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up";
 			path += "\\"+k;
 	
 			File ff = new File(path); 

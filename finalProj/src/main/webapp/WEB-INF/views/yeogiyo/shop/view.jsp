@@ -105,7 +105,10 @@
 			<c:forEach items="${data.dd2}" var="me">
 				<c:if test="${me.state == 'on'}">
 					<div class="menu">
-						<a href="javascript:add_item(${me.no})"> 
+						<c:choose>
+							<c:when test="${loginuser.grade == 'u' }">
+							
+								<a href="javascript:add_item(${me.no})"> 
 							<c:if
 								test="${me.sysfile != null }">
 								<span class="img"><img
@@ -114,6 +117,19 @@
 								class="bx txt_right">${me.price }¿ø</span>
 						</span>
 						</a>
+							</c:when>
+							<c:otherwise>
+								<a href="javascript:;"> <c:if
+										test="${me.sysfile != null }">
+										<span class="img"><img
+											src="../../../resources/up/${me.sysfile}"></span>
+									</c:if> <span class="txt"> <span class="bx">${me.name }</span>
+										<span class="bx txt_right">${me.price }¿ø</span>
+								</span>
+								</a>
+							</c:otherwise>
+						</c:choose>
+						
 					</div>
 				</c:if>
 			</c:forEach>

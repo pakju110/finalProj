@@ -3,26 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 	
-<ul class="navi3">
-		<c:forEach items="${data.subMenu }" var="mm">
-			<c:choose>
-				<c:when test="${mm.name != data.cate2 }">
-					<li><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
-				</c:when>
-				<c:otherwise>
-					<li class="m5_on"><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
-				</c:otherwise>
-			</c:choose>
-		</c:forEach>
-	</ul>
-<body>
+<jsp:include page="navi3.jsp" />
 
 <form action="insert" method="post" enctype="multipart/form-data">
 <input type="hidden" name="gno" value="${data.dd.gno=data.dd.no}"/>
 	<table class="e_table2">
 		
 		<tr>
-			<td class="join_t1">카테고리</td>
+			<th class="join_t1">카테고리</th>
 			<td class="join_t2"><select name="cate">
 <c:if test="${loginuser.user_id == 'admin'}">
 					<option value="notice" >공지사항</option>
@@ -32,15 +20,15 @@
 				</select></td>
 		</tr>	
 		<tr>
-			<td>제목</td>
+			<th>제목</th>
 			<td><input type="text" name="title" /></td>
 		</tr>
 		<tr>
-			<td>파일</td>
+			<th>파일</th>
 			<td><input type="file" name="ff" /></td>
 		</tr>
 		<tr>
-			<td>내용</td>
+			<th>내용</th>
 			<td><textarea cols="40" rows="5" name="content" >궁금하신</textarea></td>
 		</tr>
 		<tr>
@@ -52,6 +40,5 @@
 		</tr>
 	</table>
 </form>
-</body>
-</html>
+
 

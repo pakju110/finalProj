@@ -3,29 +3,17 @@
     pageEncoding="EUC-KR"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-	<ul class="navi3">
-		<c:forEach items="${data.subMenu }" var="mm">
-			<c:choose>
-				<c:when test="${mm.name != data.cate2 }">
-					<li><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
-				</c:when>
-				<c:otherwise>
-					<li class="m5_on"><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
-				</c:otherwise>
-			</c:choose>
-		</c:forEach>
-	</ul>
-	
+<jsp:include page="navi3.jsp" />
 
 <form action="deleteReg" method="post">
 	<input type="hidden"  name="no" value="${data.dd.no }" />
 	<table class="e_table2">
 		<tr>
-			<td class="join_t1">암호</td>
+			<th class="join_t1">암호</th>
 			<td class="join_t2"><input type="text" name="pw"/></td>
 		</tr>
 		<%-- <tr>
-			<td>파일이름</td>
+			<th>파일이름</th>
 			<td>${data.dd.sysfile}</td>
 		</tr> --%>
 		<tr>
