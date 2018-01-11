@@ -28,12 +28,11 @@
 			<th>내용</th>
 			<td><textarea cols="40" rows="5" name="content" > [내용] </textarea></td>
 		</tr>
-		<tr>
-			<th colspan="2" align="center">
-				<button class="btn type4">등록</button>
+
+	</table>
+	<div class="bx_btn ptb10 center">
+	<button class="btn type4">등록</button>
 				<button type="reset"  class="btn type4">초기화</button>
 				<a href="list" class="btn type5">목록으로</a>
-			</th>
-		</tr>
-	</table>
+	</div>
 </form>

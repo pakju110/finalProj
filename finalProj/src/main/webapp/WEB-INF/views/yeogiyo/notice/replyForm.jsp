@@ -37,14 +37,10 @@ ${data.dd.content}
 	
 			</textarea></td>
 		</tr>
-		<tr>
-			<td colspan="2" align="center">
-			
+	</table>
+	<div class="bx_btn ptb10 center">
 				<button class="btn type4">작성</button>
 				<a href="replyForm?no=${data.dd.no }" class="btn type4">초기화</a>
-				<a href="list" class="btn type5">목록으로</a>
-			</td>
-		</tr>
-	</table>
+				<a href="list" class="btn type5">목록으로</a></div>
 </form>
-</body>
+

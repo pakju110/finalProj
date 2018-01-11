@@ -55,13 +55,10 @@ function fileDelete(){
 			<th>내용</th>
 			<td><textarea cols="40" rows="5" name="content" >${data.dd.content}</textarea></td>
 		</tr>
-		<tr>
-			<td colspan="2" align="center">
-
-				<button class="btn type4">수정</button>			
+	</table>
+	<div class="bx_btn ptb10 center">
+	<button class="btn type4">수정</button>			
 				<a href="modifyForm?no=${data.dd.no}" class="btn type4">초기화</a>
 				<a href="list" class="btn type5">목록으로</a>
-			</td>
-		</tr>
-	</table>
+	</div>
 </form>
