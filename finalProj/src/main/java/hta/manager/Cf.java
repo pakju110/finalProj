@@ -181,7 +181,7 @@ public class Cf implements SubControll {
       try {
          vo.setCf_oriimg(vo.getFf().getOriginalFilename());
          String outPath = request.getRealPath("/resources/cf");
-         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\img";
+         outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\cf";
          outPath += "/"+vo.getCf_oriimg();
          
          

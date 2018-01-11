@@ -14,12 +14,11 @@ public class CfRepository {
 
 	@Resource
 	SqlSessionTemplate template;
-	
-	public List<CfVo> nonList(CfVo vo) {
-		return template.selectList("cf.nonList", vo);
+	//승인된 목록
+	public List<CfVo> nonList(String nowMM) {
+		return template.selectList("cf.nonList", nowMM);
 	}
 	
-
 	public List<CfVo> list() {
 		return template.selectList("cf.selectList");
 	}

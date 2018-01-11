@@ -290,7 +290,7 @@ public class MypageController {
 			cfvo.setNowMM(sdf.format(today.getTime()));
 		}
 		
-		cfvo.setIsNums(cfdao.nonList(cfvo));
+		cfvo.setIsNums(cfdao.nonList(cfvo.getNowMM()));
 		
 		
 			
@@ -377,7 +377,7 @@ public class MypageController {
 		try {
 			//cfvo.setCf_oriimg(cfvo.getFf().getOriginalFilename());
 			String outPath = request.getRealPath("/resources/cf");
-			outPath = "C:\\Users\\user\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\cf";
+			outPath = "C:\\Users\\pakju\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\cf";
 			String realPath = outPath+ "\\"+cfvo.getCf_oriimg();
 			File file = new File(realPath);
 			 if (file.exists()) {
@@ -491,7 +491,7 @@ void fileDelete(NoticeVO novo)
 	if(novo.getSysfile()!=null && ! novo.getSysfile().equals("")&& ! novo.getSysfile().equals("null")) 
 		{ 
 		
-		String path = "C:\\Users\\user\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\cf";
+		String path = "C:\\Users\\user\\git\\finalProj\\finalProj\\src\\main\\webapp\\resources\\up";
 		path += "\\"+vo.getSysfile();
 
 		File ff = new File(path); 

@@ -28,7 +28,7 @@
 
 			<div class="con">
 				<jsp:include page="${data.cate1 }/${data.service }.jsp" />
-
+				<jsp:include page="inc/cf.jsp" />
 			</div>
 		</div>
 		<div class="footer">
@@ -38,21 +38,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="test_slider">슬라이드 들어갈까</div>
-	<div class="home">
-		<ul>
-			<li><a href="#">전체</a></li>
-			<li><a href="#">치킨</a></li>
-			<li><a href="#">피자</a></li>
-			<li><a href="#">중국집</a></li>
-			<li><a href="#">족발/보쌈</a></li>
-			<li><a href="#">야식</a></li>
-			<li><a href="#">돈까스&amp;회&amp;일식</a></li>
-			<li><a href="#">한식</a></li>
-			<li><a href="#">분식</a></li>
-			<li><a href="#">패스트푸드</a></li>
-		</ul>
-	</div>
+	
 
 </body>
 
