@@ -41,13 +41,13 @@
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td><textarea cols="40" rows="5" name="content" > [내용] </textarea></td>
+			<td><textarea cols="40" rows="5" name="content" >궁금하신</textarea></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				<input type="submit" value="등록" />
-				<input type="reset" value="초기화" />
-				<a href="list">목록으로</a>
+				<input type="submit" value="등록" class="btn type4"/>
+				<input type="reset" value="초기화" class="btn type4"/>
+				<a href="qnalist" class="btn type5">목록으로</a>
 			</td>
 		</tr>
 	</table>

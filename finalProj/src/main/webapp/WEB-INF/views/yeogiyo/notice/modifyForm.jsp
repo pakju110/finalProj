@@ -13,14 +13,27 @@ function fileDelete(){
 
 </script>
 
+	<ul class="navi3">
+		<c:forEach items="${data.subMenu }" var="mm">
+			<c:choose>
+				<c:when test="${mm.name != data.cate2 }">
+					<li><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
+				</c:when>
+				<c:otherwise>
+					<li class="m5_on"><a href="../${mm.name}/${mm.url }">${mm.korName }</a></li>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+	</ul>
+
 <form name="fmt" action="modify" method="post" enctype="multipart/form-data">
 <input type="hidden" name="no" value="${data.dd.no }" />
 <input type="hidden" name="id" value="${data.dd.id }" />
-	<table border="">
+	<table class="e_table2">
 	
 		<tr>
-			<td>제목</td>
-			<td><input type="text" name="title"  value="${data.dd.title }" /></td>
+			<td class="join_t1">제목</td>
+			<td class="join_t2"><input type="text" name="title"  value="${data.dd.title }" /></td>
 		</tr>
 		<tr>
 			<td>파일</td>	
@@ -45,9 +58,9 @@ function fileDelete(){
 		<tr>
 			<td colspan="2" align="center">
 
-				<input type="submit" value="수정" />				
-				<a href="modifyForm?no=${data.dd.no}">초기화</a>
-				<a href="list">목록으로</a>
+				<button class="btn type4">수정</button>			
+				<a href="modifyForm?no=${data.dd.no}" class="btn type4">초기화</a>
+				<a href="list" class="btn type5">목록으로</a>
 			</td>
 		</tr>
 	</table>

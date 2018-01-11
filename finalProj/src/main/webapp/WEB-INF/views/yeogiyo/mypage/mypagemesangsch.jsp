@@ -64,7 +64,7 @@
 		월
 
 	
-		<button class="btn type4">검색</button>
+		<button class="btn type2">검색</button>
 		<!-- <button class="btn type5"><a href="../down">다운로드</a></button> -->
 			</td>	
 		</tr>

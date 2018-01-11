@@ -21,8 +21,8 @@
 	<input type="hidden"  name="no" value="${data.dd.no }" />
 	<table class="e_table2">
 		<tr>
-			<td>암호</td>
-			<td><input type="text" name="pw"/></td>
+			<td class="join_t1">암호</td>
+			<td class="join_t2"><input type="text" name="pw"/></td>
 		</tr>
 		<%-- <tr>
 			<td>파일이름</td>

@@ -10,7 +10,7 @@
 				<div class="swiper-container swiper2">
 					<div class="swiper-wrapper">
 						<c:forEach items="${data.cflist }" var="cf">
-							<div class="swiper-slide"><img src="../../../resources/cf/${cf.cf_sysimg }" width="180px" height="240px"></div>
+							<div class="swiper-slide"><a href="../all/view?rest_id=${cf.rest_id }"><img src="../../../resources/cf/${cf.cf_sysimg }" width="180px" height="240px"></a></div>
 						</c:forEach>
 					</div>
 				</div>

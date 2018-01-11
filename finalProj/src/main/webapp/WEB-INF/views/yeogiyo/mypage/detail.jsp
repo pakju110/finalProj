@@ -52,8 +52,8 @@
 	</c:if>
 	<c:if
 		test="${loginuser.user_id == 'admin' || loginuser.user_id == data.dd.id}">
-		<a href="noticedeleteForm?no=${data.dd.no }">삭제</a>
-		<a href="noticemodifyForm?no=${data.dd.no }">수정</a>
+		<a href="noticedeleteForm?no=${data.dd.no }" class="btn type4">삭제</a>
+		<a href="noticemodifyForm?no=${data.dd.no }" class="btn type4">수정</a>
 	</c:if>
-	<a href="qnalist">리스트로</a>
+	<a href="qnalist" class="btn type5">리스트로</a>
 </div>

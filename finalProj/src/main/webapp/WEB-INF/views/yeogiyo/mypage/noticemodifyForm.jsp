@@ -31,8 +31,8 @@ function fileDelete(){
 	<table class="e_table2">
 	
 		<tr>
-			<td>제목</td>
-			<td><input type="text" name="title"  value="${data.dd.title }" /></td>
+			<td class="join_t1">제목</td>
+			<td class="join_t2"><input type="text" name="title"  value="${data.dd.title }" /></td>
 		</tr>
 		<tr>
 			<td>파일</td>	
@@ -57,9 +57,9 @@ function fileDelete(){
 		<tr>
 			<td colspan="2" align="center">
 
-				<input type="submit" value="수정" />				
-				<a href="modifyForm?no=${data.dd.no}">초기화</a>
-				<a href="qnalist">목록으로</a>
+					<button class="btn type4">수정</button>		
+				<a href="noticemodifyForm?no=${data.dd.no}" class="btn type4">초기화</a>
+				<a href="qnalist" class="btn type5">목록으로</a>
 			</td>
 		</tr>
 	</table>

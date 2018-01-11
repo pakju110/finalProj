@@ -62,7 +62,7 @@
 		월
 
 	
-		<button class="btn type4">검색</button>
+		<button class="btn type2">검색</button>
 			</td>	
 		</tr>
 	

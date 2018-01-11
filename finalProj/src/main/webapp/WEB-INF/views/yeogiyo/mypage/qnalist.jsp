@@ -17,10 +17,10 @@
 	
 	
 	<div id="my_tab1">
-		<table>
+		<table class="e_table2">
 			<thead>
 				<tr>
-					<th>번호</th>
+					<th class="join_t1">번호</th>
 				
 					<th>작성자</th>
 					<th>제목</th>
@@ -45,7 +45,7 @@
 		</table>
 		<div class="bx_btn notice">
 			<c:if test="${data.btnGo}">
-				<a href="insertForm" class="btn type4">글쓰기</a>
+				<a href="insertForm" class="btn type4">문의하기</a>
 			</c:if></div>
 		<div class="bx_pagebtn">
 			<c:if test="${data.startPage>1 }">

@@ -87,12 +87,12 @@
 </table>
 <div class="bx_btn notice">
 	<c:if test="${loginuser.user_id == 'admin' && data.dd.re == 0}">
-		<a href="replyForm?no=${data.dd.no }">답변</a>
+	<a href="replyForm?no=${data.dd.no }" class="btn type4">답변</a>
 	</c:if>
 	<c:if
 		test="${loginuser.user_id == 'admin' || loginuser.user_id == data.dd.id}">
-		<a href="deleteForm?no=${data.dd.no }">삭제</a>
-		<a href="modifyForm?no=${data.dd.no }">수정</a>
+		<a href="deleteForm?no=${data.dd.no }" class="btn type4">삭제</a>
+		<a href="modifyForm?no=${data.dd.no }" class="btn type4">수정</a>
 	</c:if>
-	<a href="list">리스트로</a>
+	<a href="list" class="btn type5">리스트로</a>
 </div>

@@ -15,10 +15,10 @@
 		</c:forEach>
 	</ul>
 	<div id="my_tab1">
-		<table>
+		<table class="e_table2">
 			<thead>
 				<tr>
-					<th>번호</th>
+					<th class="join_t1">번호</th>
 					<th>카테고리</th>
 					<th>작성자</th>
 					<th>제목</th>

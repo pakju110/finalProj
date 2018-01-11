@@ -11,11 +11,11 @@
 
 <form action="insert" method="post" enctype="multipart/form-data">
 <input type="hidden" name="gno" value="${data.dd.gno=data.dd.no}"/>
-	<table border="">
+<table class="e_table2">
 		
 		<tr>
-			<td>카테고리</td>
-			<td><select name="cate">
+			<td class="join_t1">카테고리</td>
+			<td class="join_t2"><select name="cate">
 <c:if test="${loginuser.user_id == 'admin'}">
 					<option value="notice" >공지사항</option>
 					<option value="fnq" >자주하는 질문</option>
@@ -37,9 +37,9 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				<input type="submit" value="등록" />
-				<input type="reset" value="초기화" />
-				<a href="list">목록으로</a>
+				<input type="submit" value="등록" class="btn type4"/>
+				<input type="reset" value="초기화" class="btn type4" />
+				<a href="list" class="btn type5">목록으로</a>
 			</td>
 		</tr>
 	</table>

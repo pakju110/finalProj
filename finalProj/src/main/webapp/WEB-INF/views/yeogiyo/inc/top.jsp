@@ -19,8 +19,10 @@
 				<span></span><span></span><span></span>
 			</span></a>
 				<ul class="bx_mymenu"  id="Gnb">
+				<c:if
+				test="${loginuser.user_id != null && loginuser.grade ne 'admin'}">
 					<li><a href="${data.depth}mypage/mypage/list">마이페이지</a></li>
-					
+					</c:if>
 					<c:if
 				test="${loginuser.user_id != null && loginuser.grade eq 'admin'}">
 				<li><a href="${data.depth}manager/user/list">관리자메뉴</a></li>
