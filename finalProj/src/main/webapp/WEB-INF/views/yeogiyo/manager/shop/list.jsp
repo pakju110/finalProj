@@ -23,4 +23,20 @@
 	</c:forEach>
 
 </table>
+<div class="bx_pagebtn">
 
+			<c:if test="${data.startPage>1 }">
+				<a href="?page=1">[처음으로]</a>
+				<a href="?page=${data.startPage-1 }" class="btn">&gt;</a>
+			</c:if> <c:forEach begin="${data.startPage }" end="${data.endPage }" var="i">
+				<c:choose>
+					<c:when test="${data.nowPage==i }"><span class="btn on">${i }</span></c:when>
+					<c:otherwise>
+						<a href="?page=${i }" class="btn">${i }</a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach> <c:if test="${data.endPage<data.totalPage }">
+				<a href="?page=${data.endPage+1 }" class="btn">></a>
+				<a href="?page=${data.totalPage }">[마지막으로]</a>
+			</c:if>
+		</div>
