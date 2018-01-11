@@ -14,6 +14,8 @@
 			</c:choose>
 		</c:forEach>
 	</ul>
+	
+	
 	<div id="my_tab1">
 		<table>
 			<thead>

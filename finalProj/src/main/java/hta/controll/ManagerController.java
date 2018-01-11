@@ -1,3 +1,4 @@
+
 package hta.controll;
  
 import java.util.ArrayList;
@@ -106,6 +107,7 @@ public class ManagerController {
         subMenu.get("manager").add(new Menu("cf", "광고관리", "list"));
         subMenu.get("manager").add(new Menu("payorder", "정산관리", "list"));
         subMenu.get("manager").add(new Menu("cf", "광고비용관리", "inpay"));
+        subMenu.get("manager").add(new Menu("notice", "고객센터관리", "../../../yeogiyo/notice/notice/list"));
         
 
        
