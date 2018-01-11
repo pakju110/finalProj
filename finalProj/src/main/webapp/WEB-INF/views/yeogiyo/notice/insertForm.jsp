@@ -1,22 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
 
 <form action="insert" method="post" enctype="multipart/form-data">
 <input type="hidden" name="gno" value="${data.dd.gno=data.dd.no}"/>
 <table class="e_table2">
 		
 		<tr>
-			<td class="join_t1">카테고리</td>
+			<th class="join_t1">카테고리</th>
 			<td class="join_t2"><select name="cate">
-<c:if test="${loginuser.user_id == 'admin'}">
+		<c:if test="${loginuser.user_id == 'admin'}">
 					<option value="notice" >공지사항</option>
 					<option value="fnq" >자주하는 질문</option>
 </c:if>
@@ -24,25 +17,23 @@
 				</select></td>
 		</tr>	
 		<tr>
-			<td>제목</td>
+			<th>제목</th>
 			<td><input type="text" name="title" /></td>
 		</tr>
 		<tr>
-			<td>파일</td>
+			<th>파일</th>
 			<td><input type="file" name="ff" /></td>
 		</tr>
 		<tr>
-			<td>내용</td>
+			<th>내용</th>
 			<td><textarea cols="40" rows="5" name="content" > [내용] </textarea></td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center">
-				<input type="submit" value="등록" class="btn type4"/>
-				<input type="reset" value="초기화" class="btn type4" />
+			<th colspan="2" align="center">
+				<button class="btn type4">등록</button>
+				<button type="reset"  class="btn type4">초기화</button>
 				<a href="list" class="btn type5">목록으로</a>
-			</td>
+			</th>
 		</tr>
 	</table>
 </form>
-</body>
-</html>

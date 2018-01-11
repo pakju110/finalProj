@@ -14,22 +14,22 @@
 			</c:choose>
 		</c:forEach>
 	</ul>
-<body>
+</div>
 
 <form name="fmt" action="replyReg" method="post" enctype="multipart/form-data">
 <input type="hidden" name="no" value="${data.dd.no }" />
 <input type="hidden" name="gno" value="${data.dd.gno }" />
 	<table class="e_table2">
 		<tr>
-			<td class="join_t1">力格</td>
+			<th class="join_t1">力格</th>
 			<td class="join_t2"><input type="text" name="title"  value="[Re]${data.dd.title}" /></td>
 		</tr>
 		<tr>
-			<td>颇老</td>	
+			<th>颇老</th>	
 			<td><input type="file" name="ff" /></td>
 		</tr>
 		<tr>
-			<td>郴侩</td>
+			<th>郴侩</th>
 			<td>
 			<textarea cols="40" rows="5" name="content" >			
 ${data.dd.content}

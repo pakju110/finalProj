@@ -32,11 +32,11 @@ function fileDelete(){
 	<table class="e_table2">
 	
 		<tr>
-			<td class="join_t1">力格</td>
+			<th class="join_t1">力格</th>
 			<td class="join_t2"><input type="text" name="title"  value="${data.dd.title }" /></td>
 		</tr>
 		<tr>
-			<td>颇老</td>	
+			<th>颇老</th>	
 			<td>
 			<c:choose>
 				<c:when test="${data.dd.sysfile==null || data.dd.sysfile==''}">
@@ -52,7 +52,7 @@ function fileDelete(){
 			</td>
 		</tr>
 		<tr>
-			<td>郴侩</td>
+			<th>郴侩</th>
 			<td><textarea cols="40" rows="5" name="content" >${data.dd.content}</textarea></td>
 		</tr>
 		<tr>
