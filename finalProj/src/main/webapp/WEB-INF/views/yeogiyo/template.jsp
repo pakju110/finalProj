@@ -43,7 +43,6 @@
 		<div class="footer">
 			<div class="con">
 				<jsp:include page="inc/bottom.jsp" />
-				<a href="#">회사소개</a> <a href="${data.depth}notice/notice/list">고객센터</a>
 			</div>
 		</div>
 	</div>

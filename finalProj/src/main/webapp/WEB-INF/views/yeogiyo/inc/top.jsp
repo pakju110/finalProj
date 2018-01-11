@@ -28,6 +28,7 @@
 				<li><a href="${data.depth}manager/user/list">관리자메뉴</a></li>
 				
 			</c:if>
+			<li><a href="${data.depth}notice/notice/list">고객센터</a></li>
 			<li><a href="${data.depth}login/login/logout" class="">로그아웃</a></li>
 				</ul>
 			</c:if>
