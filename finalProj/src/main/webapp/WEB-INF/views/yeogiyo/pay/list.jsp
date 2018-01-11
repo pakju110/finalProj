@@ -63,6 +63,6 @@
 		</tr>
 	</table>
 	<p class="bx_btn center" >
-		<a href="javascript:close()" class="btn type5">취소</a><button class="btn type4" >다음으로</button>
+		<a href="#a" onclick="btn_close()" class="btn type5">취소</a><button class="btn type4" >다음으로</button>
 	</p>
 </form>

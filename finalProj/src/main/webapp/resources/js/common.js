@@ -4,9 +4,9 @@
  */
 
 
-function close(){
-	myWindow.close();  
-}
+
+
+
 function Request() {
 	var requestParam = "";
 	this.getParameter = function(param) {
@@ -30,7 +30,7 @@ function add_item(obj) {
 	var request = new Request();
 	var hrf = "orderoption?rest_id=" + request.getParameter("rest_id") + "&no="
 			+ no;
-	alert(hrf);
+	//alert(hrf);
 	option.action = hrf;
 	
 	option.submit();
@@ -42,7 +42,7 @@ function remove_item(obj) {
 	var hrf = "removeoption?rest_id=" + request.getParameter("rest_id")
 			+ "&no=" + no;
 	option.action = hrf;
-	alert(hrf);
+	//alert(hrf);
 	option.submit();
 }
 
@@ -50,7 +50,7 @@ function remove_all() {
 	var request = new Request();
 	var hrf = "allremove?rest_id=" + request.getParameter("rest_id");
 	option.action = hrf;
-	alert(hrf);
+	//alert(hrf);
 	option.submit();
 }
 
@@ -60,7 +60,7 @@ function remove_menu(obj) {
 	var hrf = "menudelte?rest_id=" + request.getParameter("rest_id") + "&no="
 			+ no;
 	menumodi.action = hrf;
-	alert(hrf);
+	//alert(hrf);
 	menumodi.submit();
 }
 
@@ -69,21 +69,29 @@ function menuplus(obj) {
 	var cnt = obj;
 	var hrf = "menuplus?rest_id=" + request.getParameter("rest_id") + "&cnt="
 			+ cnt;
-	alert(obj);
+	//alert(obj);
 	mif.action = hrf;
 	
 	mif.submit();
 
 }
 
+var myWindow;
+
+
+
 function pay_submt() {
 	var request = new Request();
-	var newwin = window.open('_blank', 'winname', 'width=500, height=300');
+	var myWindow = window.open('_blank', 'winname', 'width=500, height=300');
 	var hrf = "../../pay/list?rest_id=" + request.getParameter("rest_id");
 	option.action = hrf;
 	option.target = "winname";
 	option.submit();
 }
+function btn_close(){
+	myWindow.close();
+}
+
 
 function idCheck() {
 
@@ -174,7 +182,7 @@ $(document).ready(function() {
 	});
 	$('.btn_addrserch').click(function(){
 		var request = new Request();
-		alert($('#serch').val());
+		//alert($('#serch').val());
 		$.ajax({
 
 			url:'http://maps.googleapis.com/maps/api/geocode/json',
@@ -203,7 +211,7 @@ $(document).ready(function() {
 	});
 	$('#addcheck').click(function(){
 		var request = new Request();
-		alert($('#addr').val());
+		//alert($('#addr').val());
 		$.ajax({
 
 			url:'http://maps.googleapis.com/maps/api/geocode/json',
@@ -221,7 +229,7 @@ $(document).ready(function() {
 			
 				$("#regshop").attr("action","reg?xlet="+data.results[0].geometry.location.lat+"&ylng="+data.results[0].geometry.location.lng);
 				regshop.submit();
-				alert(data.results[0].geometry.location.lat+"<br>"+data.results[0].geometry.location.lng);
+				//alert(data.results[0].geometry.location.lat+"<br>"+data.results[0].geometry.location.lng);
 				//ylng.value = ata.results[0].geometry.location.lng;
 			}
 			

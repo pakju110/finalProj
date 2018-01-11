@@ -7,7 +7,7 @@
 		type="hidden" name="user_id" value="${data.dd.user_id }" /> <input
 		type="hidden" name="phone" value="${data.dd.phone}"> <input
 		type="hidden" name="address" value="${data.dd.address}"> <input
-		type="hidden" name="content"> 
+		type="hidden" name="content" value="${data.dd.content}"> 
 		<input type="hidden"
 		name="price" value="${data.dd.price }" readonly="readonly"> 
 		<input
@@ -51,7 +51,7 @@
 		</tr>
 	</table>
 	<p class="bx_btn center">
-		<a href="javascript:close()" class="btn type5">취소</a>
+		<a href="#a" onclick="btn_close()" class="btn type5">취소</a>
 		<button class="btn type4">결재</button>
 	</p>
 </form>
