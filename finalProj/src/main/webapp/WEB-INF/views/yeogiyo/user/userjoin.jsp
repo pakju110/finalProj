@@ -13,7 +13,7 @@
 			<input type="text" name="user_id" placeholder="아이디입력" title="아이디입력"
 				maxlength="12" class="input_100_43">
 			<a href="#a" class="btn btn_id_check" onclick="idCheck()">중복확인</a>
-			<input type="button"
+			<%-- <input type="button"
 				onclick="idCheck2()" name="sch" class="sch" value="id중복확인" />
 			<p>
 				<c:choose>
@@ -22,7 +22,7 @@
 					</c:when>
 					<c:otherwise>아이디가 중복이거나 중복체크를 해주세요</c:otherwise>
 				</c:choose>
-			</p>
+			</p> --%>
 		</div>
 		<div class="privacy_form3">
 			<input type="password" name="user_pw"
@@ -46,12 +46,9 @@
 		</div>
 		<div class="check_box">
 
-			<c:if test='${idchek == "tr"}'>
-				<button class="btn_dong_daum01">회원가입</button>
-			</c:if>
+	
 			<a href="../../user/join/list" class="btn type5">취소</a>
-
-
+			<button class="btn type4">회원가입</button>
 		</div>
 	</form>
 

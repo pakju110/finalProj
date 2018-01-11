@@ -124,6 +124,9 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    <select id="idPwChk" resultType="alishop" parameterType="alishop">
    		select * from shop where rest_id = #{ rest_id} 
    </select>
+   <select id="idPwChk2" resultType="alishop" parameterType="String">
+   		select * from shop where rest_id = #{ rest_id} 
+   </select>
    
    
    <!-- review -->

@@ -2,7 +2,6 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=true"></script>
-	<c:if test="${loginuser.grade == 'w' }">
 	<form action="reg" method="post" enctype="multipart/form-data" name="regshop" id="regshop">
 		<input type="hidden" name="grade" value="w"/>
 		<table class="e_table2">
@@ -73,7 +72,7 @@
 				<td><input type="file" name="ff" /></td>
 			</tr>
 		</table>
-		<div class="bx_btn ptb10 txt_right"><a href="list" class="btn type5">취소</a><a href="#a" id="addcheck" class="btn type4">가입</a></div>
+		<div class="bx_btn ptb10 txt_right"><a href="list" class="btn type5">취소</a><a href="#a" id="addcheck" class="btn type4">등록</a></div>
 	</form>
-	</c:if>
+
 	

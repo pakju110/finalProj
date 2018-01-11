@@ -109,8 +109,16 @@ public class User implements SubControll {
 		fileupload(vo, data.getRequest());
 		dao.insert2(vo);
 		
+		
+		UserVo chek =dao.detail(vo);
+		
+		
 		data.setRedirect(true);
-		data.setPath("redirect:view?user_id="+vo.getUser_id());
+		
+		if(chek.getGrade().equals("w")) {
+			data.setPath("redirect:../../shop/all/registerForm?rest_id="+chek.getUser_id());
+		}else {data.setPath("redirect:../../shop/all/list");}
+		//data.setPath("redirect:view?user_id="+vo.getUser_id());
 	}
 	
 	void idReg() {

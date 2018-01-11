@@ -310,17 +310,14 @@ public class ShopController {
 	}
 
 	void reg() {
-		System.out.println("\n\n\n\n\n\n\n\n");
-		System.out.println(data.getRequest().getParameter("xlet"));
-		System.out.println(data.getRequest().getParameter("ylng"));
 		double xlet,ylng;
 		xlet = Double.parseDouble(data.getRequest().getParameter("xlet"));
 		ylng = Double.parseDouble(data.getRequest().getParameter("ylng"));
 		sovo.setXlet(xlet);
 		sovo.setYlng(ylng);
-		System.out.println("진입확인" + sovo);
+
 		fileupload(sovo, data.getRequest());
-		System.out.println(sovo);
+
 		dao.insert(sovo);
 
 		data.setRedirect(true);

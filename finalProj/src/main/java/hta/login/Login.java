@@ -19,6 +19,7 @@ import hta.controll.SubControll;
 
 
 import hta.model.LoginData;
+import hta.shop.model.ShopRepository;
 import hta.user.model.UserRepository;
 import hta.user.model.UserVo;
 
@@ -31,6 +32,9 @@ public class Login implements SubControll {
 	
 	@Resource
 	UserRepository dao;
+	
+	@Resource
+	ShopRepository shopdao;
 	
 	UserVo vo;
 	
@@ -66,7 +70,7 @@ public class Login implements SubControll {
 
 		data.getSession().invalidate();
 		data.setRedirect(true);
-		data.setPath("redirect:list");
+		data.setPath("redirect:../../shop/all/list");
 		
 	}
 	
@@ -84,9 +88,21 @@ public class Login implements SubControll {
 			UserVo vo1 = dao.detail(vo);
 			System.out.println(vo1);
 			data.getSession().setAttribute("loginuser", vo1);
-			data.setPath("redirect:../../shop/all/list");
+			if(vo1.getGrade().equals("w")) {
+				if(shopdao.idPwChk2(vo.getUser_id()) !=null) {
+					data.setPath("redirect:../../shop/all/view?rest_id="+vo1.getUser_id());
+				}else {
+					data.setPath("redirect:../../shop/all/registerForm?rest_id="+vo1.getUser_id());
+				}
+				
+				
+			}else {
+				
+				data.setPath("redirect:../../shop/all/list");
+			}
+			
 		}else{
-			data.setPath("redirect:../../shop/all/list");
+			data.setPath("redirect:list");
 		}
 
 	}

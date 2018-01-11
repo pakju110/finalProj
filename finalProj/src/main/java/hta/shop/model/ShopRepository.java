@@ -83,7 +83,9 @@ public class ShopRepository {
 	public ShopVo idPwChk(ShopVo vo) {
 		return template.selectOne("shopmapper.idPwChk", vo);
 	}
-	
+	public ShopVo idPwChk2(String vo) {
+		return template.selectOne("shopmapper.idPwChk2", vo);
+	}
 	
 	
 	//review
