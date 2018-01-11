@@ -2,6 +2,7 @@
 	pageEncoding="EUC-KR"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+	
 <jsp:include page="navi3.jsp" />
 	
 <table class="e_table2">

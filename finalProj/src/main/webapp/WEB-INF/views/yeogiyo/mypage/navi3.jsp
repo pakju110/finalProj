@@ -2,10 +2,11 @@
     pageEncoding="EUC-KR"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <ul class="navi3">
-	<c:forEach items="${data.subMenu }" var="mm">
-		<c:if test="${loginuser.grade == 'w' || loginuser.grade == 'r' }">
+<c:if test="${loginuser.grade == 'w' || loginuser.grade == 'r' }">
 			<li><a href="../../shop/all/view?rest_id=${loginuser.user_id }">내가게 관리</a></li>
 		</c:if>
+	<c:forEach items="${data.subMenu }" var="mm">
+		
 		
 		<c:choose>
 			<c:when test="${mm.name != data.cate2 }">
