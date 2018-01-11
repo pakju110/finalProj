@@ -16,7 +16,7 @@ public class ShopData {
 
 	String cate1,cate2, service, path="", depth="../../";
 	
-	Object dd,dd2,cart,review,cfdetailimg;
+	Object dd,dd2,cart,review,cfdetailimg,cflist;
 	
 	MenuChange menuChange;
 	CartList cartList;
@@ -27,6 +27,7 @@ public class ShopData {
 	
 	
 	ArrayList<Menu> subMenu;
+
 	
 	boolean redirect , btnGo = false;
 	int limit = 8, pageLimit =4;
@@ -35,6 +36,12 @@ public class ShopData {
 	
 	
 	
+	public Object getCflist() {
+		return cflist;
+	}
+	public void setCflist(Object cflist) {
+		this.cflist = cflist;
+	}
 	public Double getXlet() {
 		return xlet;
 	}

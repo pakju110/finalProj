@@ -5,8 +5,12 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 <mapper namespace="cf">
 
 
-	<select id="nonList" resultType="aliscf">
-		select * from cf where startdd = #{nowMM}	order by no
+	<select id="nonList" resultType="aliscf" parameterType="aliscf">
+		select * from cf where startdd = #{nowMM} order by no
+	</select>
+	
+	<select id="nowList" resultType="aliscf" >
+		select * from cf where startdd = to_char(sysdate, 'YYYY-MM') order by no
 	</select>
 
 	<select id="selectList" resultType="aliscf">

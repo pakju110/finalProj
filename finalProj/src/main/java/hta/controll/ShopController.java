@@ -15,11 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import hta.manager.CfRepository;
 import hta.model.Menu;
-import hta.model.PathData;
 import hta.model.ShopData;
-import hta.notice.model.NoticeVO;
-import hta.pay.model.PayRepository;
 import hta.shop.model.CartRepository;
 import hta.shop.model.CartVo;
 import hta.shop.model.MenuChange;
@@ -46,6 +44,8 @@ public class ShopController {
 	@Resource
 	ShopRepository dao;
 
+	@Resource
+	CfRepository cflist;
 	@Resource
 	MenuRepository menu;
 
@@ -92,6 +92,7 @@ public class ShopController {
 		data.setDd(shopVo);
 		data.setDd2(menuVo);
 		data.setReview(reviewVo);
+		data.setCflist(cflist.nowList());
 		revo = reviewVo;
 		System.out.println("빈 가져온거??" + data.getDd());
 		System.out.println("빈 가져온거222222222??" + data.getDd2());
@@ -675,6 +676,7 @@ public class ShopController {
 		String res = "yeogiyo/template";
 		if (data.isRedirect()) { //// redirect에 따른 redirect or forward 선택
 			res = data.getPath();
+			
 		}
 		return res;
 	}

@@ -18,6 +18,10 @@ public class CfRepository {
 	public List<CfVo> nonList(String nowMM) {
 		return template.selectList("cf.nonList", nowMM);
 	}
+	public List<CfVo> nowList() {
+		return template.selectList("cf.nowList");
+	}
+	
 	
 	public List<CfVo> list() {
 		return template.selectList("cf.selectList");
