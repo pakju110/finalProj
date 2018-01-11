@@ -41,9 +41,11 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<div class="bx_btn notice"><c:if test="${data.btnGo}">
+		<div class="bx_btn notice">
+			<c:if test="${data.btnGo}">
 				<a href="insertForm" class="btn type4">글쓰기</a>
-			</c:if></div>
+			</c:if>
+			</div>
 		<div class="bx_pagebtn">
 			<c:if test="${data.startPage>1 }">
 				<a href="?page=1">[처음으로]</a>

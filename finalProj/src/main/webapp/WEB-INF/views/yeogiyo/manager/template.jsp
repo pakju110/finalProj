@@ -22,6 +22,7 @@
 		<div class="contents">
 
 			<div class="con">
+				<jsp:include page="navi3.jsp"/>
 				<jsp:include page="${data.cate2 }/${data.service }.jsp" />
 
 			</div>

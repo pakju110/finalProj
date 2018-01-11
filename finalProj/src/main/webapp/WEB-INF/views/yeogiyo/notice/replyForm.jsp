@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<div id="m_tabs2" class="my5_con">
+
 	<ul class="navi3">
 		<c:forEach items="${data.subMenu }" var="mm">
 			<c:choose>
@@ -14,7 +14,7 @@
 			</c:choose>
 		</c:forEach>
 	</ul>
-</div>
+
 
 <form name="fmt" action="replyReg" method="post" enctype="multipart/form-data">
 <input type="hidden" name="no" value="${data.dd.no }" />

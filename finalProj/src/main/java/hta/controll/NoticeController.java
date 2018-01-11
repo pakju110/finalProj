@@ -235,7 +235,7 @@ public class NoticeController {
 
 		
 		
-		switch(data.getCate1()) {
+		switch(data.getCate2()) {
 			case "fnq":
 			case "notice":
 				if(userVo!=null && userVo.getUser_id().equals("admin"))

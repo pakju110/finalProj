@@ -5,19 +5,13 @@
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-	<table border="">
+
+	<table class="e_table2">
 	<tr>
-	<td><a href="list">전체보기</a></td>
-	<td><a href="wlist">신청중 광고보기</a></td>
-	<td><a href="nowcflist">현재 광고보기</a></td>
-	<td><a href="endcflist">지난 광고보기</a></td>
+	<td class="join_t1"><a href="list">전체보기</a></td>
+	<td class="join_t1"><a href="wlist">신청중 광고보기</a></td>
+	<td class="join_t1"><a href="nowcflist">현재 광고보기</a></td>
+	<td class="join_t1"><a href="endcflist">지난 광고보기</a></td>
 		</tr>
 		<tr>
 			<td>신청 가게 아이디</td>
@@ -47,5 +41,3 @@
 	
 		
 	</table>
-</body>
-</html>
