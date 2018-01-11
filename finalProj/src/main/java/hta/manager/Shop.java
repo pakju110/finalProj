@@ -12,6 +12,7 @@ import hta.model.ShopData;
 import hta.shop.model.MenuRepository;
 import hta.shop.model.ShopRepository;
 import hta.shop.model.ShopVo;
+import hta.user.model.UserVo;
 
 @Service
 public class Shop implements SubControll {
@@ -86,7 +87,7 @@ public class Shop implements SubControll {
 		dao.insert(sovo);
 		
 		data.setRedirect(true);
-		data.setPath("redirect:view?id="+sovo.getRest_id());
+		data.setPath("redirect:view?rest_id="+sovo.getRest_id());
 		
 		
 	}
@@ -100,16 +101,11 @@ public class Shop implements SubControll {
 	}
 	
 	void modify() {
-	
+
 		data.setRedirect(true);
-	/*	if(dao.idPwChk(sovo)!=null)
-		{
-			//fileupload(vo, request);
-			data.setDd(dao.modify(sovo));
-		}*/
-		//data.setPath("redirect:view?id="+sovo.getRest_id());
-		data.setDd(dao.modify(sovo));
-		data.setPath("redirect:view?id="+sovo.getRest_id());
+		dao.modify3(sovo);
+		data.setDd(dao.modify2(sovo));
+		data.setPath("redirect:view?rest_id="+sovo.getRest_id());
 	data.setDd(dao.detail(sovo));
 	}
 	
