@@ -100,8 +100,18 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    		 where rest_id = #{rest_id}
    </update>
    
-   
-   
+     
+   <update id="modify2" parameterType="alishop">
+   		update shop set 
+   		
+   		 grade = #{grade}
+   		 where rest_id = #{rest_id}
+   </update>
+   <update id="modify3" parameterType="alishop">
+   		update finaluser set 
+   		 grade = #{grade}
+   		 where user_id = #{rest_id}
+   </update>
    <insert id="insertOne" parameterType="alishop">
 <!-- 	   <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
 	   		select max(id)+1 from shop
