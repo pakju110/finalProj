@@ -255,7 +255,7 @@ public class MypageController {
 	}
 	
 	void modifyform() {
-		//data.setDd(dao.detail(vo));
+		data.setDd(dao.detail(vo));
 	}
 	
 	
