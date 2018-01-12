@@ -305,7 +305,7 @@ display: -ms-flexbox;
 .shop.view > .left > .bx_top .bx_btn.txt_right {     float: left; width:100%;}
 .shop.view > .left .left p { padding:5px 0;}
 .shop.view > .left .left p:first-child { padding:10px 0 5px; font-size: 18px; color:#333; font-weight: bold;}
-.shop.view > .left > .bx_top .bx_img { overflow:hidden; width:214px; height: 212px;}
+.shop.view > .left > .bx_top .bx_img { overflow:hidden; width:214px;}
 .shop.view > .left > .bx_top .ft_yel { font-size: 24px;} 
 .wrap .ft_yel {color:#fac800;}
 .shop.view > .left > .bx_cen { background: #e60000; padding-top:4px;}
@@ -313,6 +313,7 @@ display: -ms-flexbox;
 .shop.view > .left > .bx_cen .menu { margin-top:-1px; height:70px; border-top:1px solid #cbcbcb; border-bottom:1px solid #cbcbcb; background: #fff; }
 .shop.view > .left > .bx_cen .menu a { display: block; padding:10px; width:620px; height:50px;}
 .shop.view > .left > .bx_cen .menu a > * { float: left; display: block;}
+.shop.view > .left > .bx_cen .menu a > *.txt {width:540px;}
 .shop.view > .left > .bx_cen .menu a .img { padding-right:10px;}
 .shop.view > .left > .bx_cen .menu a .img img { height:50px;}
 .shop.view > .left > .bx_cen .menu a .txt * { display: block;}
