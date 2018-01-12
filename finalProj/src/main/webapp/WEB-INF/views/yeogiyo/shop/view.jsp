@@ -91,6 +91,7 @@
 					CLOSE<c:if test="${data.dd.closetime < 10 }">0</c:if>${data.dd.closetime}:00
 				</p>
 				<p>${data.dd.addr},${data.dd.addr2}</p>
+				<p>${data.dd.contents }</p>
 			</div>
 			<c:if test="${data.dd.rest_id == loginuser.user_id }">
 				<div class="bx_btn txt_right">
