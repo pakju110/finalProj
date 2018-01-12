@@ -12,7 +12,7 @@
 		<div class="privacy_form2">
 			<input type="text" name="user_id" placeholder="아이디입력" title="아이디입력"
 				maxlength="12" class="input_100_43">
-			<a href="#a" class="btn btn_id_check" onclick="idCheck()">중복확인</a>
+			<!-- <a href="#a" class="btn btn_id_check" onclick="idCheck()">중복확인</a> -->
 			<%-- <input type="button"
 				onclick="idCheck2()" name="sch" class="sch" value="id중복확인" />
 			<p>
@@ -27,14 +27,17 @@
 		<div class="privacy_form3">
 			<input type="password" name="user_pw"
 				placeholder="비밀번호 (영문/숫자/특문 6~12자)" maxlength="12"
-				class="input_100_43">
+				class="input_100_43" id="password" onchange="samepassword()">
 			<p class="pri_pw_img1"></p>
 		</div>
 		<div class="privacy_form4">
-			<input type="text" name="user_pw"
+			<input type="password" name="user_pw"
 				placeholder="비밀번호 재확인 (영문/숫자/특문 6~12자)" maxlength="12"
-				class="input_100_43">
+				class="input_100_43"  onchange="samepassword()" id="confirm">
 			<p class="pri_pw_img2"></p>
+		</div>
+		<div class="privacy_form6">
+			<span id = "res" ></span>
 		</div>
 		<div class="privacy_form5">
 			<input type="text" name="user_phone" placeholder="전화번호 입력"

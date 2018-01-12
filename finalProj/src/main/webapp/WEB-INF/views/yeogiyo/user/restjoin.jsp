@@ -12,7 +12,7 @@
 		<div class="privacy_form2">
 			<input type="text" name="user_id" placeholder="아이디입력" title="아이디입력"
 				maxlength="12" class="input_100_43">
-			<a href="#a" class="btn btn_id_check" onclick="idCheck2()">중복확인</a>
+			<!-- <a href="#a" class="btn btn_id_check" onclick="idCheck2()">중복확인</a> -->
 			<%-- <input type="button"
 				onclick="idCheck2()" name="sch" class="sch" value="id중복확인" />
 			<p>

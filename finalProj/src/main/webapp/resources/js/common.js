@@ -133,6 +133,23 @@ function menu() {
 		
 }
 
+function samepassword(){
+	   if(document.getElementById('password').value!=''&& document.getElementById('confirm').value !=''){
+	      if(document.getElementById('password').value == document.getElementById('confirm').value){
+	         document.getElementById('res').innerHTML = '비밀번호가 일치합니다.';
+	         document.getElementById('res').style.color='black';
+	         count++;
+	         if(count==2){
+	            $("#submit").attr("disabled", false);
+	         }
+	      }else{
+	         document.getElementById('res').innerHTML = '비밀번호가 일치하지 않습니다.';
+	         document.getElementById('res').style.color='red';
+	         
+	      }
+	   }
+	   
+	}
 
 $(document).ready(function() {
 	$(".noman").bind("keyup", function() {
