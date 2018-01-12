@@ -8,7 +8,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    		select count(*) from shop where type = #{type} and grade= 'r'
    	</select>
    <select id="allTotal" resultType="java.lang.Integer">
-   		select count(*) from shop and grade= 'r'
+   		select count(*) from shop where grade= 'r'
    </select>
    <select id="selectTotal2" resultType="java.lang.Integer" parameterType="shopData">
    		<![CDATA[select count(*) from shop
