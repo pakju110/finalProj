@@ -7,6 +7,7 @@
 
 <form action="insert" method="post" enctype="multipart/form-data">
 <input type="hidden" name="gno" value="${data.dd.gno=data.dd.no}"/>
+
 	<table class="e_table2">
 		
 		<tr>
@@ -33,8 +34,8 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				<input type="submit" value="등록" class="btn type4"/>
-				<input type="reset" value="초기화" class="btn type4"/>
+				<button class="btn type4">등록</button>
+				<button type="reset"  class="btn type4">초기화</button>
 				<a href="qnalist" class="btn type5">목록으로</a>
 			</td>
 		</tr>

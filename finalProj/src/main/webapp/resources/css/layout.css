@@ -1,5 +1,7 @@
 @charset "EUC-KR";
 
+
+button {margin-top: -2px !important;}
 .block { display:block;}
 .both:after { content:""; display:block; clear:both;}
 .left { float:left;}
@@ -370,7 +372,7 @@ display: -ms-flexbox;
 .bx_review .review p:first-child { font-size: 14px; color:#333; font-weight: bold;}
 .bx_review .review p:first-child .right { font-weight:normal;}
 .bx_review .review p:first-child + p { padding:5px 0; color:#e60000;}
-.bx_review .review p img { max-width: 100%;}
+.bx_review .review p img { width:180px;}
 .bx_review .review .txt_con {padding:5px 0;}
 
 
@@ -464,6 +466,7 @@ display: -ms-flexbox;
 	padding:0;
 	 width: 80px;
     padding: 0;
+    margin-left: 5px;
     height: 30px;
     line-height: 30px;
 	background:#e60000;

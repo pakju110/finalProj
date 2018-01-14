@@ -80,7 +80,7 @@
 					test="${data.dd.orifile!=null && data.dd.orifile!='null'}">
 					<img alt="" src="../../../resources/img/${data.dd.orifile}">
 				</c:if>
-				<div>${data.dd.content}</div></td>
+				<div>${data.dd.contentBR}</div></td>
 		</tr>
 
 	</tbody>
@@ -92,7 +92,9 @@
 	<c:if
 		test="${loginuser.user_id == 'admin' || loginuser.user_id == data.dd.id}">
 		<a href="deleteForm?no=${data.dd.no }" class="btn type4">삭제</a>
-		<a href="modifyForm?no=${data.dd.no }" class="btn type4">수정</a>
+		<c:if test="${loginuser.user_id == data.dd.id && data.dd.re == 0}">
+      <a href="modifyForm?no=${data.dd.no }" class="btn type4">수정</a>
+   </c:if>
 	</c:if>
 	<a href="list" class="btn type5">리스트로</a>
 </div>

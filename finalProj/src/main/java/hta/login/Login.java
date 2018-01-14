@@ -96,6 +96,9 @@ public class Login implements SubControll {
 				}
 				
 				
+			}else if(vo1.getGrade().equals("r")){
+				
+				data.setPath("redirect:../../shop/all/view?rest_id="+vo1.getUser_id());
 			}else {
 				
 				data.setPath("redirect:../../shop/all/list");

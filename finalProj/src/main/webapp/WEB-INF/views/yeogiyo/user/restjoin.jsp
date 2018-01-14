@@ -25,7 +25,7 @@
 			</p> --%>
 		</div>
 		<div class="privacy_form3">
-			<input type="password" name="user_pw"
+			<input type="password" 
 				placeholder="비밀번호 (영문/숫자/특문 6~12자)" maxlength="12"
 				class="input_100_43">
 			<p class="pri_pw_img1"></p>

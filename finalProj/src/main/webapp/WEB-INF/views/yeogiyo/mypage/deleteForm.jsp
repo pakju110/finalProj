@@ -22,7 +22,7 @@
 				<th><p class="th_rel">
 						<label for="et4">PW</label>
 					</p></th>
-				<td colspan="3"><input type="text" name="user_pw" /></td>
+				<td colspan="3"><input type="password" name="user_pw" /></td>
 			</tr>
 
 		

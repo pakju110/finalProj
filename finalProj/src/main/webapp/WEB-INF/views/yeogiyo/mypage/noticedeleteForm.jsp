@@ -5,12 +5,13 @@
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <jsp:include page="navi3.jsp" />
 
-<form action="deleteReg" method="post">
+<form action="noticedeleteReg" method="post">
 	<input type="hidden"  name="no" value="${data.dd.no }" />
+
 	<table class="e_table2">
 		<tr>
 			<th class="join_t1">암호</th>
-			<td class="join_t2"><input type="text" name="pw"/></td>
+			<td class="join_t2"><input type="password" name="pw"/></td>
 		</tr>
 		<%-- <tr>
 			<th>파일이름</th>
@@ -25,5 +26,3 @@
 		</tr>
 	</table>
 </form>
-</body>
-</html>

@@ -54,12 +54,6 @@ public class User implements SubControll {
 			case "reg":
 				reg();
 				break;
-			case "idReg":
-				idReg();
-				break;
-			case "idReg2":
-				idReg2();
-				break;
 			case "restreg":
 				restreg();
 				break;
@@ -98,7 +92,7 @@ public class User implements SubControll {
 		dao.insert(vo);
 		
 		data.setRedirect(true);
-		data.setPath("redirect:view?user_id="+vo.getUser_id());
+		data.setPath("redirect:../../shop/all/list");
 	}
 	
 

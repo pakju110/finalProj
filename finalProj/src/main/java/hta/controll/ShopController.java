@@ -203,14 +203,11 @@ public class ShopController {
 		data.setDd(dao.detail(sovo));
 	}
 	void reviewdelete() {
-		ReviewVo revo2 =  new ReviewVo();
-		revo2.setUser_id(id);
-		revo2.setOrderno(orderno);
-		revo = dao.reviewDetail(revo2);
-		
-		if(id == revo.getUser_id()) {
-			dao.reviewdelete(orderno);
-		}
+		System.out.println("\n\n\n\n\n\n\n\n");
+		System.out.println(revo+"\n"+sovo);
+		dao.reviewdelete(revo.getOrderno());
+		data.setRedirect(true);
+		data.setPath("redirect:view?rest_id=" + sovo.getRest_id());
 		
 	}
 	void payinsert() {
@@ -490,6 +487,7 @@ public class ShopController {
 			data.setDd(dao.xylist2(shopData));
 		}
 	}
+	
 	
 	void fileupload(ShopVo vo, HttpServletRequest request) { // 파일 업로드 메소드 !!!!!!!!!!!!!! upfile = 파일정보,
 	      // request = 업로드할 폴더정보

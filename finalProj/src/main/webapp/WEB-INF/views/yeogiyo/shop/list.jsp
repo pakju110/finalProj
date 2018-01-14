@@ -10,7 +10,9 @@
                     <span class="con">
                         <span class="h3">${vo.brand}</span>
                         <span class="p1">${vo.name}</span>
-                        <span class="p2">${vo.addr }</span>
+                        <span class="p2"><c:forEach begin="1" end="${vo.star}">
+						<span class="ft_red">¡Ú</span>
+					</c:forEach><c:if test="${vo.star == 0}">¡Ù</c:if></span>
                     </span>
                     <span class="eff">
                         <span></span>

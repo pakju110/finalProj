@@ -125,7 +125,7 @@ public class ShopRepository {
 	}
    
    	public boolean reviewdelete(Integer vo) {
-		return template.delete("shopmapper.reviedelete", vo) > 0;
+		return template.update("shopmapper.reviewdelete", vo) > 0;
 	}
 
    

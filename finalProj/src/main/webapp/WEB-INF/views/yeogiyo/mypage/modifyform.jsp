@@ -27,7 +27,7 @@
 				<th><p class="th_rel">
 						<label for="et4">PW</label>
 					</p></th>
-				<td colspan="3"><input type="text" name="user_pw" /></td>
+				<td colspan="3"><input type="password" name="user_pw" /></td>
 			</tr>
 
 			<tr>
@@ -41,8 +41,8 @@
 				<th><p class="th_rel">
 						<label for="et4">аж╪р</label>
 					</p></th>
-				<td colspan="3"><input type="text" name="user_address"
-					value="${loginuser.user_address}" /></td>
+				<td colspan="3" ><input type="text" name="user_address"
+					value="${loginuser.user_address}" style="width: 650px" /></td>
 			</tr>
 		</tbody>
 	</table>

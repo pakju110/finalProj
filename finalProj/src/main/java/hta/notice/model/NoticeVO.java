@@ -25,6 +25,9 @@ public class NoticeVO {
 	MultipartFile ff;
 	Date regdate;
 	
+	public String getContentBR() {
+	      return content.replaceAll("\n", "<br>");
+	   }
 	
 	
 	

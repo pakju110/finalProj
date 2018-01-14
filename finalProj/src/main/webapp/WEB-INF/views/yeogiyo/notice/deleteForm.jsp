@@ -14,7 +14,7 @@
 			</c:choose>
 		</c:forEach>
 	</ul>
-<body>
+</div>
 <form action="deleteReg" method="post">
 	<input type="hidden"  name="no" value="${data.dd.no }" />
 	<table class="e_table2">
@@ -35,4 +35,4 @@
 		</tr>
 	</table>
 </form>
-</body>
+

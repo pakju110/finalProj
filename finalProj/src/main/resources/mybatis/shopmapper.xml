@@ -31,7 +31,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    		<![CDATA[
 		  select * from 
 		(select rownum rnum, t1.* from 
-		(select * from shop where grade = 'r' order by star) t1)
+		(select * from shop where grade = 'r' order by star DESC) t1)
 		  where rnum >= #{startNum} and rnum<= #{endNum}
 		  
 		  ]]>
@@ -49,7 +49,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    <select id="cateList" resultType="alishop" parameterType="shopData">
    		<![CDATA[ select * from 
 		(select rownum rnum, t1.* from 
-		(select * from shop where type = #{cate2} order by star) t1)
+		(select * from shop where type = #{cate2} order by star DESC) t1)
 		  where rnum >= #{startNum} and rnum<= #{endNum} ]]>
    </select>
    
@@ -60,7 +60,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 		(select rownum rnum, t1.* from 
 		(select * from shop where grade = 'r' and
 			ylng + 0.007 > #{ylng} and ylng-0.007 < #{ylng} and
-			xlet + 0.007 > #{xlet} and xlet-0.007 < #{xlet}  order by star) t1)
+			xlet + 0.007 > #{xlet} and xlet-0.007 < #{xlet}  order by star DESC ) t1)
 		  where rnum >= #{startNum} and rnum<= #{endNum}
 		  
 		  ]]>
@@ -73,7 +73,7 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
 		(select * from shop where grade = 'r' and
 			type = #{cate2} and
 			ylng + 0.007 > #{ylng} and ylng-0.007 < #{ylng} and
-			xlet + 0.007 > #{xlet} and xlet-0.007 < #{xlet}  order by star) t1)
+			xlet + 0.007 > #{xlet} and xlet-0.007 < #{xlet}  order by star DESC) t1)
 		  where rnum >= #{startNum} and rnum<= #{endNum}
 		   ]]>
    </select>
@@ -158,11 +158,13 @@ PUBLIC "//mybatis.org/DTD Mapper 3.0//EN"
    		select * from review where orderno = #{orderno}
    </select>
    <select id="reviewcheck2" resultType="alireview" parameterType="alireview">
-   		select * from review where orderno = #{orderno} and user_id = #{user_id} 
+   		select * from review where orderno = #{orderno} 
    </select>
-   <delete id="reviedelete"  parameterType="Integer">
-   		delete from review where orderno = #{orderno}
-   </delete>
+   <update id="reviewdelete"  parameterType="Integer">
+   		update review set rest_id = ' ', user_id = '' , contents = ' ',orifile = null, sysfile = null,
+   		star = 0
+   		where orderno = #{orderno}
+   </update>
    
    <select id="reviewlist" resultType="alireview" parameterType="String">
    		select * from review where rest_id = #{rest_id}

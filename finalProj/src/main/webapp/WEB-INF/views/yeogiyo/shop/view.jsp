@@ -183,9 +183,15 @@
 
 		<c:forEach items="${data.review}" var="review">
 			<div class="review">
-				<p>${review.user_id }
-					ดิ <span class="right"><fmt:formatDate
-							value="${review.reg_date }" pattern="yyyy-MM-dd HH:mm" /></span>
+				<form action="reviewdelete" method="post" name="red">
+				
+				<p>${review.user_id }${review.orderno }
+					ดิ<c:if test="${review.user_id == loginuser.user_id }">
+						<input type="hidden" name="rest_id" value="${data.dd.rest_id }" >
+						<input type="hidden" name="orderno" value="${review.orderno }" >
+						<a href="javascript:reviewdelete()" class="btn btn_delete right">ป่มฆ1</a>
+					</c:if> 
+							
 				</p>
 				<p>
 					<c:forEach begin="1" end="${review.star}">
@@ -200,6 +206,10 @@
 					</c:if>
 				</p>
 				<div class="txt_con">${review.contents }</div>
+				<p class="txt_right"><fmt:formatDate
+							value="${review.reg_date }" pattern="yyyy-MM-dd HH:mm" /></p>
+							
+				</form>
 			</div>
 		</c:forEach>
 

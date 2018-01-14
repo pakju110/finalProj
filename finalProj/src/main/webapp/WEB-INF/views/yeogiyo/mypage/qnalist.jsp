@@ -36,7 +36,7 @@
 		</table>
 		<div class="bx_btn notice">
 			<c:if test="${data.btnGo}">
-				<a href="insertForm" class="btn type4">문의하기</a>
+			<a href="insertForm" class="btn type4">문의하기</a>
 			</c:if></div>
 		<div class="bx_pagebtn">
 			<c:if test="${data.startPage>1 }">
